@@ -4,6 +4,7 @@
 |------|------|
 | Document ID | PP-OI-004 |
 | Status | WORKING |
+| Source of Truth | NO (WORKING 단계) |
 | Last Reviewed | 2026-08-15 |
 
 > 이 문서는 Owner(대표)의 확정 결정만 기록합니다.
