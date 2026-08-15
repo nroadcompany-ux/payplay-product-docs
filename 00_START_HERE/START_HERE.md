@@ -39,9 +39,9 @@ PayPlay는 외식업 사장님 대상 테이블오더, POS, 키오스크, 카드
 
 ```
 PayPlay
-├─ PayPlay OSP     (운영 서비스 플랫폼)
+├─ PayPlay OSP     (Online Sales Platform / 온라인 영업 플랫폼)
 ├─ PayPlay OC      (운영 센터)
-└─ PayPlay Business OS  (비즈니스 운영체계)
+└─ PayPlay Business OS  (비즈니스 운영체계 / 내부 약칭: PPOS)
 ```
 
 각 서비스 상세 → [PAYPLAY_OVERVIEW.md](./PAYPLAY_OVERVIEW.md)
@@ -52,8 +52,8 @@ PayPlay
 
 | Product | Ownership | Hosted In | 관계 |
 |---------|-----------|-----------|------|
-| PayPoint | Marketing Play | PayPlay Business OS | Hosted / 문서는 marketing-play-product-docs |
-| SaengZone | SaengZone | 독립 | Connected / 문서는 saengzone-product-docs |
+| PayPoint | Marketing Play | PayPlay Business OS | Marketing Play 소유 / Business OS가 매장 운영 Surface 담당 / 문서: marketing-play-product-docs |
+| SaengZone | SaengZone | 독립 | Connected / 문서: saengzone-product-docs |
 
 > **중요:** Repository 위치 ≠ Product Ownership ≠ Documentation Ownership
 
@@ -66,8 +66,11 @@ PayPlay
 | Final Documentation Gate | PASS WITH PENDINGS |
 | Follow-up Architecture Gate | APPROVED |
 | Development Planning / Specification Gate | CONDITIONALLY APPROVED |
-| Development Ready | ❌ 아직 아님 |
+| Development Ready | ❌ 아직 아님 — 별도 Gate 재검수 필요 |
 | QA Ready | ❌ 아직 아님 |
+
+> ⚠️ Pending 항목 해소만으로 Development Ready가 자동 선언되지 않는다.
+> Development Ready는 별도 Gate 재검수를 통해 판정한다.
 
 ---
 
