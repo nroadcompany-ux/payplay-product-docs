@@ -10,16 +10,16 @@
 ## Repository 역할
 | 항목 | 내용 |
 |------|------|
-| 목적 | 개발자·AI가 따라야 하는 승인된 Product/Architecture/Specification 기준선 |
+| 목적 | 개발자·AI가 따라야 하는 승인된 Product / Architecture / Specification 기준선 |
 | 대상 | PayPlay OSP, OC, Business OS |
 | 제외 | Notion 중간 메모, 미승인 Draft, Implementation Code |
 
 ## PayPlay 3축 구조
 ```
 PayPlay
-├─ PayPlay OSP
-├─ PayPlay OC
-└─ PayPlay Business OS
+├─ PayPlay OSP (Online Sales Platform / 온라인 영업 플랫폼)
+├─ PayPlay OC  (운영 센터)
+└─ PayPlay Business OS  (비즈니스 운영체계 / 내부 약칭: PPOS)
 ```
 
 ## Connected Products
