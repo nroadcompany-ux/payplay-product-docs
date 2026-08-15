@@ -5,11 +5,11 @@
 | Document ID | PP-OC-FLOWS-001 |
 | Product / Service | PayPlay OC |
 | Document Type | User & Operations Flow |
-| Status | WORKING |
+| Status | APPROVED |
 | Owner | PayPlay PM |
 | Last Reviewed | 2026-08-15 |
 | Source of Truth | YES |
-| Development Use | Flow 기준선. Development Ready / QA Ready 선언문서 아님 |
+| Development Use | Flow 기준선. Development Ready / QA Ready 선언문서 아님. |
 | Notion Source | https://app.notion.com/p/3bc53327fb868183bc28ce151442cebf |
 | Related Decision | DECISION_REGISTER.md |
 | Supersedes | — |
@@ -483,8 +483,6 @@ OC Domain Permission 요구사항은 유지하되 인증·Session·User Identity
 **PASS — FINAL FLOW DOCUMENT COMPLETE WITH 3 EXTERNAL STRUCTURAL PENDINGS**
 
 본 문서는 Main PM 판정에 맞춰 OC의 최종 User & Operations Flow 기준선으로 사용할 수 있다.
-
-다음 단계는 `detailed-requirements-and-business-policies.md` 작성이다.
 
 ---
 
