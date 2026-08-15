@@ -14,7 +14,7 @@
 | Status | WORKING |
 | Owner | PayPlay PM |
 | Last Reviewed | 2026-08-15 |
-| Source of Truth | YES |
+| Source of Truth | NO (WORKING 단계) |
 | Development Use | 진입점 안내 전용 |
 
 ---
