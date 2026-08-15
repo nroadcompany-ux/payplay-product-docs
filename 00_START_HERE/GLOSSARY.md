@@ -16,4 +16,4 @@
 | PPOS | PayPlay OS. Business OS의 내부 약칭 |
 | Genesis Day | 2026-07-08. PayPlay 정체성 전환 선언일 |
 | Pending | 아직 확정되지 않은 항목. 임의 확정 금지 |
-| Source of Truth | 유일한 공식 기준 문서 |
+| Source of Truth | NO (WORKING 단계) |
