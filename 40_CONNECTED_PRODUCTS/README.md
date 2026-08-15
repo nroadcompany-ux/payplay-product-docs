@@ -4,6 +4,7 @@
 |------|------|
 | Document ID | PP-CP-README-001 |
 | Status | WORKING |
+| Source of Truth | NO (WORKING 단계) |
 | Last Reviewed | 2026-08-15 |
 
 ## 원칙
