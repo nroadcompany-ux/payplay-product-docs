@@ -4,6 +4,7 @@
 |------|------|
 | Document ID | PP-OI-003 |
 | Status | WORKING |
+| Source of Truth | NO (WORKING 단계) |
 | Last Reviewed | 2026-08-15 |
 
 ## 시장
