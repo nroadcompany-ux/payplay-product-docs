@@ -4,6 +4,7 @@
 |------|------|
 | Document ID | PP-OI-002 |
 | Status | WORKING |
+| Source of Truth | NO (WORKING 단계) |
 | Last Reviewed | 2026-08-15 |
 
 ## 핵심 원칙
