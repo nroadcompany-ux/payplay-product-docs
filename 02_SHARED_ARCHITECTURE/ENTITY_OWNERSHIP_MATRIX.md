@@ -4,12 +4,13 @@
 |------|------|
 | Document ID | PP-SA-EOM-001 |
 | Status | WORKING |
+| Source of Truth | NO (WORKING 단계) |
 | Last Reviewed | 2026-08-15 |
 
 > Pending 항목은 임의 확정 금지.
 > Owner가 불확실한 항목은 근거 없이 배정하지 않고 Pending으로 유지한다.
 
-| Entity | Owner Service | Shared With | Status | 비고 |
+| Entity | Owner Service | Shared With | Status | WORKING |
 |--------|--------------|-------------|--------|------|
 | Merchant (가맹점) | OC | OSP, Business OS | WORKING | |
 | Person (사람) | TBD | 전체 | **PENDING** | Common Infrastructure 검토 후 결정 |
