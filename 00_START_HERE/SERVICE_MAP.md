@@ -4,6 +4,7 @@
 |------|------|
 | Document ID | PP-DOC-SERVICEMAP-001 |
 | Status | WORKING |
+| Source of Truth | NO (WORKING 단계) |
 | Last Reviewed | 2026-08-15 |
 
 ## 전체 서비스 맵
