@@ -5,11 +5,11 @@
 | Document ID | PP-OC-REQS-001 |
 | Product / Service | PayPlay OC |
 | Document Type | Detailed Requirements & Business Policies |
-| Status | WORKING |
+| Status | APPROVED |
 | Owner | PayPlay PM |
 | Last Reviewed | 2026-08-15 |
 | Source of Truth | YES |
-| Development Use | Policy 기준선. Development Ready / QA Ready 선언문서 아님 |
+| Development Use | Policy 기준선. Development Ready / QA Ready 선언문서 아님. |
 | Notion Source | https://app.notion.com/p/3bc53327fb8681449e1be8af801b869c |
 | Related Decision | DECISION_REGISTER.md |
 | Supersedes | — |
@@ -423,9 +423,9 @@ Merchant Account 관련 API는 최종 구조 확정 전 Draft Interface만 허�
 
 ## 23. Cross-Service Boundary Policy
 
-### OSP
+### OSP (Online Sales Platform / 온라인 영업 플랫폼)
 
-- 외부 유입, 설명, 상담신청, Lead 생성 Source.
+- 외부 유입, Traffic, Lead 생성 Source.
 - 승인된 Offer/Price/Promotion을 표현.
 - 사람 상담·계약 실행 State의 Master가 아니다.
 
@@ -436,7 +436,7 @@ Merchant Account 관련 API는 최종 구조 확정 전 Draft Interface만 허�
 - Product / Commercial Policy Master
 - Approval / Inventory / Internal Operations
 
-### Business OS
+### Business OS (내부 약칭: PPOS)
 
 - 매장 사장님·구성원의 Store 운영 Surface
 - Store Runtime 운영데이터와 Self-service 접점
