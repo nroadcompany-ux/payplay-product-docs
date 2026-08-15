@@ -3,28 +3,44 @@
 | 항목 | 내용 |
 |------|------|
 | Document ID | PP-OI-004 |
-| Status | WORKING |
+| Document Type | Decision Record |
+| Status | WORKING (파일 단위) |
 | Source of Truth | NO (WORKING 단계) |
 | Last Reviewed | 2026-08-15 |
 
-> 이 문서는 Owner(대표)의 확정 결정만 기록합니다.
+> ⚠️ **이 문서는 파일 전체를 APPROVED로 승격하지 않는다.**
+> 각 Decision은 개별 상태(APPROVED / PROPOSAL / PENDING)를 유지한다.
 > Proposal(제안)을 Decision(결정)으로 임의 승격 금지.
+
+---
 
 ## 확정 결정 목록
 
-| ID | 결정 내용 | 일자 |
-|----|-----------|------|
-| OD-001 | Genesis Day 선언 — PayPlay를 Business Growth Ecosystem으로 전환 | 2026-07-08 |
-| OD-002 | PPOS는 별도 최상위 Product가 아님. PayPlay Business OS의 내부 공식 약칭. | 확정 |
-| OD-003 | PayPoint의 Product Owner는 Marketing Play. PayPlay Business OS가 매장 운영 Surface를 담당하며 Hosted In 관계. | 확정 |
-| OD-004 | Repository 위치를 Product Ownership 근거로 사용 금지 | 확정 |
-| OD-005 | OSP 공식명: Online Sales Platform / 온라인 영업 플랫폼. OSP는 Traffic / Lead / Conversion / Attribution / Analytics / Marketing Decision 구조. 사람 상담·계약 실행 State의 Master가 아님. | 확정 |
-| OD-006 | Development Ready는 Pending 해소만으로 자동 선언되지 않음. 별도 Gate 재검수를 통해 판정. | 확정 |
+| ID | 결정 내용 | 상태 | 일자 |
+|----|-----------|------|------|
+| OD-001 | Genesis Day 선언 — PayPlay를 Business Growth Ecosystem으로 전환 | APPROVED | 2026-07-08 |
+| OD-002 | PPOS는 별도 최상위 Product가 아님. PayPlay Business OS의 내부 공식 약칭. | APPROVED | 확정 |
+| OD-003 | PayPoint의 Product Owner는 Marketing Play. PayPlay Business OS가 매장 운영 Surface를 담당하며 Hosted In 관계. | APPROVED | 확정 |
+| OD-004 | Repository 위치를 Product Ownership 근거로 사용 금지 | APPROVED | 확정 |
+| OD-005 | OSP 공식명: Online Sales Platform / 온라인 영업 플랫폼. OSP는 Traffic / Lead / Conversion / Attribution / Analytics / Marketing Decision 구조. 사람 상담·계약 실행 State의 Master가 아님. | APPROVED | 확정 |
+| OD-006 | Development Ready는 Pending 해소만으로 자동 선언되지 않음. 별도 Gate 재검수를 통해 판정. | APPROVED | 확정 |
+
+---
 
 ## Pending (미확정 — 임의 확정 금지)
 
-| 항목 | 상태 |
-|------|------|
-| Person Master 물리 위치 | PENDING |
-| Merchant Account 최종 구조 | PENDING |
-| Shared IAM 물리 Architecture | PENDING |
+| ID | 항목 | 상태 |
+|----|------|------|
+| OD-P-001 | Person Master 물리 위치 | PENDING |
+| OD-P-002 | Merchant Account 최종 구조 | PENDING |
+| OD-P-003 | Shared IAM 물리 Architecture | PENDING |
+
+---
+
+## Status 운영 기준 (PayPlay Product Documentation 공통)
+
+| 구분 | 파일 Status | Source of Truth | 비고 |
+|------|-------------|-----------------|------|
+| Main PM Gate 통과 공식 기준문서 | APPROVED | YES | 개발 확정 기준 사용 가능 |
+| 후속 Architecture·Decision·Pending에 따라 변경 가능 | WORKING | NO | 개발 확정 기준 사용 불가 |
+| 승인 Decision + Pending/Proposal 혼재 문서 | WORKING (파일 단위) | NO | **각 Decision 단위 상태 유지** |
