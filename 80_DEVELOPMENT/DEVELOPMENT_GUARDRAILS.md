@@ -4,6 +4,7 @@
 |------|------|
 | Document ID | PP-DEV-GUARD-001 |
 | Status | WORKING |
+| Source of Truth | NO (WORKING 단계) |
 | Last Reviewed | 2026-08-15 |
 
 ## 핵심 원칙
@@ -16,7 +17,7 @@
 
 ## Document Status 기준
 
-| Status | 개발 사용 가능 여부 |
+| Status | WORKING |
 |--------|-------------------|
 | DRAFT | ❌ 불가 |
 | WORKING | ❌ 불가 |
