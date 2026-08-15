@@ -4,6 +4,7 @@
 |------|------|
 | Document ID | PP-SA-001 |
 | Status | WORKING |
+| Source of Truth | NO (WORKING 단계) |
 | Last Reviewed | 2026-08-15 |
 
 ## 서비스별 책임 경계
