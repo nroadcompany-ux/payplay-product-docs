@@ -1,64 +1,42 @@
-# PayPlay Business OS (비즈니스 운영체계)
+# PayPlay Business OS
 
 | 항목 | 내용 |
-|------|------|
-| Document ID | PP-BOS-README-001 |
-| Product / Service | PayPlay Business OS |
-| 내부 공식 약칭 | PPOS |
-| Document Type | Service Overview |
+|---|---|
+| File Path | `20_BUSINESS_OS/README.md` |
+| Document ID | `PP-BOS-README-001` |
 | Status | WORKING |
-| Source of Truth | NO (WORKING 단계) |
-| Owner | PayPlay PM |
-| Last Reviewed | 2026-08-15 |
-| Development Use | ❌ 개발 확정 기준 사용 불가 |
+| Source of Truth | NO |
+| Owner | PayPlay Main PM |
+| Last Reviewed | 2026-08-16 |
+| Development Use | 개발 확정 기준 사용 불가. 승인된 Decision만 참조 가능 |
 
----
+## 정의
+PayPlay Business OS는 사업장 대표자와 구성원이 일상적인 운영·확인·문제 해결·업무 실행·전문 서비스 연결을 수행하는 **사업장 운영 Surface / Operating Layer**다.
 
-## 역할
+## APPROVED
+- 누구나 무료 사용 가능
+- PayPlay POS 사용 필수 아님
+- 타사 POS 사용자도 사용 가능
+- 무료 근태관리 = 핵심 Acquisition Hook
+- `매장관리` 1차 카테고리
+- `고객·마케팅` 통합
+- `상품·서비스` 독립
+- `AI 매니저` 전역 Interface
 
-매장 사장님·구성원의 **Store 운영 Surface**를 담당하는 비즈니스 운영체계.
+## 관계
+- PayPlay OC: 계약·설치·AS·재고·본사 운영 Owner
+- PayPlay OSP: 외부 유입·Landing·온라인 영업
+- PayPoint: Product Owner / 소속 = Marketing Play / Hosted In = PayPlay Business OS
+- SaengZone: 독립 Product Owner, Hosted In / Uses 연구
+- Marketing Play: Connected / Reads From 연구
 
-- 매장 운영 Surface
-- Store Runtime 운영데이터와 Self-service 접점
-- OC의 계약/상품/정책 결과 Projection 소비
-- 마케팅 도구 / 데이터 / 리포트 / 성장 도구
+## 공통 PENDING
+- Person Master 물리 위치
+- Merchant Account 최종 구조
+- Shared IAM 물리 Architecture
 
-> PPOS는 별도 최상위 Product가 아니며, PayPlay Business OS의 내부 공식 약칭이다.
-
----
-
-## Connected Products
-
-| Product | Product Owner / 소속 | Hosted In | Business OS 역할 |
-|---------|---------------------|-----------|------------------|
-| PayPoint | Marketing Play | PayPlay Business OS | 매장 운영 Surface 담당 |
-
-### PayPoint 문서 입고 기준 (2026-08-15 변경)
-
-PayPoint 상세 연구문서는 **이 Repository(`payplay-product-docs`)에도 입고 가능**하다.
-
-단, 아래 원칙을 유지한다.
-
-- Product Owner / 소속 = **Marketing Play** (변경 금지)
-- Hosted In = PayPlay Business OS
-- Business OS는 Hosted In 및 매장 운영 Surface 담당
-- **Repository Location ≠ Product Ownership**
-
-상세 관계 → [PAYPOINT_RELATIONSHIP.md](../40_CONNECTED_PRODUCTS/PAYPOINT_RELATIONSHIP.md)
-
----
-
-## 경계 원칙
-
-| 구분 | 내용 |
-|------|------|
-| Business OS가 담당하는 것 | 매장 운영 Surface, Store Runtime 데이터, Self-service, 성장 도구 |
-| Business OS가 담당하지 않는 것 | 내부 운영 관리(OC), 외부 유입·Lead 확보(OSP) |
-
-동일 Field의 Dual Master를 만들지 않는다.
-
----
-
-## 상세 문서
-
-작업 예정 — Business OS 세션 연구 결과를 Repository IA 기준에 맞춰 정식 입고 예정.
+## Business OS PENDING
+- Primary Navigation 최종안
+- Store Operating State 자동 판정 Rule
+- Owner / Staff Role Matrix
+- PayPoint 자동 적립 Event 실제 기술 경로
