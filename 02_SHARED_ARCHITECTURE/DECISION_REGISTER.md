@@ -24,10 +24,12 @@
 | AD-004 | Merchant Account 최종 구조 | PENDING | 10_OC/09_DECISIONS/PENDING_REGISTER.md |
 | AD-005 | Shared IAM 물리 Architecture | PENDING | 10_OC/09_DECISIONS/PENDING_REGISTER.md |
 | AD-006 | Device / Asset Owner | PENDING | ENTITY_OWNERSHIP_MATRIX.md — 근거 확정 전 배정 보류 |
-| AD-007 | Product / Commercial Policy Master Owner = OC | APPROVED | 10_OC/06_ENTITY_DATA/SHARED_ENTITY_DECISION_APPLIED.md |
+| AD-007 | Product / Commercial Policy Master Owner = OC (OSP는 Approved Offer Presentation 역할) | APPROVED | 10_OC/06_ENTITY_DATA/SHARED_ENTITY_DECISION_APPLIED.md |
 | AD-008 | Lead Source/Creation = OSP, Accepted 이후 Sales Execution = OC (Received ≠ Accepted) | APPROVED | 30_OSP/08_HANDOFF/OSP_OC_HANDOFF.md |
 | AD-009 | OSP 공식명 = Online Sales Platform / 온라인 영업 플랫폼 | APPROVED | 30_OSP/README.md |
 | AD-010 | PPOS = PayPlay Business OS 내부 공식 약칭 (별도 Product 아님) | APPROVED | OWNER_DECISIONS.md |
+| AD-011 | Offer Entity Classification — Offer가 Commercial Policy의 Projection / Version / 별도 Entity 중 어느 구조인지 미확정. 후속 Data Architecture에서 결정. | PENDING | ENTITY_OWNERSHIP_MATRIX.md |
+| AD-012 | Role / Permission Shared Contract — OC Domain Permission Model은 Working 사용 가능. Business OS Owner/Staff Role Matrix 및 Shared Role/Auth Contract는 Shared IAM Decision 시 확정. | PENDING DEPENDENCY | ENTITY_OWNERSHIP_MATRIX.md |
 
 ---
 
@@ -68,8 +70,9 @@
 | 2026-08-15 | Cross-Service Baseline Alignment | **PASS** |
 | 2026-08-16 | 4개 세션 정식 입고 (OC / Business OS / OSP / PayPoint, 74건) | **PASS WITH MINOR CLEANUP** |
 | 2026-08-16 | PayPoint Documentation State Cleanup | **PASS** |
-| 2026-08-16 | Shared Architecture Baseline 재정합성 | 완료 — Main PM 검수 대기 |
-| 2026-08-16 | Cross-Service Repository Traceability Audit | **진행 예정** |
+| 2026-08-16 | Shared Architecture Baseline 재정합성 | 완료 |
+| 2026-08-16 | Shared Architecture Baseline 검수 | **PASS WITH ONE CORRECTION** → 반영 완료 |
+| 2026-08-16 | Cross-Service Repository Traceability Audit | **진행 중** |
 
 ---
 
