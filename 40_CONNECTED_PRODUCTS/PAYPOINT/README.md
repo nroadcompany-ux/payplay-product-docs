@@ -27,10 +27,32 @@ PayPoint는 단순 포인트 적립 프로그램으로 한정하지 않는다.
 - Simulation과 실제 매출을 구분한다.
 - Proposal을 Decision으로 승격하지 않는다.
 
-## Existing Repository Update Required
-- `40_CONNECTED_PRODUCTS/README.md`: PayPoint 상세문서 복제 금지 문구 갱신 필요.
-- `40_CONNECTED_PRODUCTS/PAYPOINT_RELATIONSHIP.md`: PayPoint 상세문서 복제 금지 문구 갱신 필요.
-- Ownership 표기는 Marketing Play / Hosted In Business OS로 유지.
+## Existing Repository Update — 완료 (2026-08-16)
+- `40_CONNECTED_PRODUCTS/README.md`: PayPoint 입고 예외 정책 반영 완료.
+- `40_CONNECTED_PRODUCTS/PAYPOINT_RELATIONSHIP.md`: 문서 입고 정책 갱신 완료.
+- Ownership 표기 Marketing Play / Hosted In PayPlay Business OS 유지 확인 완료.
+
+## 상세 문서 입고 현황 — 완료 (2026-08-16)
+PayPoint 상세 연구문서 16종 + README 정식 입고 완료.
+
+| 문서 | 내용 |
+|------|------|
+| 01_DEFINITION_AND_VISION.md | Definition / Vision |
+| 02_CUSTOMER_MEMORY_AND_ASSET.md | Customer Asset / Customer Memory |
+| 03_CUSTOMER_IDENTIFICATION_AND_ACQUISITION.md | Customer Identification / Data Acquisition |
+| 04_CUSTOMER_STATE_VISIT_RETURN_LTV.md | Visit / Return / Segment / Dormant / LTV |
+| 05_POINT_COUPON_BENEFIT.md | Point / Coupon / Benefit |
+| 06_QR_NFC_ORDER_AND_ENTRY.md | QR Order / NFC Order / QR 인증 Event |
+| 07_EVENT_ROULETTE_PRIZE.md | Roulette / Prize Event |
+| 08_RECEIPT_REVIEW.md | Receipt Review 연계 |
+| 09_POS_PAYMENT_INTEGRATION.md | POS Event / Payment 연계 |
+| 10_MESSAGING_MARKETING_EXECUTION.md | Messaging / Marketing Execution |
+| 11_CUSTOMER_AND_MERCHANT_FLOWS.md | Customer Flow / Merchant Flow |
+| 12_BUSINESS_OS_HOSTED_IN.md | Business OS Hosted In 구조 |
+| 13_FEATURE_INVENTORY_AND_ARCHITECTURE.md | Feature Inventory / Architecture |
+| 14_DECISION_REGISTER.md | Decision Register |
+| 15_PENDING_RESEARCH_QUEUE.md | Pending / Research Queue |
+| 16_TRACEABILITY_GAP_AUDIT.md | Traceability & Gap Audit |
 
 ## Shared Pending — 유지
 1. Person Master 물리 위치
