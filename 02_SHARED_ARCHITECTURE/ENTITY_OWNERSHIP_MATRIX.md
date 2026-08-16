@@ -13,6 +13,9 @@
 > 2026-08-16 — 최신 Shared Entity Decision 기준으로 재정합성.
 > **Pending 항목은 임의 확정 금지.** 근거 없이 Owner를 배정하지 않는다.
 
+> ⚠️ **Offer 주의:** Offer의 PENDING은 **Entity Classification(데이터 Entity 독립성)에 한정**된다.
+> Product / Commercial Policy Master Owner = OC 라는 승인 Decision은 변경되지 않는다.
+
 ---
 
 ## 1. Entity Ownership
@@ -24,7 +27,7 @@
 | **Legal Entity** | OC | — | APPROVED | 단일 고정값 아님. 역할·기간별 Assignment History로 관리 |
 | **Person** | **TBD** | 전체 | **PENDING** | Logical Reference 사용 가능 / **물리 위치·Owner 확정 금지** |
 | **Product** | OC | OSP(표현), Business OS(소비) | APPROVED | OC = Product / Commercial Policy Master Owner |
-| **Offer** | OC | OSP | APPROVED | OSP는 승인된 Offer를 외부에 표현. Master 소유 아님 |
+| **Offer** | OC responsibility boundary | OSP presentation | **PENDING — Entity Classification** | Ownership 경계는 OC 유지. Offer가 Commercial Policy의 Projection / Version / 별도 Entity 중 어느 구조인지는 후속 Data Architecture에서 결정 |
 | **Lead** | OSP (Source/Creation) | OC (Accepted 이후) | APPROVED | Received ≠ Accepted. Accepted 시점에 OC로 책임 이전 |
 | **Quote** | OC | — | APPROVED | Quote / Quote Revision 분리. 발송본 불변 |
 | **Contract** | OC | Business OS(결과 Projection) | APPROVED | Contract Header / Contract Item 분리 |
@@ -55,6 +58,8 @@
 | P-002 | Merchant Account 최종 구조 | 분리 필요성 인식 | Entity 동일화 / 독립 Table 선생성 |
 | P-003 | Shared IAM 물리 Architecture | Logical Permission 요구사항 | User / Auth / Session / Membership Physical Schema |
 | P-004 | Device / Asset Owner | — | Owner 배정 (근거 확정 전) |
+| P-005 | Offer Entity Classification | OC responsibility boundary / OSP presentation 역할 | Offer의 독립 Entity 여부 확정 |
+| P-006 | Role / Permission Shared Contract *(PENDING DEPENDENCY)* | OC Domain Permission Model (Working 사용 가능) | Business OS Owner/Staff Role Matrix 확정 / Shared Role·Auth Contract 확정 |
 
 ---
 
@@ -64,6 +69,8 @@
 |------|------|-----------|
 | 2026-08-15 | Device | Owner = OSP 삭제. 근거 없음 확인 → PENDING 전환 |
 | 2026-08-16 | 전체 | 4개 세션 정식 입고 문서 기준 재정합성. Offer / Lead / Product / Role·Permission / PayPoint Entity 추가 |
+| 2026-08-16 | Offer | Main PM 판정 반영 — Ownership 경계는 OC 유지, **Entity Classification만 PENDING** 전환 |
+| 2026-08-16 | Role / Permission | Main PM 판정 반영 — Architecture Conflict 아님. **PENDING DEPENDENCY**로 관리 |
 
 ---
 
