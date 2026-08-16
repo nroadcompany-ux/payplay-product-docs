@@ -17,7 +17,7 @@ Development Ready: 아직 아님
 QA Ready: 아직 아님
 
 ## Covered Areas
-Home/Today/Queue, Customer360, Sales/Quote, Contract/Fulfillment/Installation, Case/CS/AS, Product/Commercial Policy, Inventory/Supply/Asset, Approval/Permission, Management/Finance/Compensation, Team Chat/AI, People/HR + Former Employee Service Desk, Management Decision Detail.
+Home/Today/Queue, Customer360, Sales/Quote, Contract/Fulfillment/Installation, Case/CS/AS, Product/Commercial Policy, Inventory/Supply/Asset, Approval/Permission, Management/Finance/Compensation, Team Chat/AI, People/HR + Former Employee Service Desk, Management Decision Detail, Cross-Service Integration Contract (OSP / Business OS ↔ OC).
 
 ## Traceability
 `Flow → Requirement/Rule → Entity/State → Screen → API/Data → Permission/Approval → AI → Test/Regression → Development Backlog`
@@ -49,14 +49,38 @@ Traceability 연결:
 
 ## Gap Delta — 2026-08-16
 
-| Gap | 이전 상태 | 현재 상태 |
-|---|---|---|
-| Decision Detail dedicated UX/Spec | 미해소 | **Logical / Screen Specification 수준 해소** |
+| Gap | 이전 상태 | 현재 상태 | 근거 문서 |
+|---|---|---|---|
+| Decision Detail dedicated UX/Spec | 미해소 | **Logical / Screen Specification 수준 해소** | PP-OC-SPEC-DECISION-DETAIL-001 |
+| Cross-Service Integration Contract | 미해소 (INTERFACE DRAFT ONLY) | **Logical Contract 수준 해소** | PP-OC-SPEC-XSRV-001 |
 
 > Logical / Screen Specification 수준 해소이며, Physical Implementation·Authority Threshold·IAM 구조는 해소되지 않았다.
 
+### Cross-Service Integration Contract — 해소 범위 구분
+
+**해소된 것 (Logical Contract 수준)**
+Source Ownership, Handoff 구조, Projection 구조, Idempotency 요구, Error Contract Candidate, Retry 분류, Reconciliation Candidate, Versioning 원칙, Permission·AI Guard, Test Scenario Candidate
+
+**해소되지 않은 것 — 계속 PENDING**
+
+| 항목 | 상태 |
+|---|---|
+| Physical API / Endpoint / Queue Architecture | PENDING |
+| Person Master 물리 위치 | PENDING |
+| Merchant Account 최종 구조 | PENDING |
+| Shared IAM 물리 Architecture | PENDING |
+| Device / Asset Owner | PENDING |
+| Retry Count / Backoff | PENDING |
+| OSP Outcome / Revenue Projection 상세범위 | PENDING |
+| Business OS Case Status Taxonomy | PENDING |
+| Provider Integration 상세 | PENDING |
+
+> **Cross-Service Logical Contract Gap만 해소된 것이며, 위 9개 항목은 해소된 것으로 처리하지 않는다.**
+
+관련 문서 → [12_CROSS_SERVICE_INTEGRATION_CONTRACT.md](./12_CROSS_SERVICE_INTEGRATION_CONTRACT.md)
+
 ## Remaining Gaps
-Cross-Service Integration Contract, Finance/Billing/Compensation detail, Shared IAM/Identity physical, Inventory/Supply physical split, Provider Integration, Official Screen ID, Legacy TMS full Loss Audit.
+Finance/Billing/Compensation detail, Shared IAM/Identity physical, Inventory/Supply physical split, Provider Integration, Official Screen ID, Legacy TMS full Loss Audit, Physical API/Endpoint/Queue Architecture, Device/Asset Owner, Retry Count/Backoff, OSP Outcome·Revenue Projection 상세범위, Business OS Case Status Taxonomy.
 
 ## Decision Detail — Policy / Authority Pending 유지
 
