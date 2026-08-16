@@ -165,6 +165,62 @@ OSP 문서가 위 사항을 임의 확정하지 않는다.
 
 ---
 
-## 9. Development Use Rule
+## 9. Documentation Map
+
+| 폴더 | 내용 |
+|---|---|
+| 01_RECOVERY | Recovery Summary |
+| 02_DEFINITION_SCOPE | OSP Definition / Vision / Scope |
+| 03_DOMAIN_ARCHITECTURE | Domain Architecture |
+| 04_CAPABILITIES | Capability Inventory |
+| 05_WEBSITE_SALES | Website Architecture / Sales Content 구조 |
+| 06_ACQUISITION | Traffic / Acquisition |
+| 07_DISCOVERY_CONVERSION | Discovery / Sales Experience, Conversion / Lead Capture |
+| 08_HANDOFF | OSP → PayPlay OC Handoff |
+| 09_ATTRIBUTION_ANALYTICS | Attribution / Analytics |
+| 10_ADMIN | Marketing Decision / OSP Admin |
+| 11_FLOWS | User & Operations Flows |
+| 12_REQUIREMENTS_POLICIES | Detailed Requirements & Business Policies |
+| 13_ENTITY_RELATIONSHIPS | Lead / Person / Store Relationship |
+| 14_COMMERCIAL | Offer / Quote / Commercial Policy |
+| 15_DECISIONS | Decision Queue / Pending |
+| 16_AUDIT | Traceability & Gap Audit |
+| **17_SPECIFICATION** | **Sales Funnel / Attribution / Conversion / Admin Specification** |
+| 99_HANDOFF | Claude PM3 GitHub Intake Manifest |
+
+---
+
+## 10. Reading Order
+
+신규 개발자·AI는 아래 순서로 읽는다.
+
+```
+1. 이 README                         ← 지금 여기
+2. 02_DEFINITION_SCOPE                 정의·범위
+3. 03_DOMAIN_ARCHITECTURE              도메인 구조
+4. 11_FLOWS                            업무 흐름
+5. 12_REQUIREMENTS_POLICIES            요구사항·정책
+6. 08_HANDOFF                          OC 인계 기준 (APPROVED)
+7. 13_ENTITY_RELATIONSHIPS             Entity 관계 (APPROVED)
+8. 17_SPECIFICATION                    Funnel/Attribution/Conversion/Admin 상세
+9. 15_DECISIONS                        Decision / Pending 확인
+10. 16_AUDIT                           Gap Audit
+```
+
+> ⚠️ Audit이나 Specification부터 읽으면 전체 맥락을 거꾸로 파악하게 된다.
+
+### 주요 Specification
+
+| 문서 | 경로 | Status | Source of Truth |
+|---|---|---|---|
+| Sales Funnel / Attribution / Conversion / Admin Specification | [17_SPECIFICATION/SALES_FUNNEL_ATTRIBUTION_CONVERSION_ADMIN_SPEC.md](./17_SPECIFICATION/SALES_FUNNEL_ATTRIBUTION_CONVERSION_ADMIN_SPEC.md) | WORKING | NO |
+
+> ⚠️ **본 Documentation Map / Reading Order 등재는 해당 Specification 또는 OSP 전체를
+> APPROVED / Source of Truth로 승격하는 의미가 아니다.**
+> 각 문서의 Status와 Source of Truth 표기를 개별 확인한다.
+
+---
+
+## 11. Development Use Rule
 
 Development Ready 및 QA Ready는 별도 Gate 승인 전까지 미승인 상태를 유지한다.
