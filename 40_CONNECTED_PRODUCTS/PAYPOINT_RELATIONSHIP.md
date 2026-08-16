@@ -9,7 +9,7 @@
 | Document Type | Connected Product Relationship |
 | Status | WORKING |
 | Source of Truth | NO (WORKING 단계) |
-| Last Reviewed | 2026-08-15 |
+| Last Reviewed | 2026-08-16 |
 
 > ⚠️ **Repository Location ≠ Product Ownership**
 > 이 Repository에 PayPoint 문서가 존재하는 것은 Ownership 근거가 되지 않는다.
@@ -67,6 +67,20 @@ Marketing Play와 PayPlay Business OS는 각자의 역할과 책임을 가진다
 
 ---
 
-## 상세 문서
+## 상세 문서 — 입고 완료 (2026-08-16)
 
-작업 예정 — PayPoint 세션 연구 결과를 Repository IA 기준에 맞춰 정식 입고 예정.
+PayPoint 상세 연구문서는 아래 경로에 정식 입고 완료됐다.
+
+→ **[`40_CONNECTED_PRODUCTS/PAYPOINT/`](./PAYPOINT/)**
+
+| 진입점 | 경로 |
+|--------|------|
+| PayPoint 문서 진입점 | [PAYPOINT/README.md](./PAYPOINT/README.md) |
+| Definition / Vision | [PAYPOINT/01_DEFINITION_AND_VISION.md](./PAYPOINT/01_DEFINITION_AND_VISION.md) |
+| Business OS Hosted In 구조 | [PAYPOINT/12_BUSINESS_OS_HOSTED_IN.md](./PAYPOINT/12_BUSINESS_OS_HOSTED_IN.md) |
+| Decision Register | [PAYPOINT/14_DECISION_REGISTER.md](./PAYPOINT/14_DECISION_REGISTER.md) |
+| Pending / Research Queue | [PAYPOINT/15_PENDING_RESEARCH_QUEUE.md](./PAYPOINT/15_PENDING_RESEARCH_QUEUE.md) |
+| Traceability & Gap Audit | [PAYPOINT/16_TRACEABILITY_GAP_AUDIT.md](./PAYPOINT/16_TRACEABILITY_GAP_AUDIT.md) |
+
+> 입고 위치가 이 Repository라는 사실은 Ownership 근거가 되지 않는다.
+> PayPoint의 Product Owner / 소속은 **Marketing Play**로 유지된다.
