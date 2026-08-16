@@ -1,56 +1,49 @@
-# PayPlay OC (운영 센터)
+# PayPlay OC
 
 | 항목 | 내용 |
-|------|------|
+|---|---|
+| File Path | `10_OC/README.md` |
 | Document ID | PP-OC-README-001 |
 | Status | WORKING |
-| Source of Truth | NO (WORKING 단계) |
-| Last Reviewed | 2026-08-15 |
+| Source of Truth | NO |
+| Owner | PayPlay PM |
+| Last Reviewed | 2026-08-16 |
+| Development Use | `10_OC` 문서 진입점 및 상태/읽기순서 안내. 개별 APPROVED 문서의 SOT 상태를 대체하지 않음. |
 
 ## 역할
-PayPlay 내부 운영팀이 사용하는 관리 시스템.
-설치, CS, 계약, 가맹점 관리 등 운영 전 영역 담당.
+PayPlay 내부·외부 운영인력이 사용하는 운영체계. 고객, 영업, 견적, 계약, 설치, AS, 재고, 상품, 정책, 재무, HR, 경영, Decision, 회사 운영을 다룬다.
 
-## 문서 읽는 순서 (신규 개발자·AI 필독)
+## 읽기 순서
+1. `01_RECOVERY/`
+2. `02_DOMAIN_SCOPE/`
+3. `03_CAPABILITIES/`
+4. `06_ENTITY_DATA/`
+5. `04_FLOWS/user-and-operations-flows.md`
+6. `05_REQUIREMENTS_POLICIES/detailed-requirements-and-business-policies.md`
+7. `07_ARCHITECTURE/`
+8. `08_SPECIFICATIONS/`
+9. `09_DECISIONS/`
+10. `10_AUDIT/OC_TRACEABILITY_GAP_AUDIT_v1.md`
 
-```
-1. 이 README
-2. 04_FLOWS/user-and-operations-flows.md          ← 전체 업무흐름 기준선
-3. 05_REQUIREMENTS_POLICIES/detailed-requirements-and-business-policies.md  ← 기능요구사항·정책
-4. 10_AUDIT/OC_TRACEABILITY_GAP_AUDIT_v1.md       ← Traceability·Gap 검수 결과
-5. 07_ARCHITECTURE/ (추후 입고)
-6. 08_SPECIFICATIONS/ (추후 입고)
-```
+## APPROVED / SOT YES
+- `04_FLOWS/user-and-operations-flows.md`
+- `05_REQUIREMENTS_POLICIES/detailed-requirements-and-business-policies.md`
+- `06_ENTITY_DATA/ENTITY_DATA_ARCHITECTURE.md`
+- `06_ENTITY_DATA/SHARED_ENTITY_DECISION_APPLIED.md`
+- `09_DECISIONS/DECISION_REGISTER.md`
+- `10_AUDIT/OC_TRACEABILITY_GAP_AUDIT_v1.md`
 
-> ⚠️ Audit부터 읽으면 전체 맥락을 거꾸로 파악하게 됩니다. 반드시 위 순서를 따르세요.
+## WORKING / SOT NO
+Recovery, Domain/Scope, Capability Inventory, Permission/Security/Credential, State/Transition, Commercial Policy implementation architecture, Migration/Identity/DQ, API/Service Boundary, People/HR Spec, Screen Traceability Summary.
 
-## 현재 개발 상태
+## PENDING
+`09_DECISIONS/PENDING_REGISTER.md`
 
-| Gate | 판정 |
-|------|------|
-| Final Documentation Gate | PASS WITH PENDINGS |
-| Follow-up Architecture Gate | APPROVED |
-| Development Planning / Specification Gate | CONDITIONALLY APPROVED |
-| Development Ready | ❌ 아직 아님 |
-| QA Ready | ❌ 아직 아님 |
+## Gate
+Final Documentation = PASS WITH PENDINGS; Follow-up Architecture = APPROVED; Development Planning/Specification = CONDITIONALLY APPROVED; Development Ready/QA Ready = 아직 아님.
 
-## Pending (임의 확정 금지)
+## Structural Pending
+Person Master 물리 위치 / Merchant Account 최종 구조 / Shared IAM 물리 Architecture.
 
-- [ ] Person Master 물리 위치
-- [ ] Merchant Account 최종 구조
-- [ ] Shared IAM 물리 Architecture
-
-## 폴더 구조
-
-| 폴더 | 내용 | 상태 |
-|------|------|------|
-| 01_RECOVERY | 기존 문서 복원 자료 | 예정 |
-| 02_DOMAIN_SCOPE | 도메인 범위 정의 | 예정 |
-| 03_CAPABILITIES | 기능 목록 | 예정 |
-| 04_FLOWS | User & Operations Flow | ✅ 입고 완료 |
-| 05_REQUIREMENTS_POLICIES | 상세 요구사항·비즈니스 정책 | ✅ 입고 완료 |
-| 06_ENTITY_DATA | 엔터티·데이터 모델 | 예정 |
-| 07_ARCHITECTURE | 아키텍처 | 예정 |
-| 08_SPECIFICATIONS | 상세 명세 | 예정 |
-| 09_DECISIONS | OC 의사결정 | 예정 |
-| 10_AUDIT | Traceability & Gap Audit | ✅ 입고 완료 |
+## Legacy Preservation
+기존 TMS Capability는 신규 OC 화면에 보이지 않는다는 이유로 삭제하지 않는다. Development Gate 전에 Legacy Capability Loss Audit을 수행한다.
