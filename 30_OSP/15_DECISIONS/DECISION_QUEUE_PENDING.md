@@ -53,6 +53,32 @@ Observe → Detect → Explain → Recommend는 Working Direction.
 
 ---
 
+## PENDING — KPI Decision Queue
+
+Source: `PP-OSP-SPEC-SALES-FUNNEL-001`
+(`30_OSP/17_SPECIFICATION/SALES_FUNNEL_ATTRIBUTION_CONVERSION_ADMIN_SPEC.md`)
+
+전 항목 **PENDING** 유지. Main PM 승인 전 Decision으로 승격하지 않는다.
+
+| ID | 내용 | Status |
+|---|---|---|
+| KPI-DQ-01 | 공식 KPI Set | PENDING |
+| KPI-DQ-02 | 공식 산식 | PENDING |
+| KPI-DQ-03 | Attribution Model | PENDING |
+| KPI-DQ-04 | Attribution Window | PENDING |
+| KPI-DQ-05 | Spend Source / Import Authority | PENDING |
+| KPI-DQ-06 | Contract Amount와 Recognized Revenue 사용 기준 | PENDING |
+| KPI-DQ-07 | Cancel / Void / Reversal 반영 기준 | PENDING |
+| KPI-DQ-08 | New Customer / Existing Customer / Add-on 분모 분리 기준 | PENDING |
+
+### Guardrail (Source Specification 5항 기준)
+- Advertising Platform Conversion을 PayPlay 실제 Contract로 간주하지 않는다.
+- Spend Missing을 `0`으로 자동 변환하지 않는다.
+- Contract Amount와 Recognized Revenue를 동일 값으로 간주하지 않는다.
+- Cancellation / Void / Reversal History를 삭제하지 않는다.
+
+---
+
 ## PENDING — Shared Architecture
 
 다음 3건은 유지한다.
