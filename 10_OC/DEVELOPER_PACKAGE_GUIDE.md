@@ -1,4 +1,4 @@
-# PayPlay OC — Developer Package 4문서 이해 가이드
+# PayPlay OC — 개발자 전달용 패키지 문서(4종) 이해 가이드
 
 | 항목 | 내용 |
 |---|---|
@@ -6,20 +6,55 @@
 | Document ID | PP-OC-DEV-PACKAGE-GUIDE-001 |
 | Version | v1.0 |
 | Status | GUIDE / EXPLANATORY — 구현 기준 문서 아님 |
+| Final SOT Freeze | COMPLETE — 2026-08-21 16:54 KST · Human Handoff Ready: YES · Final Fix Verification 6/6 PASS |
+| GitHub main Merge | HOLD — Main PM VERIFIED 전까지 |
 | Source of Truth | NO — 설명용 Navigation Guide. 실제 구현 기준은 각 원문 문서를 따른다. |
 | Owner | PayPlay OC |
 | Last Reviewed | 2026-08-21 |
 | Development Use | Developer Package 4문서의 역할·읽기순서 안내 전용. |
+| Resync | 2026-08-21 Final SOT Resync (Main PM GO) |
 | Notion Source | https://app.notion.com/p/3c053327fb86813eb1fbd595d9fa60a9 |
 | Final Pending Register | [FINAL_PENDING_REGISTER.md](./09_DECISIONS/FINAL_PENDING_REGISTER.md) |
 
-> ✅ **Main PM Final Gate — 2026-08-21: PASS.** Developer Readable **YES** / Development Startable **YES** / Major OC Flow Implementable **YES** / Package-wide Scope-Blocking Pending **0** / QA Ready **NOT YET**. Pending-dependent Production Finalization은 Final Pending Register의 해당 항목 해소 전 금지한다.
+## ✅ FINAL PACKAGE STATUS — HUMAN HANDOFF READY / SOT FROZEN — 2026-08-21 16:54 KST
 
-**Final Pending Register:** [OC Final Pending Register — Developer Package v1.0](./09_DECISIONS/FINAL_PENDING_REGISTER.md)
+- Human Handoff Ready: **YES**
+- Final SOT Freeze: **COMPLETE**
+- Claude Final Fix Verification: **6/6 PASS**
+- Additional Critical Gap / Non-blocking Residual / Structural Conflict / Ownership Conflict / Trace Break / Existing ID Damage / Owner Decision Required / Development Blocker: **모두 0**
+- Package-wide Scope-Blocking Pending: **0**
+- Remaining Pending: **Physical Binding / External Provider / Legal·Finance Reference / Operational·Business Policy Config only**
+- GitHub Final Resync: **GO**
+- GitHub `main` Merge: **Final Resync + Fresh Clone Verification + Main PM VERIFIED 전까지 HOLD**
+
+> 아래 과거 `Human Handoff Ready = NO`, `Audit IN PROGRESS` 문구는 Historical Audit Status입니다. 현재는 본 섹션을 우선합니다.
+
+> ℹ️ **Intake Note — Stale Status Index (2026-08-21 Final SOT Resync):** 원문 보존 원칙에 따라 아래 Historical 표현을 삭제하지 않았다. **현재 확정 상태는 위 `FINAL PACKAGE STATUS` 블록이 유일한 기준**이며, 다음 위치의 `Human Handoff Ready = NO` / `IN PROGRESS` 표현은 **전부 Historical Status**다 — ① `🧹 Cross-Audit Round 2 Status Override` ② `🟡 Latest Handoff Status` ③ `🧭 Historical Logical Gate` ④ `5. PM Gate` 하단 Current Handoff Status ⑤ `진행상태 > Next` ⑥ `Human Handoff Cross-Audit Round 2 — Status Override` 섹션. 어느 것도 현재 상태 판정에 사용하지 않는다.
+
+---
+
+> 🧹 **Cross-Audit Round 2 Status Override — 2026-08-21** *(Historical)*
+> 하단의 과거 `OC Handoff updated: 2026-08-19`, `Next: Service Architecture / Menu & Depth — IN PROGRESS` 문구는 Historical Status입니다. 현재 상태는 **#1~#4 Finalization COMPLETE / Full Human Handoff Audit IN PROGRESS / Human Handoff Ready = NO**이며, 현재 Next는 **Audit 4~6 / Full Cross-Trace / Human Worker Final Read / Claude Parallel Cross-Audit**입니다.
+
+> 🟡 **Latest Handoff Status (최신 전달 상태): HUMAN HANDOFF AUDIT IN PROGRESS.** *(Historical — 상단 FINAL PACKAGE STATUS로 대체됨)*
+> Pending Reduction과 #1~#4 Supplemental Merge는 완료되었고 Owner Decision Pending / Package-wide Scope-Blocking Pending은 0입니다. 현재 GPT #2 ↔ Claude PM3 병렬 독립 Cross-Audit를 포함한 Full Human Handoff Audit을 수행 중입니다.
+> **Human Handoff Ready (사람 작업자 최종 전달 가능): NO — Audit 3~6 및 Cross-Audit 종료 후 최종 판정.**
+> GitHub Final Resync / `main` Merge는 Final SOT Freeze 전까지 HOLD합니다.
+
+> 👀 **이 문서는 누구를 위한 건가요?**
+> 개발자·기획자가 PayPlay OC 문서를 처음 볼 때 **무슨 문서를 어떤 순서로 읽어야 하는지 알려주는 안내서**입니다.
+> 핵심 용어: Architecture (서비스 구조) → Flow (업무 흐름) → Rule (업무 규칙) → Screen (화면) → Pending (미확정·후속확정 항목).
+> 처음 보는 사람은 이 문서부터 읽으면 됩니다.
+
+> 🧭 **Historical Logical Gate — 2026-08-21: PASS (Human Handoff Final Gate 아님).** *(Historical)*
+> Developer Readable **YES** / Development Startable **YES** / Major OC Flow Implementable **YES** / Package-wide Scope-Blocking Pending **0** / QA Ready **NOT YET**. 이후 사람 인수인계 완성도를 별도로 재검수하기 위해 Human Handoff Ready는 현재 **NO**로 유지합니다.
+
+**Final Pending Register:** [FINAL_PENDING_REGISTER.md](./09_DECISIONS/FINAL_PENDING_REGISTER.md)
 
 **Cross-Audit:** GPT ↔ Claude unresolved difference **0** / Development Blocker **0**.
 
-> ✅ **Developer Package Official Reading Order — 2026-08-21:** `#1 Service Architecture / Menu & Depth → #2 User & Operations Flows → #3 Detailed Requirements & Business Policies → #4 Screen & Navigation / Traceability`. 아래 링크가 현재 Finalization 기준 공식 4문서다.
+> ✅ **Developer Package 구조 이해 순서:** `#1 Architecture → #2 Flow → #3 Rule/Policy → #4 Screen/Navigation`. 전체 구조를 처음 이해할 때의 순서입니다.
+> **실제 개발 작업 우선순위:** `#2 Flow → #3 Rule/Policy`를 먼저 읽고, 기능 위치/Ownership이 필요할 때 #1, 화면·이동이 필요할 때 #4를 참조합니다. 두 순서는 목적이 다르며 서로 충돌하지 않습니다.
 
 1. [#1 Service Architecture / Menu & Depth — Final Candidate v1.0](./07_ARCHITECTURE/SERVICE_ARCHITECTURE_MENU_DEPTH.md)
 2. [#2 User & Operations Flows — v5.2 CLEAN / CROSS-SYNC](./04_FLOWS/USER_AND_OPERATIONS_FLOWS.md)
@@ -145,7 +180,7 @@ OC
 
 ### 현재 OC 원문
 
-[User & Operations Flows — v5.2 CLEAN / CROSS-SYNC](https://app.notion.com/p/3bf53327fb868164bb03d968f010ea1f)
+[USER_AND_OPERATIONS_FLOWS.md](./04_FLOWS/USER_AND_OPERATIONS_FLOWS.md)
 
 ### OC 샘플 — C-02 견적 확인·수정·수락
 
@@ -196,7 +231,7 @@ OC
 
 ### 현재 OC 원문
 
-[Detailed Requirements & Business Policies — v4.1 CLEAN / AUDITED](https://app.notion.com/p/3bf53327fb8681ba8a9dceb9dd71652c)
+[DETAILED_REQUIREMENTS_BUSINESS_POLICIES.md](./05_REQUIREMENTS_POLICIES/DETAILED_REQUIREMENTS_BUSINESS_POLICIES.md)
 
 ### OC 샘플 — 견적 Rule
 
@@ -508,37 +543,61 @@ OC에서는 일부가 Common Infrastructure 또는 Integration Pending으로 이
 | Pending Explicit | 미확정 범위를 확정사항처럼 작성하지 않음 |
 | Cross-Document Consistency | 메뉴/Flow/Rule/Screen 간 충돌 없음 |
 
+> *(Historical)* 현재 #1~#4 Developer Package Finalization은 완료되었고 Full Human Handoff Audit / Cross-Trace / Human Worker Final Read를 수행 중이다.
+> **Current Handoff Status:** 2026-08-21. Human Handoff Ready는 최종 Fix Verification 전까지 NO이며 GitHub Final Resync / `main` Merge는 HOLD한다.
+
+### 진행상태 *(Historical)*
+
+- Handoff: UPDATED
+- Next: Full Human Handoff Audit / Cross-Trace / Human Worker Final Read — IN PROGRESS
+
+> ℹ️ **Intake Note:** 위 두 블록은 Historical Status다. 현재 확정 상태는 문서 최상단 `FINAL PACKAGE STATUS` 블록(`Human Handoff Ready = YES`, `Final Fix Verification = 6/6 PASS`, `GitHub Final Resync = GO`)이다.
+
 **PayPlay OC — Main Handoff v3:** https://app.notion.com/p/3be53327fb8681b6842cec140b8f7b56
 
 ---
 
-## 6. GitHub Intake Status — 2026-08-21
+## Human Handoff Cross-Audit Round 2 — Status Override — 2026-08-21
 
-Claude PM3 Documentation Controller가 수행한 Developer Package GitHub 입고 결과다. Header Status는 Notion 원문을 유지했으며 입고 과정에서 `APPROVED` / `Source of Truth YES`로 승격하지 않았다.
+Claude PM3 Audit 3 REVISE-3A 반영.
+
+- 과거 `OC Handoff updated: 2026-08-19` 및 `Next: Service Architecture / Menu & Depth — IN PROGRESS` 표현은 **Historical Status**로만 해석한다.
+- 현재 상태는 `#1~#4 Finalization COMPLETE / Full Human Handoff Audit IN PROGRESS / Human Handoff Ready = NO`이다.
+- 현재 Next는 `Audit 4~6 / Full Cross-Trace / Human Worker Final Read / Claude Parallel Cross-Audit`이다.
+- 개발자·기획자는 하단의 과거 Next 문구를 현재 작업지시로 사용하지 않는다.
+
+**Verdict:** REVISE-3A CLOSED AT HUMAN-HANDOFF CONTROL LEVEL.
+
+> ℹ️ **Intake Note:** 본 섹션도 Audit Round 2 시점 기록이다. 이후 `FINAL PACKAGE STATUS — 2026-08-21 16:54 KST`에서 `Human Handoff Ready = YES`로 최종 확정되었다.
+
+---
+
+## 6. GitHub Intake Status — 2026-08-21 (Final SOT Resync)
+
+Claude PM3 / Main PM 지시에 따른 Developer Package GitHub 입고 결과다. Header Status는 Notion 원문을 유지했으며 입고 과정에서 `APPROVED` / `Source of Truth YES`로 승격하지 않았다.
 
 | # | 문서 | Document ID | GitHub Path | Intake Status |
 |---|---|---|---|---|
-| #1 | Service Architecture / Menu & Depth | `PP-OC-SVC-ARCH-MENU-001` | `10_OC/07_ARCHITECTURE/SERVICE_ARCHITECTURE_MENU_DEPTH.md` | GITHUB COMMITTED (신규) |
-| #2 | User & Operations Flows | `PP-OC-USER-OPS-FLOW-001` | `10_OC/04_FLOWS/USER_AND_OPERATIONS_FLOWS.md` | GITHUB COMMITTED (신규 · `PP-OC-FLOWS-001` 승계) |
-| #3 | Detailed Requirements & Business Policies | `PP-OC-REQ-BIZ-POLICY-001` | `10_OC/05_REQUIREMENTS_POLICIES/DETAILED_REQUIREMENTS_BUSINESS_POLICIES.md` | GITHUB COMMITTED (신규 · `PP-OC-REQS-001` 승계) |
-| #4 | Screen & Navigation / Traceability | `PP-OC-SCREEN-NAV-TRACE-001` | `10_OC/08_SPECIFICATIONS/SCREEN_NAVIGATION_TRACEABILITY.md` | GITHUB COMMITTED (신규) |
-| — | Final Pending Register | `PP-OC-FINAL-PENDING-REGISTER-001` | `10_OC/09_DECISIONS/FINAL_PENDING_REGISTER.md` | GITHUB COMMITTED (신규) |
-| — | Developer Package Guide (현재 문서) | `PP-OC-DEV-PACKAGE-GUIDE-001` | `10_OC/DEVELOPER_PACKAGE_GUIDE.md` | GITHUB COMMITTED (신규) |
+| #1 | Service Architecture / Menu & Depth | `PP-OC-SVC-ARCH-MENU-001` | `10_OC/07_ARCHITECTURE/SERVICE_ARCHITECTURE_MENU_DEPTH.md` | RESYNCED (Final SOT) |
+| #2 | User & Operations Flows | `PP-OC-USER-OPS-FLOW-001` | `10_OC/04_FLOWS/USER_AND_OPERATIONS_FLOWS.md` | RESYNCED (Final SOT) |
+| #3 | Detailed Requirements & Business Policies | `PP-OC-REQ-BIZ-POLICY-001` | `10_OC/05_REQUIREMENTS_POLICIES/DETAILED_REQUIREMENTS_BUSINESS_POLICIES.md` | RESYNCED (Final SOT) |
+| #4 | Screen & Navigation / Traceability | `PP-OC-SCREEN-NAV-TRACE-001` | `10_OC/08_SPECIFICATIONS/SCREEN_NAVIGATION_TRACEABILITY.md` | RESYNCED (Final SOT) |
+| — | Final Pending Register | `PP-OC-FINAL-PENDING-REGISTER-001` | `10_OC/09_DECISIONS/FINAL_PENDING_REGISTER.md` | RESYNCED (Final SOT) |
+| — | Developer Package Guide (현재 문서) | `PP-OC-DEV-PACKAGE-GUIDE-001` | `10_OC/DEVELOPER_PACKAGE_GUIDE.md` | RESYNCED (Final SOT) |
 
-### #2 / #3 Supersede 처리 — 2026-08-21 RESOLVED
+### Superseded 처리 (유지)
 
-최초 입고 시 #2 / #3은 기존 GitHub 공식 문서와 Document ID·Status가 달라 STOP Condition으로 보류했다. **Claude PM3 추가 지시(2026-08-21)로 Supersede 방식이 승인되어 입고를 완료했다.**
+| 기존 문서 (SUPERSEDED) | 승계 문서 |
+|---|---|
+| `PP-OC-FLOWS-001` · `10_OC/04_FLOWS/user-and-operations-flows.md` | `PP-OC-USER-OPS-FLOW-001` |
+| `PP-OC-REQS-001` · `10_OC/05_REQUIREMENTS_POLICIES/detailed-requirements-and-business-policies.md` | `PP-OC-REQ-BIZ-POLICY-001` |
 
-| 구분 | 기존 문서 (SUPERSEDED) | 신규 문서 (승계) |
-|---|---|---|
-| #2 | `PP-OC-FLOWS-001` · `10_OC/04_FLOWS/user-and-operations-flows.md` · Flow ID `OC-FLOW-001~013` | `PP-OC-USER-OPS-FLOW-001` · `10_OC/04_FLOWS/USER_AND_OPERATIONS_FLOWS.md` · Flow ID `C/O/S/P` 29개 |
-| #3 | `PP-OC-REQS-001` · `10_OC/05_REQUIREMENTS_POLICIES/detailed-requirements-and-business-policies.md` · 절 단위 정책 서술 | `PP-OC-REQ-BIZ-POLICY-001` · `10_OC/05_REQUIREMENTS_POLICIES/DETAILED_REQUIREMENTS_BUSINESS_POLICIES.md` · Business Rule ID `[CONTEXT]-R[NN]` |
+기존 파일은 삭제하지 않았고 Header Status만 `SUPERSEDED`이며 본문은 보존된다. 기존 `OC-FLOW-001~013` 식별자와 `OC-FLOW-008` Traceability는 계속 해석 가능하다.
 
-**처리 원칙 (준수 확인)**
+### Resync 원칙 (준수 확인)
 
-- 기존 파일 **삭제하지 않음.** Header Status만 `SUPERSEDED`로 변경했고 본문은 byte 단위로 동일하게 보존했다.
-- 따라서 기존 `OC-FLOW-001~013` Flow ID와, 이를 참조하는 `10_OC/08_SPECIFICATIONS/SCREEN_SPECIFICATION_TRACEABILITY_SUMMARY.md`의 `OC-FLOW-008` Traceability는 계속 해석 가능하다. **Trace Break 없음.**
-- 신규 문서 Header Status는 Notion 원문의 `FREEZE READY`를 유지했고 `APPROVED` / `Source of Truth YES`로 승격하지 않았다.
-- Pending 값 임의 확정 없음. Legacy 항목 삭제·누락 없음.
-
-**Main PM 확인 요청 1건:** 기존 두 파일의 `Source of Truth`를 `YES → NO (SUPERSEDED — 2026-08-21)`로 함께 조정했다. PM3 지시에 명시된 4개 항목(Status / Superseded by / Superseded date / Note)에는 없었으나, `SUPERSEDED` 문서가 `Source of Truth YES`로 남으면 `80_DEVELOPMENT/DEVELOPMENT_GUARDRAILS.md`의 "SUPERSEDED = 구버전, 사용 금지" 규정과 충돌하고 개발자가 구버전을 기준문서로 오인할 수 있어 함께 반영했다. 원복이 필요하면 회신 바란다.
+- 직전 입고본(중간 Snapshot, HEAD `2b7fb43`)의 커밋 이력은 삭제하지 않고 브랜치에 그대로 보존한다.
+- 기존 29 Canonical Flow ID / 52 Logical Screen ID를 삭제·재번호하지 않았다.
+- 신규 Family에 임의 Official Screen ID를 생성하지 않았다.
+- Pending 값을 임의 확정하지 않았다.
+- `main` Merge는 Main PM `VERIFIED` 판정 전까지 수행하지 않는다.
