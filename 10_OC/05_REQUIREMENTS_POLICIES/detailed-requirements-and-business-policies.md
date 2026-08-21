@@ -5,19 +5,26 @@
 | Document ID | PP-OC-REQS-001 |
 | Product / Service | PayPlay OC |
 | Document Type | Detailed Requirements & Business Policies |
-| Status | APPROVED |
+| Status | SUPERSEDED |
 | Owner | PayPlay PM |
 | Last Reviewed | 2026-08-15 |
-| Source of Truth | YES |
+| Source of Truth | NO (SUPERSEDED — 2026-08-21) |
 | Development Use | Policy 기준선. Development Ready / QA Ready 선언문서 아님. |
 | Notion Source | https://app.notion.com/p/3bc53327fb8681449e1be8af801b869c |
 | Related Decision | DECISION_REGISTER.md |
 | Supersedes | — |
+| Superseded by | PP-OC-REQ-BIZ-POLICY-001 — [10_OC/05_REQUIREMENTS_POLICIES/DETAILED_REQUIREMENTS_BUSINESS_POLICIES.md](./DETAILED_REQUIREMENTS_BUSINESS_POLICIES.md) |
+| Superseded date | 2026-08-21 |
+| Supersede Note | Claude PM3 지시(2026-08-21)에 따른 Header 표기 변경. **본문 내용은 삭제·수정하지 않았다.** 기존 Flow/정책 서술과 식별자는 이력 추적용으로 계속 유효하다. |
 
 > ✅ PayPlay OC의 최종 Detailed Requirements & Business Policies 통합문서.
 > Recovery Source, Main PM Shared Entity Decision, 최종 User & Operations Flow,
 > Permission/State/Commercial Policy/Migration/Security Architecture를 통합한 Final Documentation Candidate다.
 > **Development Ready / QA Ready 선언문서는 아니다.**
+
+
+> ⚠️ **SUPERSEDED — 2026-08-21.** 이 문서는 `PP-OC-REQ-BIZ-POLICY-001` ([10_OC/05_REQUIREMENTS_POLICIES/DETAILED_REQUIREMENTS_BUSINESS_POLICIES.md](./DETAILED_REQUIREMENTS_BUSINESS_POLICIES.md))로 승계되었다.
+> 신규 개발 기준으로 사용하지 말 것. 본 문서는 이력 보존 및 기존 식별자 추적용으로 유지된다.
 
 ---
 

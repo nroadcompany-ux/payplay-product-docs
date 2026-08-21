@@ -5,18 +5,25 @@
 | Document ID | PP-OC-FLOWS-001 |
 | Product / Service | PayPlay OC |
 | Document Type | User & Operations Flow |
-| Status | APPROVED |
+| Status | SUPERSEDED |
 | Owner | PayPlay PM |
 | Last Reviewed | 2026-08-15 |
-| Source of Truth | YES |
+| Source of Truth | NO (SUPERSEDED — 2026-08-21) |
 | Development Use | Flow 기준선. Development Ready / QA Ready 선언문서 아님. |
 | Notion Source | https://app.notion.com/p/3bc53327fb868183bc28ce151442cebf |
 | Related Decision | DECISION_REGISTER.md |
 | Supersedes | — |
+| Superseded by | PP-OC-USER-OPS-FLOW-001 — [10_OC/04_FLOWS/USER_AND_OPERATIONS_FLOWS.md](./USER_AND_OPERATIONS_FLOWS.md) |
+| Superseded date | 2026-08-21 |
+| Supersede Note | Claude PM3 지시(2026-08-21)에 따른 Header 표기 변경. **본문 내용은 삭제·수정하지 않았다.** 기존 Flow/정책 서술과 식별자는 이력 추적용으로 계속 유효하다. |
 
 > ✅ PayPlay OC의 최종 User & Operations Flow 통합문서.
 > Main PM의 Shared Entity 검수 결과를 반영했으며, 승인된 구조와 Pending을 명확히 구분한다.
 > 본 문서는 업무흐름 기준 Final Documentation Candidate이며, Development Ready / QA Ready 선언문서는 아니다.
+
+
+> ⚠️ **SUPERSEDED — 2026-08-21.** 이 문서는 `PP-OC-USER-OPS-FLOW-001` ([10_OC/04_FLOWS/USER_AND_OPERATIONS_FLOWS.md](./USER_AND_OPERATIONS_FLOWS.md))로 승계되었다.
+> 신규 개발 기준으로 사용하지 말 것. 본 문서는 이력 보존 및 기존 식별자 추적용으로 유지된다.
 
 ---
 
