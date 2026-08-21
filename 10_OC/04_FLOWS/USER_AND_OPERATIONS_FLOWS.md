@@ -6,16 +6,36 @@
 | Document ID | PP-OC-USER-OPS-FLOW-001 |
 | Version | v5.2 CLEAN / CROSS-SYNC |
 | Status | FREEZE READY / CLEAN / AUDITED / LATEST SOT SYNCHRONIZED |
+| Final SOT Freeze | COMPLETE — 2026-08-21 16:54 KST · Human Handoff Ready: YES |
 | Source of Truth | NO — Main PM 승인 전 APPROVED / Source of Truth YES로 승격하지 않는다. |
 | Source Basis | Owner Decision + OC Final SOT + Candidate 1~5 Frozen + Approved Screen Specification + Cross-Service + latest supplemental Target specs |
 | Owner | PayPlay OC |
 | Last Reviewed | 2026-08-21 |
 | Development Use | User / Operator / System / Partner 목적, 상태변화, Handoff, Alternative, Exception, Recovery Flow baseline. Physical API/DB/Provider binding 금지. |
+| Resync | 2026-08-21 Final SOT Resync (Main PM GO) |
 | Notion Source | https://app.notion.com/p/3bf53327fb868164bb03d968f010ea1f |
 | Developer Package | Document #2 / 4 |
 | Supersedes | `PP-OC-FLOWS-001` — [user-and-operations-flows.md](./user-and-operations-flows.md) (2026-08-21, Claude PM3 지시) |
 | Related Pending | [FINAL_PENDING_REGISTER.md](../09_DECISIONS/FINAL_PENDING_REGISTER.md) |
 
+## ✅ FINAL SOT FREEZE — 2026-08-21 16:54 KST
+
+- Human Handoff Ready: **YES**
+- Final SOT Freeze: **COMPLETE**
+- Final Fix Verification: **PASS**
+- Flow↔Rule Trace Break: **0**
+- Existing 29 Canonical Flow ID Damage: **0**
+- Package-wide Scope-Blocking Pending: **0**
+- Remaining Pending: **Physical / Provider / Config boundaries only**
+
+> 본 문서는 현재 OC User & Operations Flow Logical SOT로 Freeze합니다. 기존 Canonical Flow ID를 재번호하지 않으며 Physical Binding 값을 임의 확정하지 않습니다.
+
+---
+
+> 👀 **이 문서는 언제 보나요?**
+> “누가, 어떤 목적으로, 어떤 순서로 일하고 어디서 다음 담당자에게 넘어가는가?”를 확인할 때 보는 **업무 흐름 문서**입니다.
+> 주요 용어: User & Operations Flow (사용자·운영 업무 흐름), Handoff (업무 인계), Alternative (대안 경로), Exception (예외 상황), Recovery (복구 경로), State (업무 상태), Provider (외부 연동업체/시스템).
+> 화면 목록을 보는 문서가 아니라 **업무의 시작→처리→완료 흐름**을 이해하는 문서입니다.
 > 🧭 정우용 개발자님 제공 `사용자 및 운영 흐름 문서 템플릿`을 기준으로 PayPlay OC 전체 흐름을 재작성한 Clean Version이다. 화면 목록이 아니라 사용자·운영자·시스템·협력사가 달성하려는 목적, 상태 변화, 대안·예외·복구, Handoff와 외부 연결을 기준으로 한다. 상세 Field·Validation·Permission·판정조건은 `[OC] Detailed Requirements & Business Policies`의 Business Rule ID로 연결한다.
 
 ---
@@ -70,12 +90,14 @@ OC는 OSP 또는 기존 고객 요청을 받아 고객·매장 식별, 영업, �
 | 포함 | 제외 | 제외 이유 또는 후속 계획 |
 |---|---|---|
 | 상담/Lead/Request 접수 및 고객·매장 Match | Shared Person/Merchant/IAM/Device·Asset Physical 구현 | Common Infrastructure 결정 |
-| 담당자 배정·상담·방문·견적·계약 | FLOW-007 상품/직군별 수당 계산식·비율 | Owner Policy 값 Pending |
-| 계약 Item 이행·설치·검증·복수 Item 처리 | FLOW-007 항목별 팀장 단독승인 범위 | Owner Policy 값 Pending |
+| 담당자 배정·상담·방문·견적·계약 | FLOW-007 상품/직군별 수당 계산식·비율 | Business Policy Config 값 미입력 — 계산/승인 엔진 구조는 확정, 실제 Formula/Rate 값만 추후 입력 |
+| 계약 Item 이행·설치·검증·복수 Item 처리 | FLOW-007 항목별 팀장 단독승인 범위 | Business Policy Config 값 미입력 — Approval Policy Configuration 구조는 확정, 실제 적용 항목만 추후 입력 |
 | 재고·발주·배송·AS 공급 | 외부 Provider 실제 Endpoint/Provider 선정 | Integration 단계 결정 |
 | CS·AS·Escalation·재오픈 | Product별 exact Evidence Template | Domain Configuration |
 | 비용·정산·수당 Eligibility·경영 Decision | 미확정 Physical API/DB Schema | 별도 Architecture 결정 |
 | Policy Snapshot·Queue·Notification·AI Guard |  |  |
+| Vehicle·Parking·Schedule / Meeting 등 Company Operations·Common Supplemental Flow |  | Owner Decision 반영된 Target Scope. 기존 29 Canonical Flow ID를 재번호하지 않고 Supplemental Trace로 관리 |
+| Workforce Service Desk — 재직자 Self-Service + 외부직원·퇴사자·해촉자 Public Entry / Request 처리 |  | WSD-C-01 / WSD-C-02 / WSD-O-01 Supplemental Flow로 관리 |
 
 ### 3.1 범위 판단 기준
 
@@ -1391,12 +1413,113 @@ Claude PM3 Independent Cross-Audit의 `MINOR-01`을 반영한다.
 
 **Cross-Audit Resolution:** `MINOR-01 CLOSED / NON-BLOCKING / NO NEW FLOW ID`
 
+## 41. Workforce Service Desk Supplemental Flows — 2026-08-21
+
+> 기존 29개 Flow ID는 유지하며 renumber하지 않는다. 본 섹션은 최신 Owner Decision에 따른 Supplemental Flow다.
+
+### WSD-C-01 — Internal Worker Self-Service (내부 재직자 본인조회)
+
+**Actor:** 재직 내부직원 / 제한형 OC 계정을 가진 외근·내외근 영업직·프리랜서·외부기사
+`OC 로그인 → Workforce Service Desk → 본인 Scope 확인 → 급여/수당/Commission/정산/발행문서 조회 → 필요 시 Download → 이견·수정이 필요할 때만 Request 생성 → Unified Intake Routing`
+**Guard**
+
+- 조회 가능한 확정 데이터는 Request를 만들지 않는다.
+- 본인 Scope 밖의 HR/Finance/Compensation 데이터는 열람할 수 없다.
+- 이미 발행된 명세서/확정 수당/지급내역은 Self-Service 우선.
+
+### WSD-C-02 — External / Former Worker Public Entry (외부·퇴사자 공개진입)
+
+**Actor:** OC 계정 없는 외부직원·퇴사자·해촉자
+`OC Workforce Service Desk Public Entry → 최소정보 입력 → 기존 Shared Person/Worker 기록 Match → 기존 등록 휴대폰/이메일로 One-time Secure Link 시스템 자동 발송 → 추가정보 Match → identity_verified = true → accessible_scope 산정 → 본인 조회 또는 Request 생성 → Secure Result / Document Delivery`
+**Exception / Recovery**
+
+- Identity Match 실패, 등록 연락처 변경/소실, Legacy 정보 불완전 → `MANUAL_VERIFICATION_REQUIRED` Queue
+- 직원의 수동 Secure Link 발송/재발송은 위 예외에서만 허용
+- 반복 인증 실패 → Security Config에 따른 제한 후 Manual Verification
+
+**Security Guard**
+
+- 입력한 신규 연락처로 즉시 발송하지 않는다. 기존 등록 연락처를 사용한다.
+- Secure Link는 1회성·만료형이다.
+- 인증 전 급여·수당·정산·HR 문서를 노출하지 않는다.
+- 민감문서 Public URL / 장기 CDN Cache 금지.
+
+### WSD-O-01 — Workforce Request Operator Processing (담당자 처리)
+
+`Unified Intake 수신 → requester_type / identity_verified / accessible_scope 확인 → Request Type 분류 → HR / Compensation / Finance Owner Queue → 필요 시 Approval → 결과 생성 → Secure Result / Signed Download Link 전달 → Request Close → Audit`
+**Routing**
+
+- HR 문서 / 재직·퇴직 관계 → HR
+- 수당 / Commission → Compensation
+- 급여 / 지급 / 정산 / 세무자료 → Finance
+- Entry / Request Routing / History → Workforce Service Desk / Unified Intake
+
+### Unified Intake Extension
+
+- Source Channel 추가: `Workforce Service Desk Public Entry`
+- Request Envelope 추가 필드: `requester_type`, `identity_verified`, `accessible_scope`
+- Request Type Candidate: `PAYSLIP`, `SETTLEMENT_INQUIRY`, `COMMISSION_INQUIRY`, `CERTIFICATE`, `TAX_DOCUMENT`, `CONTRACT_DOCUMENT`, `PERSONAL_INFO_CORRECTION`, `GENERAL_HR`
+
+### Flow Implementation Boundary
+
+- Secure Link TTL / Retry Count / Lockout 시간은 Security Config.
+- SMS/Email Provider, token persistence, Signed URL 구현은 Physical Binding Pending.
+- Flow / Routing / Security Boundary는 **CLOSED**.
+
+## Human Handoff Supplemental — Finance / Receivable Flow Closure — 2026-08-21
+
+기존 `O-10 비용·정산` Canonical Flow ID는 유지하며 아래 Finance Subflow를 추가 Trace로 사용한다.
+`Charge / Contract Obligation → Billing → Receivable → Payment / Adjustment / Write-off Reference → Balance → Closed`
+운영 Guard:
+
+- Charge와 Billing은 1:1 고정관계가 아니다. 분할청구 및 통합청구를 허용할 수 있도록 Logical 관계를 N:M 가능 구조로 취급한다.
+- Billing Issued와 Payment Received를 동일 상태로 취급하지 않는다.
+- Receivable은 Settlement의 Substate가 아니라 별도 Logical Entity다.
+- Receivable이 `OPEN`이고 `due_at`이 경과했으며 미수잔액이 0보다 크면 시스템 판정으로 `OVERDUE`가 된다. 담당자의 수동 상태변경으로만 처리하지 않는다.
+- Settlement는 기대금액/실제금액/대사 결과를 다루며 Receivable 원장을 소유하지 않는다.
+- VAT / 원천세 / 계정과목 / 회계분개 / Bank Matching Physical 구현은 Finance/Accounting Integration 범위로 유지한다.
+
+이 Supplemental은 신규 Canonical Flow ID를 생성하지 않으며 기존 O-10 Finance Flow의 Human Handoff 해석을 보완한다.
+
+## Human Handoff Cross-Audit Round 1 Corrections — 2026-08-21
+
+Claude PM3 독립 Cross-Audit REVISE-B01 / GAP-B01 / GAP-B02 반영.
+
+### O-11 Compensation State Guard
+
+`Eligible`은 즉시 `지급대기`를 의미하지 않는다. Logical 처리 순서는 아래와 같다.
+`Eligible → Calculation Candidate → Review Pending → Approval Pending → Finalized Compensation → Payment / Settlement Link`
+
+- 실제 UI State Enum은 별도 Physical/Config 단계에서 정규화할 수 있으나 위 논리 단계를 생략해 구현하지 않는다.
+- Policy Snapshot은 계산 시점 기준으로 고정하고, 이후 Policy 변경만으로 과거 Finalized Compensation을 자동 재계산하지 않는다.
+
+### WSD accessible_scope Guard
+
+- Internal Worker와 Limited/External Worker의 Self-Service는 모두 `본인 데이터 only`가 기본이다.
+- 타인 급여/수당/정산/문서/요청이력 조회는 허용하지 않는다.
+- Role별 세부 Self-Service 범위는 IAM/Permission Config에서 관리한다.
+- 제한형 계정은 허용된 Request Type / Document Type / Data Category만 노출한다.
+- Config 미확정 상태에서 개발자가 임의로 범위를 넓히지 않는다.
+
+### MANUAL_VERIFICATION_REQUIRED Operator Flow
+
+`WSD-C-02 → MANUAL_VERIFICATION_REQUIRED` 발생 시:
+`Manual Verification Queue → Authorized Operator Review → Approved Evidence Match → Verified / Rejected → 최소 accessible_scope 산정 → 정상 WSD 흐름 복귀 또는 종료`
+
+- 담당자의 임의 Identity Override 금지.
+- 확인 근거, Actor, 일시, 결과, Scope를 Audit으로 남긴다.
+- 연락처 변경 등 예외는 검증 완료 전 Secure Result/민감정보 접근을 허용하지 않는다.
+- 정확한 허용 Evidence 종류와 재시도/잠금 수치는 Security Operations Config Pending.
+
+Verdict: REVISE-B01 / GAP-B01 / GAP-B02 CLOSED AT LOGICAL/HUMAN-HANDOFF LEVEL.
+
 ---
 
-## Intake Note — 2026-08-21
+## Intake Note — 2026-08-21 (Final SOT Resync)
 
-- 본 문서는 Notion Developer Package Document #2를 GitHub에 입고한 것이다.
-- Claude PM3 추가 지시(2026-08-21)에 따라 기존 `PP-OC-FLOWS-001` ([user-and-operations-flows.md](./user-and-operations-flows.md))을 **SUPERSEDED** 처리하고 본 문서가 이를 승계한다.
-- 기존 파일은 **삭제하지 않았다.** Header Status 표기만 `SUPERSEDED`로 변경했으며 본문은 원문 그대로 보존된다. 기존 `OC-FLOW-001~013` Flow ID와 이를 참조하는 `10_OC/08_SPECIFICATIONS/SCREEN_SPECIFICATION_TRACEABILITY_SUMMARY.md`의 `OC-FLOW-008` Traceability는 계속 해석 가능하다.
-- Header Status는 Notion 원문의 `FREEZE READY / CLEAN / AUDITED / LATEST SOT SYNCHRONIZED`를 유지했다. 입고 과정에서 `APPROVED` / `Source of Truth YES`로 승격하지 않았다.
+- 본 문서는 Notion Developer Package Document #2의 **Final SOT Freeze 판본**을 GitHub에 Resync한 것이다. 직전 입고본(중간 Snapshot)은 커밋 `77e655d`로 보존된다.
+- Resync 반영분: `FINAL SOT FREEZE` 블록 · §41 Workforce Service Desk Supplemental Flows(`WSD-C-01`, `WSD-C-02`, `WSD-O-01`) · Human Handoff Supplemental — Finance/Receivable Flow Closure · Human Handoff Cross-Audit Round 1 Corrections(O-11 Compensation State Guard · WSD accessible_scope Guard · MANUAL_VERIFICATION_REQUIRED Operator Flow · Unified Intake Extension · Flow Implementation Boundary).
+- **기존 29 Canonical Flow ID(C 7 / O 15 / S 4 / P 3)는 삭제·재번호하지 않았다.** WSD Flow는 별도 `WSD-*` 식별자로 추가되어 Canonical Set과 충돌하지 않는다.
+- 기존 `PP-OC-FLOWS-001`은 SUPERSEDED 상태를 유지하며 본문은 계속 보존된다.
+- Header Status는 Notion 원문을 유지했고 `APPROVED` / `Source of Truth YES`로 승격하지 않았다.
 - Pending 값은 임의 확정하지 않았다.
