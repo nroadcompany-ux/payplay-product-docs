@@ -6,15 +6,38 @@
 | Document ID | PP-OC-REQ-BIZ-POLICY-001 |
 | Version | v4.1 CLEAN / AUDITED |
 | Status | FREEZE READY / CLEAN / AUDITED / LATEST SOT SYNCHRONIZED |
+| Final SOT Freeze | COMPLETE — 2026-08-21 16:54 KST · Human Handoff Ready: YES |
 | Source of Truth | NO — Main PM 승인 전 APPROVED / Source of Truth YES로 승격하지 않는다. |
 | Source Basis | Owner Decision + OC Final SOT + Candidate 1~5 Frozen + User & Operations Flows + Approved Screen Specification + Cross-Service + latest supplemental Target specs |
 | Owner | PayPlay OC |
 | Last Reviewed | 2026-08-21 |
 | Development Use | Observable Requirement / Business Rule / State / Permission / Validation / Exception / Integration guard baseline. Pending Physical API/DB/Provider values 임의 확정 금지. |
+| Resync | 2026-08-21 Final SOT Resync (Main PM GO) |
 | Notion Source | https://app.notion.com/p/3bf53327fb8681ba8a9dceb9dd71652c |
 | Developer Package | Document #3 / 4 |
 | Supersedes | `PP-OC-REQS-001` — [detailed-requirements-and-business-policies.md](./detailed-requirements-and-business-policies.md) (2026-08-21, Claude PM3 지시) |
 | Related Pending | [FINAL_PENDING_REGISTER.md](../09_DECISIONS/FINAL_PENDING_REGISTER.md) |
+
+## ✅ FINAL SOT FREEZE — 2026-08-21 16:54 KST
+
+- Human Handoff Ready: **YES**
+- Final SOT Freeze: **COMPLETE**
+- Final Fix Verification: **PASS**
+- Flow↔Rule Trace Break: **0**
+- Owner Decision Required: **0**
+- Development Blocker: **0**
+- Package-wide Scope-Blocking Pending: **0**
+- Remaining Pending: **Physical / Provider / Legal·Finance Reference / Operational·Business Policy Config only**
+
+> 본 문서는 현재 OC Detailed Requirements & Business Policies Logical SOT로 Freeze합니다. Config/Reference 값과 Physical Binding을 개발자가 임의 하드코딩하지 않습니다.
+
+---
+
+> 👀 **이 문서는 언제 보나요?**
+> 업무 흐름을 실제 기능으로 만들 때 **어떤 조건·권한·검증·상태·예외 규칙을 지켜야 하는지** 확인하는 개발 규칙 문서입니다.
+> 주요 용어: Detailed Requirements (상세 요구사항), Business Policies (업무 정책), Validation (입력·조건 검증), Permission (권한), State (상태), Rule (업무 규칙), Exception (예외), Integration (외부/시스템 연동), Acceptance Criteria (완료·검수 기준).
+
+---
 
 > 📘 정우용 개발자님 제공 `상세 요구사항 및 비즈니스 정책` 템플릿 기준으로 PayPlay OC 요구사항을 재정렬한 Clean Version이다. `[OC] User & Operations Flows — Developer Template v5 CLEAN`의 C/O/S/P 29개 Flow와 추적성을 유지한다. 기존 OC Target Architecture와 Owner Decision을 변경하지 않는다.
 
@@ -42,11 +65,14 @@ OC의 업무 의미와 정책을 구현 방식이 아니라 **관찰 가능한 �
 - 경영 Decision/실행/복기
 - Commercial Policy Version/Snapshot
 - Queue/Notification/AI 보조
+- People / HR — Employee·Worker, Onboarding·Offboarding, Workforce Service Desk 처리 Rule
+- Company Operations — Vehicle, Parking, Company Resource Directory, Schedule/Meeting 연계 Rule
+- Workforce Service Desk — 재직자 Self-Service + 외부직원·퇴사자·해촉자 Public Entry, One-time Secure Link, HR/Compensation/Finance Routing
 
 ### 1.2 제외·미확정 범위
 
 - Shared Person/Merchant/IAM/Device·Asset의 Physical DB/Provider/Repository
-- FLOW-007 상품·직군별 계산식, 비율, 항목별 팀장 단독승인 범위
+- FLOW-007 상품·직군별 계산식·비율·항목별 팀장 단독승인 적용값 — 계산/승인 구조는 확정되어 있으며 실제 Business Policy Config 값만 추후 입력
 - 미선정 외부 Provider의 실제 Endpoint/Physical Schema
 - Product별 exact Evidence Template
 
@@ -101,6 +127,16 @@ OC의 업무 의미와 정책을 구현 방식이 아니라 **관찰 가능한 �
 | POLICY | Commercial Policy Version/Snapshot | Policy Manager | Policy Version, Snapshot | 없음 |
 | COMMON | Queue, Notification, Audit, Permission Guard | 전 사용자 | Queue, Notification, Audit | Shared IAM |
 | AI | Context 기반 제안·초안 | 내부 사용자 | AI Context, Audit | AI Provider Pending |
+
+### 3.0A Latest Supplemental Capability Areas — Human Handoff Guard
+
+아래 영역은 기존 Bounded Context 식별자 표를 재번호하지 않고 최신 Supplemental Rule/Trace로 포함한다.
+
+- **People / HR** — 고용·위촉 관계, Onboarding/Offboarding, 퇴사·해촉 후 Self-Service 및 문서 요청
+- **Company Operations** — Vehicle / Parking / Company Resource Directory / Schedule·Meeting 연계
+- **Workforce Service Desk** — Internal Self-Service / Public Entry / Identity Verification / Unified Intake Handoff
+
+이 항목들은 후속 아이디어가 아니라 현재 OC Target Scope다. Physical IAM/Provider/Official Screen ID 등 구현 Binding만 Pending으로 유지한다.
 
 ### 3.1 Context Handoff
 
@@ -507,11 +543,155 @@ OC의 업무 의미와 정책을 구현 방식이 아니라 **관찰 가능한 �
 
 ---
 
-## Intake Note — 2026-08-21
+## Workforce Service Desk Supplemental Rules — 2026-08-21
 
-- 본 문서는 Notion Developer Package Document #3을 GitHub에 입고한 것이다.
-- Claude PM3 추가 지시(2026-08-21)에 따라 기존 `PP-OC-REQS-001` ([detailed-requirements-and-business-policies.md](./detailed-requirements-and-business-policies.md))을 **SUPERSEDED** 처리하고 본 문서가 이를 승계한다.
-- 기존 파일은 **삭제하지 않았다.** Header Status 표기만 `SUPERSEDED`로 변경했으며 본문은 원문 그대로 보존된다.
-- Header Status는 Notion 원문의 `FREEZE READY / CLEAN / AUDITED / LATEST SOT SYNCHRONIZED`를 유지했다. 입고 과정에서 `APPROVED` / `Source of Truth YES`로 승격하지 않았다.
-- 원문의 절 번호(15 다음 18)는 Notion 원문 그대로 보존했다. 임의 재번호하지 않았다.
+> 기존 확정 Rule은 변경하지 않는다. 아래는 최신 Owner Decision에 따른 Supplemental Rule이다.
+
+### HR-WSD-R01 — Workforce Self-Service Scope
+
+재직자·외부직원·퇴사자·해촉자는 본인에게 허용된 `accessible_scope` 내 HR 문서와 Employment/Engagement 관계 결과만 조회할 수 있다.
+
+### HR-WSD-R02 — Offboarding Access Boundary
+
+퇴사·해촉 Effective End 시 내부 OC/IAM Access는 회수한다. 기본 유예기간은 제공하지 않는다. 필요한 경우에만 사전승인된 만료형 Temporary Transition Access를 발급하며 최소권한·만료·승인자·사유·Audit를 필수로 한다.
+
+### HR-WSD-R03 — Former / External Worker Identity Verification
+
+OC 계정이 없는 외부직원·퇴사자·해촉자의 기본 본인확인은 `One-time Secure Link`로 한다. Public Entry에서 입력된 값으로 기존 Shared Person/Worker를 Match한 뒤 **기존 등록 휴대폰 또는 이메일로 시스템이 자동 발송**한다. 사용자가 입력한 신규 연락처로 즉시 발송하지 않는다.
+
+### HR-WSD-R04 — Manual Verification Exception
+
+Identity Match 실패, 등록 연락처 변경·소실, Legacy 정보 불완전, 반복 인증 실패는 `MANUAL_VERIFICATION_REQUIRED`로 격리한다. 직원 수동 재발송/대체인증은 이 예외에서만 허용하며 Audit를 남긴다.
+
+### COMP-WSD-R01 — Compensation Self-Service
+
+확정된 수당/Commission/지급예정·지급완료 결과와 Policy Snapshot 근거 중 본인에게 허용된 항목은 Self-Service 조회 대상으로 한다. 단순 조회에는 Request를 생성하지 않는다.
+
+### COMP-WSD-R02 — Compensation Dispute / Correction
+
+수당 산식·대상·금액에 대한 이견, 누락, 수정 요청이 있을 때만 `COMMISSION_INQUIRY` 또는 관련 Request를 생성하고 Compensation Owner Queue로 Routing한다. 과거 Finalized Compensation은 정책변경만으로 자동 재계산하지 않는다.
+
+### FIN-WSD-R01 — Payroll / Settlement Self-Service
+
+급여명세서, 확정 지급내역, 정산서 등 이미 발행·확정된 본인 자료는 Self-Service 조회/다운로드를 우선한다.
+
+### FIN-WSD-R02 — Finance Request Routing
+
+미정산, 지급오류, 정산 이의, 세무문서 신규발급/정정 등 담당자 처리가 필요한 경우에만 `PAYSLIP`, `SETTLEMENT_INQUIRY`, `TAX_DOCUMENT` 등의 Request를 생성하여 Finance Owner Queue로 Routing한다.
+
+### FIN-WSD-R03 — Secure Result Delivery
+
+급여·수당·정산·세무·HR 민감문서는 Public URL로 제공하지 않는다. 인증된 세션 또는 만료형 Signed/Secure Link로 전달한다. 장기 Public/CDN Cache를 금지한다.
+
+### Unified Intake Workforce Extension
+
+- Source Channel: `Workforce Service Desk Public Entry`
+- Envelope Fields: `requester_type`, `identity_verified`, `accessible_scope`
+- Request Types: `PAYSLIP`, `SETTLEMENT_INQUIRY`, `COMMISSION_INQUIRY`, `CERTIFICATE`, `TAX_DOCUMENT`, `CONTRACT_DOCUMENT`, `PERSONAL_INFO_CORRECTION`, `GENERAL_HR`
+
+### Implementation / Config Boundary
+
+- Secure Link TTL, 인증 Retry Count, Lockout 시간, Signed Download Link TTL은 Security Config 값이다.
+- SMS/Email Provider, token persistence, Identity Provider binding은 Physical / Provider Pending이다.
+- HR 법정 보관기간·파기정책, VAT·원천세·계정과목 등은 Legal / Finance Reference Value이며 본 Rule에서 임의 숫자로 고정하지 않는다.
+
+---
+
+## Workforce Service Desk — Supplemental Flow ↔ Rule Direct Trace
+
+기존 C/O/S/P 29개 Canonical Trace Set은 유지한다. 아래 WSD Supplemental Flow는 별도 직접 Trace로 관리한다.
+
+- `WSD-C-01` Internal Worker Self-Service → `HR-WSD-R01`, `COMP-WSD-R01`, `FIN-WSD-R01`, `FIN-WSD-R03`
+- `WSD-C-02` External/Former Worker Public Entry + Request → `HR-WSD-R01~R04`, `FIN-WSD-R03` + COMMON Permission/Audit Guard
+- `WSD-O-01` Workforce Request Operator Processing → `HR-WSD-R03~R04`, `COMP-WSD-R02`, `FIN-WSD-R02~R03`
+
+Guard:
+
+- 조회 가능한 확정 데이터는 Request를 생성하지 않는다.
+- 담당자 처리가 필요한 경우에만 Unified Intake Request를 생성한다.
+- Public Entry 본인확인은 기존 등록 연락처로 시스템이 자동 발송하는 One-time Secure Link를 기본으로 한다.
+- Identity Match 실패·등록 연락처 변경은 Manual Verification Queue로 전환한다.
+- Public Entry 사용자는 본인 Scope 밖의 Search/List/Export를 사용할 수 없다.
+
+---
+
+## Human Handoff Supplemental — Finance / Compensation Pending Reduction Closure — 2026-08-21
+
+### Finance / Billing / Receivable
+
+- `Charge ≠ Billing ≠ Payment ≠ Receivable ≠ Settlement`로 구분한다.
+- Charge ↔ Billing은 1:1로 고정하지 않는다. 분할청구와 통합청구를 허용할 수 있도록 Logical 수준에서 N:M 가능성을 열어둔다.
+- Receivable은 Settlement Substate가 아니라 별도 Logical Entity다.
+- Receivable Candidate State: `OPEN → PARTIALLY_PAID → PAID/CLOSED`, 보조상태 `ON_HOLD / DISPUTED / WRITE_OFF_CANDIDATE / OVERDUE`.
+- `OPEN` 상태에서 `due_at` 경과 + 미수잔액 > 0이면 시스템이 `OVERDUE`로 판정한다.
+- Billing Issued ≠ Payment Received, Approved Expense ≠ Paid, Receivable ≠ Settlement.
+- VAT / 원천세 / 계정과목 / 회계분개 / Bank Matching은 회계·세무·Physical Integration 범위로 유지한다.
+
+### Compensation Finalization Trigger
+
+`Performance → Eligibility → Policy Snapshot → Calculation → Review → Approval → Finalization → Payment/Settlement`
+
+- 필수 Approval이 모두 완료되고 추가 Review/Hold 조건이 없으면 Compensation Record는 `Finalized`로 전환된다.
+- 별도 수동 Finalization이 필요한 예외 항목은 Approval Policy Configuration에서 명시적으로 설정해야 하며 코드 분기로 숨기지 않는다.
+- 과거 Finalized Compensation은 정책 변경만으로 자동 재계산하지 않는다. 수정은 Adjustment/Clawback Record로 남긴다.
+
+본 Supplemental은 기존 Rule ID를 임의 재번호하지 않고 Pending Reduction에서 이미 확정된 Human Handoff Guard를 개발자가 직접 읽을 수 있도록 보강한다.
+
+---
+
+## Human Handoff Cross-Audit Round 1 Corrections — 2026-08-21
+
+Claude PM3 독립 Cross-Audit REVISE-B02 및 WSD Permission/Manual Verification 보강 반영.
+
+### O-11 Compensation Trace Extension
+
+O-11 수당·인센티브 구현 시 기존 `COMP-R01~R06`, `POLICY-R01~R04`와 함께 `COMP-WSD-R02`의 Dispute / Correction / No Retroactive Recalculation Guard를 적용한다.
+
+Logical sequence:
+
+`Performance Confirmed → Eligible Event → Policy Snapshot → Calculation Candidate → Review → Approval → Finalized Compensation → Payment / Settlement Link`
+
+### WSD accessible_scope Policy
+
+- 기본값은 Self-only.
+- 내부 전일제/제한형/외부 Worker 모두 타인 급여·수당·정산·HR 문서 조회 금지.
+- Role별 허용 Data Category / Request Type / Document Type은 IAM/Permission Config로 관리한다.
+- 제한형 계정은 Config에 명시된 범위만 허용한다.
+- Config 미확정 시 Default Deny를 적용하고 개발자가 임의 확대하지 않는다.
+
+### Manual Verification Policy
+
+- `MANUAL_VERIFICATION_REQUIRED`는 Identity 우회용 상태가 아니다.
+- Authorized Operator가 승인된 Evidence로 본인 Match를 검토한다.
+- 성공 시 최소 accessible_scope만 부여하고 정상 WSD 흐름으로 복귀한다.
+- 실패 시 민감정보/문서 접근 없이 종료 또는 추가 검증 Queue로 전환한다.
+- Verification Actor / Evidence / Result / Scope / Timestamp Audit 필수.
+- 정확한 Evidence 종류, Retry Count, Lockout 시간은 Security Operations Config Pending.
+
+Verdict: REVISE-B02 + WSD Developer Question Risk CLOSED AT LOGICAL/HUMAN-HANDOFF LEVEL.
+
+---
+
+## Human Handoff Final Guard — Required / Optional Contract Item Classification — 2026-08-21
+
+`FULFILL-R06`의 `Required/Core Item 완료 시 비핵심 Item 보류 중이어도 Store Activation 허용` 원칙을 구현할 때 개발자가 Required/Optional 여부를 임의 판단하지 않는다.
+
+- Required / Optional 분류 Source: **Contract Item Type 또는 Product Fulfillment Template의 명시적 Configuration**
+- 해당 Configuration이 존재하면 그 값을 Activation Guard가 사용한다.
+- Required / Optional 분류가 누락·미설정된 Item은 자동으로 Required 또는 Optional로 추정하지 않는다.
+- 미설정 상태에서는 `CONFIGURATION_ERROR` 또는 `ACTIVATION_REVIEW_REQUIRED`로 격리하고 **자동 Store Activation을 금지**한다.
+- 운영자가 승인된 Template/Policy Configuration을 보완한 뒤 Guard를 재평가한다.
+- 이 규칙은 Product별 실제 Required Item 목록을 코드에 하드코딩하라는 의미가 아니다.
+
+**Verdict:** GAP-5A CLOSED AT LOGICAL / HUMAN-HANDOFF LEVEL. Product별 실제 분류값은 Versioned Template / Business Policy Config 입력값이다.
+
+---
+
+## Intake Note — 2026-08-21 (Final SOT Resync)
+
+- 본 문서는 Notion Developer Package Document #3의 **Final SOT Freeze 판본**을 GitHub에 Resync한 것이다. 직전 입고본(중간 Snapshot)은 커밋 `9e1ae35`로 보존된다.
+- Resync 반영분: `FINAL SOT FREEZE` 블록 · §1.1 People/HR·Company Operations·Workforce Service Desk 범위 추가 · §1.2 FLOW-007 문구 갱신 · §3.0A Latest Supplemental Capability Areas · Workforce Service Desk Supplemental Rules (`HR-WSD-R01~R04`, `COMP-WSD-R01~R02`, `FIN-WSD-R01~R03`) · WSD Flow↔Rule Direct Trace · Finance/Receivable Closure · O-11 Compensation Trace Extension · WSD accessible_scope / Manual Verification Policy · Required/Optional Activation Guard.
+- 기존 `[CONTEXT]-R[NN]` Rule ID는 **재번호하지 않았다.** 원문의 절 번호 건너뜀(15 → 18)도 그대로 보존했다.
+- 기존 `PP-OC-REQS-001`은 SUPERSEDED 상태를 유지하며 본문은 계속 보존된다.
+- Header Status는 Notion 원문을 유지했고 `APPROVED` / `Source of Truth YES`로 승격하지 않았다.
 - Pending 값은 임의 확정하지 않았다.
