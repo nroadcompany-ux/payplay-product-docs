@@ -11,7 +11,7 @@
 | Development Use | Main PM/Owner 승인 OC 구조 Decision만 기록. Proposal/Working 항목 승격 금지. |
 
 ## D-OC-001 Customer Account
-Customer Account = **동일 실질 운영관계로 PayPlay가 통합 관리하는 고객그룹**. 법적 계약/세금/PG/정산 주체가 아니다.
+Customer Account = **동일 실질 운영관계로 PayPlay가 통합 관리하는 가맹점그룹**. 법적 계약/세금/PG/정산 주체가 아니다.
 
 ## D-OC-002 Store Transfer / Continuity
 동일 장소에서 운영·장비·업무 연속성이 유지되면 기존 Store ID 유지 Candidate. 타지역 이동은 신규 Store 우선. 애매하면 Human Review.

@@ -26,7 +26,7 @@ Product / Service
 ```
 
 ## Customer Account — APPROVED
-정의: **동일 실질 운영관계로 PayPlay가 통합 관리하는 고객그룹**.
+정의: **동일 실질 운영관계로 PayPlay가 통합 관리하는 가맹점그룹**.
 - 법적 계약주체가 아니다.
 - 사업자등록번호의 주체가 아니다.
 - Store와 동일하지 않다.

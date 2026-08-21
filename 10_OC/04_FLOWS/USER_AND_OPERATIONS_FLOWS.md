@@ -46,7 +46,7 @@
 ## 1. 문서 목적
 
 이 문서는 화면 단위가 아니라 **사용자와 운영자가 달성하려는 목적과 업무 상태 변화**를 중심으로 PayPlay OC의 흐름을 설명한다.
-OC는 OSP 또는 기존 고객 요청을 받아 고객·매장 식별, 영업, 견적, 계약, 이행·설치, 재고·공급, CS·AS, 비용·정산, 수당, 경영 의사결정까지의 내부 운영을 연결한다.
+OC는 OSP 또는 기존 가맹점 요청을 받아 가맹점·매장 식별, 영업, 견적, 계약, 이행·설치, 재고·공급, CS·AS, 비용·정산, 수당, 경영 의사결정까지의 내부 운영을 연결한다.
 
 ### 1.1 작성 원칙
 
@@ -65,16 +65,27 @@ OC는 OSP 또는 기존 고객 요청을 받아 고객·매장 식별, 영업, �
 
 | 구분 | 식별자 | 설명 | 주요 목적 |
 |---|---|---|---|
-| 고객 | `C` | 신규·기존 고객, 매장 관계자 | 상담, 견적·계약, 설치 협의, CS·AS, 추가구매 |
+| 가맹점 | `C` | 신규·기존 가맹점, 매장 관계자 | 상담, 견적·계약, 설치 협의, CS·AS, 추가구매 |
 | 운영자 | `O` | OC Backoffice 및 내부 업무 사용자 | 영업·승인·계약·설치·재고·지원·정산·관리 |
 | 시스템 | `S` | 자동 검증, Queue, Snapshot, Notification, AI 보조 | 중복 방지, 자동화, 이력 보존, 업무 보조 |
 | 협력사 | `P` | 외부 기사, Vendor, 제조사, 통신/PG/발송 Provider | 설치·배송·AS·외부 연동·결과 반환 |
+| 손님 | `—` | 가맹점을 이용하는 최종 소비자 (End User) | 주문, 이벤트 참여, 리뷰, 리워드 등 |
+
+> **Actor 용어 기준:** 관계는 `PayPlay → 가맹점 → 손님`이다.
+>
+> - **가맹점(Merchant):** PayPlay와 계약하거나 PayPlay의 제품·서비스를 공급받는 직접 거래 대상. 신규·기존 가맹점, 점주·사장님·사업자 및 업무상 필요한 매장 관계자를 포함한다. 주요 업무는 상담·견적·계약·설치·CS·AS·추가구매·정산 및 운영 지원이다.
+> - **손님(End User / 최종 이용자):** 가맹점을 실제 이용하는 최종 소비자(음식점·카페 방문 손님, 매장에서 주문·결제하는 소비자, 매장 이벤트 참여자 등). **현재 OC 릴리스에는 손님이 직접 수행하는 흐름이 없으므로 흐름 식별자를 부여하지 않는다.**
+> - **PayPoint 사용자(PayPoint User):** 별도의 최상위 Actor가 아니라 **손님의 하위 Role**이다 (`손님 → PayPoint 이용 시 → PayPoint 사용자`). QR/NFC 주문, QR 인증, 룰렛·경품 이벤트, 영수증 리뷰, 포인트·리워드, PayPoint 앱·서비스 이용이 해당한다.
+> - **가맹점 · 손님 · PayPoint 사용자 Role은 하나의 데이터 주체로 합치지 않는다.** Data Owner, 개인정보 동의, 접근권한, Identity, Person/Customer Master, 데이터 보관 목적, 마케팅 활용 범위는 각각 별도 검토 대상이다.
+> - 본 문서를 포함한 OC 공식 문서에서 **`고객`이라는 단독 표현은 사용하지 않는다.** 의미에 따라 `가맹점` 또는 `손님`으로 표기한다. 단 PayPlay 자사 지원 채널명 `고객센터`는 고유명사로 유지한다.
+
+> **Legacy Identifier 호환 기준:** 식별자 `C`는 기존 Canonical Trace Set의 `Customer` 약자에서 유래한 **Historical / Compatibility 식별자**다. Display Term은 `가맹점`이며 의미는 위 정의를 따른다. 기존 29 Canonical Flow ID(`C-01`~`C-07` 포함), Screen ID `OC-CUST-*`, Rule ID `CUSTOMER-R*`, Entity·Screen·Menu 명칭 `Customer Account` / `Customer 360` / `Customer Support` / `Customer/Store` 등 **영문 구조 식별자는 이번 용어 정규화로 재번호·개명하지 않는다.** 식별자 체계 자체의 변경 필요 여부는 별도 Normalization Candidate로 관리한다.
 
 ### 2.2 흐름 식별자 규칙
 
 | 대상 | 형식 | 예시 |
 |---|---|---|
-| 고객 흐름 | `C-[일련번호]` | `C-01` |
+| 가맹점 흐름 | `C-[일련번호]` | `C-01` |
 | 운영자 흐름 | `O-[일련번호]` | `O-01` |
 | 시스템 흐름 | `S-[일련번호]` | `S-01` |
 | 협력사 흐름 | `P-[일련번호]` | `P-01` |
@@ -89,7 +100,7 @@ OC는 OSP 또는 기존 고객 요청을 받아 고객·매장 식별, 영업, �
 
 | 포함 | 제외 | 제외 이유 또는 후속 계획 |
 |---|---|---|
-| 상담/Lead/Request 접수 및 고객·매장 Match | Shared Person/Merchant/IAM/Device·Asset Physical 구현 | Common Infrastructure 결정 |
+| 상담/Lead/Request 접수 및 가맹점·매장 Match | Shared Person/Merchant/IAM/Device·Asset Physical 구현 | Common Infrastructure 결정 |
 | 담당자 배정·상담·방문·견적·계약 | FLOW-007 상품/직군별 수당 계산식·비율 | Business Policy Config 값 미입력 — 계산/승인 엔진 구조는 확정, 실제 Formula/Rate 값만 추후 입력 |
 | 계약 Item 이행·설치·검증·복수 Item 처리 | FLOW-007 항목별 팀장 단독승인 범위 | Business Policy Config 값 미입력 — Approval Policy Configuration 구조는 확정, 실제 적용 항목만 추후 입력 |
 | 재고·발주·배송·AS 공급 | 외부 Provider 실제 Endpoint/Provider 선정 | Integration 단계 결정 |
@@ -109,14 +120,14 @@ OC는 OSP 또는 기존 고객 요청을 받아 고객·매장 식별, 영업, �
 
 | 흐름 ID | 사용자 | 목적 | 시작점 | 완료 상태 | 범위 | 관련 컨텍스트 |
 |---|---|---|---|---|---|---|
-| `C-01` | 고객 | 상담·영업 요청 접수 | OSP/외부채널 | OC Intake Accepted | 포함 | SALES |
-| `C-02` | 고객 | 견적 확인·수정·수락 | 견적 링크/영업 안내 | Accepted/Negotiating/Rejected | 포함 | QUOTE |
-| `C-03` | 고객 | 계약 확인·서명 | 계약/전자서명 | Contract Signed | 포함 | CONTRACT |
-| `C-04` | 고객 | 설치 일정·결과 확인 | 설치 연락/일정 | Verified/Partial/Revisit | 포함 | FULFILLMENT |
-| `C-05` | 고객 | CS·AS 요청 | 고객센터/전화/메시지 | Activity 기록 또는 Case `New` 생성 | 포함 | CASE |
-| `C-06` | 고객 | AS 결과 확인·재요청 | 처리결과 안내 | Closed/Reopened | 포함 | CASE |
-| `C-07` | 고객 | 추가구매·변경 요청 | 기존 Customer/Store | Opportunity Created | 포함 | SALES |
-| `O-01` | 영업 운영자 | 고객·매장 Match/Opportunity 생성 | Intake | Opportunity New | 포함 | SALES |
+| `C-01` | 가맹점 | 상담·영업 요청 접수 | OSP/외부채널 | OC Intake Accepted | 포함 | SALES |
+| `C-02` | 가맹점 | 견적 확인·수정·수락 | 견적 링크/영업 안내 | Accepted/Negotiating/Rejected | 포함 | QUOTE |
+| `C-03` | 가맹점 | 계약 확인·서명 | 계약/전자서명 | Contract Signed | 포함 | CONTRACT |
+| `C-04` | 가맹점 | 설치 일정·결과 확인 | 설치 연락/일정 | Verified/Partial/Revisit | 포함 | FULFILLMENT |
+| `C-05` | 가맹점 | CS·AS 요청 | 고객센터/전화/메시지 | Activity 기록 또는 Case `New` 생성 | 포함 | CASE |
+| `C-06` | 가맹점 | AS 결과 확인·재요청 | 처리결과 안내 | Closed/Reopened | 포함 | CASE |
+| `C-07` | 가맹점 | 추가구매·변경 요청 | 기존 Customer/Store | Opportunity Created | 포함 | SALES |
+| `O-01` | 영업 운영자 | 가맹점·매장 Match/Opportunity 생성 | Intake | Opportunity New | 포함 | SALES |
 | `O-02` | 영업 관리자 | 담당자 배정 | Opportunity | Assigned | 포함 | SALES |
 | `O-03` | 영업 담당자 | 상담·방문·요구사항 확정 | Assigned Opportunity | Quote Ready/Follow-up | 포함 | SALES |
 | `O-04` | 영업/승인자 | 견적 작성·승인·발송 | Quote Ready | Sent/Accepted | 포함 | QUOTE |
@@ -124,14 +135,14 @@ OC는 OSP 또는 기존 고객 요청을 받아 고객·매장 식별, 영업, �
 | `O-06` | 설치 관리자 | 이행 준비·설치 배정 | Signed Contract | Work Scheduled | 포함 | FULFILLMENT |
 | `O-07` | 현장 담당자 | 설치·검증·완료 | Scheduled Work | Verified/Partial/Failure | 포함 | FULFILLMENT |
 | `O-08` | 재고/구매 | 재고·발주·배송 | Material Requirement | Reserved/Allocated/Shipped | 포함 | INVENTORY |
-| `O-09` | CS/AS | Case 처리·해결 | 고객 요청/장애 | Resolved/Closed | 포함 | CASE |
+| `O-09` | CS/AS | Case 처리·해결 | 가맹점 요청/장애 | Resolved/Closed | 포함 | CASE |
 | `O-10` | 재무 | 비용 검토·승인·정산 | Expense Event | 정산완료/취소 | 포함 | FINANCE |
 | `O-11` | 보상/재무 | 수당 Eligibility·승인 | 계약/설치/입금 Event | 지급대기 | 부분 포함 | COMP |
 | `O-12` | 경영진 | 의사결정 기록·실행·복기 | Decision 필요 | 종료/취소 | 포함 | MGMT |
-| `O-13` | 영업 | 기존 고객 추가구매/변경 | Customer 360 | Opportunity Assigned | 포함 | SALES |
+| `O-13` | 영업 | 기존 가맹점 추가구매/변경 | Customer 360 | Opportunity Assigned | 포함 | SALES |
 | `O-14` | 계약/설치 | 복수 Item 병렬 이행 | Multi-item Contract | 부분완료/완료/Activation | 포함 | FULFILLMENT |
 | `O-15` | CS/AS | 중대·반복 장애 Escalation | Open Case | 해결/종료 | 포함 | CASE |
-| `S-01` | 시스템 | 중복 고객/매장 후보 탐지 | Intake/Opportunity | Match/Review Candidate | 포함 | CUSTOMER |
+| `S-01` | 시스템 | 중복 가맹점/매장 후보 탐지 | Intake/Opportunity | Match/Review Candidate | 포함 | CUSTOMER |
 | `S-02` | 시스템 | Policy Snapshot 보존 | Policy 적용 Event | Snapshot Saved | 포함 | POLICY |
 | `S-03` | 시스템/AI | Contextual AI 보조 | 업무 Context | Draft/Human-confirmed Command | 포함 | AI |
 | `S-04` | 시스템 | Queue/Notification 생성 | 업무 Event | Queue/Notification 반영 | 포함 | COMMON |
@@ -139,31 +150,31 @@ OC는 OSP 또는 기존 고객 요청을 받아 고객·매장 식별, 영업, �
 | `P-02` | Vendor/제조사 | 배송·AS 외부 처리 | External Request | 결과 반환/대기 | 포함 | INVENTORY/CASE |
 | `P-03` | 외부 Provider | 발송·전자서명 등 연동 | External Command | Success/Failure/Unknown | 포함 | QUOTE/CONTRACT |
 
-## 4. 고객 흐름
+## 4. 가맹점 흐름
 
 ### C-01. 상담·영업 요청 접수
 
 **상태:** 확정
-**목적:** 고객이 PayPlay 상담 또는 영업 요청을 제출하고 후속 연락 대상으로 등록된다.
-**사용자:** 신규 고객, 기존 고객, 매장 관계자
+**목적:** 가맹점이 PayPlay 상담 또는 영업 요청을 제출하고 후속 연락 대상으로 등록된다.
+**사용자:** 신규 가맹점, 기존 가맹점, 매장 관계자
 **시작 조건:** 상담/추가구매/변경 요청 의사가 있다.
-**시작점:** OSP 상담신청, 외부 채널, 내부 기존고객 요청
+**시작점:** OSP 상담신청, 외부 채널, 내부 기존가맹점 요청
 **완료 상태:** OC Intake Accepted 또는 Human Review
 
 #### 정상 경로
 
-> 신청 진입 → 정보 입력 → 필수값 검증 → 등록 → OC Handoff → 고객/매장 Match → 접수 완료
+> 신청 진입 → 정보 입력 → 필수값 검증 → 등록 → OC Handoff → 가맹점/매장 Match → 접수 완료
 
-1. 고객이 상담/영업 요청 화면 또는 채널에 진입한다.
+1. 가맹점이 상담/영업 요청 화면 또는 채널에 진입한다.
 2. 이름/연락처/매장 또는 요청 내용을 입력한다.
 3. 시스템이 해당 채널의 필수값을 검증한다.
-4. 고객이 등록/신청 Action을 수행한다.
+4. 가맹점이 등록/신청 Action을 수행한다.
 5. Source와 Request가 OC로 Handoff된다.
-6. OC가 고객/매장 후보를 확인하고 Intake를 수락하거나 Review로 보낸다.
+6. OC가 가맹점/매장 후보를 확인하고 Intake를 수락하거나 Review로 보낸다.
 
 #### 대안 경로
 
-- **`C-01-A01`**** 기존 고객:** 신규 Customer를 만들지 않고 기존 Customer/Store에 Request/Opportunity를 연결한다.
+- **`C-01-A01`**** 기존 가맹점:** 신규 Customer를 만들지 않고 기존 Customer/Store에 Request/Opportunity를 연결한다.
 
 #### 예외·복구
 
@@ -188,8 +199,8 @@ OC는 OSP 또는 기존 고객 요청을 받아 고객·매장 식별, 영업, �
 ### C-02. 견적 확인·수정 요청·수락
 
 **상태:** 확정
-**목적:** 고객이 견적을 확인하고 수락·수정요청·거절 중 하나를 선택한다.
-**사용자:** 계약 의사결정권이 있는 고객 관계자
+**목적:** 가맹점이 견적을 확인하고 수락·수정요청·거절 중 하나를 선택한다.
+**사용자:** 계약 의사결정권이 있는 가맹점 관계자
 **시작 조건:** 발송 가능한 Quote Revision이 존재한다.
 **시작점:** 견적 링크/PDF/영업 담당자 안내
 **완료 상태:** Accepted / Negotiating / Rejected
@@ -198,9 +209,9 @@ OC는 OSP 또는 기존 고객 요청을 받아 고객·매장 식별, 영업, �
 
 > 견적 진입 → 상품/수량/금액/조건 확인 → 수락 또는 수정요청 → 결과 기록 → 계약 Handoff
 
-1. 고객이 최신 유효 견적을 연다.
+1. 가맹점이 최신 유효 견적을 연다.
 2. 상품·수량·금액·조건을 확인한다.
-3. 고객이 수락 또는 수정요청/거절 Action을 선택한다.
+3. 가맹점이 수락 또는 수정요청/거절 Action을 선택한다.
 4. 시스템/운영자가 최신 유효 Revision인지 검증한다.
 5. 수락이면 Accepted Revision으로 기록하고 계약으로 인계한다.
 
@@ -220,8 +231,8 @@ OC는 OSP 또는 기존 고객 요청을 받아 고객·매장 식별, 영업, �
 
 | 대상 | 이전 상태 | 행동·사건 | 다음 상태 | 변경 주체 | 사용자에게 보이는 표현 |
 |---|---|---|---|---|---|
-| Quote Revision | Sent | 수락 | Accepted | 고객/운영자 | 견적 수락 완료 |
-| Quote Revision | Sent | 수정 요청 | Negotiating | 고객/운영자 | 수정 협의 중 |
+| Quote Revision | Sent | 수락 | Accepted | 가맹점/운영자 | 견적 수락 완료 |
+| Quote Revision | Sent | 수정 요청 | Negotiating | 가맹점/운영자 | 수정 협의 중 |
 
 #### 외부 연결 지점
 
@@ -232,7 +243,7 @@ OC는 OSP 또는 기존 고객 요청을 받아 고객·매장 식별, 영업, �
 ### C-03. 계약 확인·서명
 
 **상태:** 확정
-**목적:** 고객이 Accepted Quote 기반 계약내용을 확인하고 서명한다.
+**목적:** 가맹점이 Accepted Quote 기반 계약내용을 확인하고 서명한다.
 **사용자:** 계약 당사자 또는 서명 권한자
 **시작 조건:** Accepted Revision과 계약 초안이 존재한다.
 **시작점:** 계약 링크/전자서명/계약 담당자 안내
@@ -242,9 +253,9 @@ OC는 OSP 또는 기존 고객 요청을 받아 고객·매장 식별, 영업, �
 
 > 계약 진입 → 계약내용 확인 → 서명 → Provider 결과 확인 → Signed → 설치/이행 Handoff
 
-1. 고객이 계약서를 연다.
+1. 가맹점이 계약서를 연다.
 2. 계약 당사자·상품·금액·약정조건을 확인한다.
-3. 고객이 서명 Action을 수행한다.
+3. 가맹점이 서명 Action을 수행한다.
 4. Provider 또는 운영자가 완료 결과를 확인한다.
 5. 성공 확인 후 Contract를 Signed로 전환한다.
 
@@ -263,7 +274,7 @@ OC는 OSP 또는 기존 고객 요청을 받아 고객·매장 식별, 영업, �
 
 | 대상 | 이전 상태 | 행동·사건 | 다음 상태 | 변경 주체 | 사용자에게 보이는 표현 |
 |---|---|---|---|---|---|
-| Contract | Draft/Ready | 서명 완료 확인 | Signed | 고객+시스템/운영자 | 계약 완료 |
+| Contract | Draft/Ready | 서명 완료 확인 | Signed | 가맹점+시스템/운영자 | 계약 완료 |
 
 #### 외부 연결 지점
 
@@ -274,7 +285,7 @@ OC는 OSP 또는 기존 고객 요청을 받아 고객·매장 식별, 영업, �
 ### C-04. 설치 일정 협의·설치 확인
 
 **상태:** 확정
-**목적:** 고객이 설치 일정과 현장조건을 협의하고 설치 결과를 확인한다.
+**목적:** 가맹점이 설치 일정과 현장조건을 협의하고 설치 결과를 확인한다.
 **사용자:** 매장 운영자/현장 Contact
 **시작 조건:** Contract Item이 설치 준비 대상으로 생성된다.
 **시작점:** 설치 일정 연락/안내
@@ -282,12 +293,12 @@ OC는 OSP 또는 기존 고객 요청을 받아 고객·매장 식별, 영업, �
 
 #### 정상 경로
 
-> 일정 제안 → 고객 일정 확인 → 현장 작업 → Evidence/Verification → 결과 확인
+> 일정 제안 → 가맹점 일정 확인 → 현장 작업 → Evidence/Verification → 결과 확인
 
-1. 고객과 설치 가능한 날짜/시간을 협의한다.
+1. 가맹점과 설치 가능한 날짜/시간을 협의한다.
 2. 설치 장소와 현장 연락처를 확인한다.
 3. 기사가 현장 작업을 수행한다.
-4. 고객 확인이 필요한 경우 결과를 확인한다.
+4. 가맹점 확인이 필요한 경우 결과를 확인한다.
 5. 필수 Evidence와 Verification 충족 시 Item을 완료한다.
 
 #### 대안 경로
@@ -316,8 +327,8 @@ OC는 OSP 또는 기존 고객 요청을 받아 고객·매장 식별, 영업, �
 ### C-05. CS·AS 요청 접수
 
 **상태:** 확정
-**목적:** 고객이 문의 또는 장애를 접수하고 처리 추적 가능한 상태를 만든다.
-**사용자:** 고객/매장 관계자
+**목적:** 가맹점이 문의 또는 장애를 접수하고 처리 추적 가능한 상태를 만든다.
+**사용자:** 가맹점/매장 관계자
 **시작 조건:** 문의·고장·장애·변경 요청이 발생한다.
 **시작점:** 고객센터/전화/메시지/내부 접수
 **완료 상태:** Activity 또는 Case 생성
@@ -326,7 +337,7 @@ OC는 OSP 또는 기존 고객 요청을 받아 고객·매장 식별, 영업, �
 
 > 요청 접수 → Customer/Store 확인 → 유형/영향 입력 → Case 필요 판정 → 접수 결과 안내
 
-1. 고객 요청을 접수한다.
+1. 가맹점 요청을 접수한다.
 2. Customer/Store를 확인한다.
 3. 증상·요청내용·영향도를 기록한다.
 4. 추적 필요 시 Case를 생성한다.
@@ -357,8 +368,8 @@ OC는 OSP 또는 기존 고객 요청을 받아 고객·매장 식별, 영업, �
 ### C-06. AS 결과 확인·재요청
 
 **상태:** 확정
-**목적:** 고객이 처리 결과를 확인하고 미해결·재발 시 재처리를 요청한다.
-**사용자:** 고객/매장 관계자
+**목적:** 가맹점이 처리 결과를 확인하고 미해결·재발 시 재처리를 요청한다.
+**사용자:** 가맹점/매장 관계자
 **시작 조건:** Case Work가 처리되었거나 Resolution이 제시된다.
 **시작점:** 처리 결과 안내
 **완료 상태:** Closed / Reopened / Linked Case
@@ -368,9 +379,9 @@ OC는 OSP 또는 기존 고객 요청을 받아 고객·매장 식별, 영업, �
 > 처리결과 확인 → Resolution 확인 → Close Guard → 종료 안내
 
 1. 운영자가 처리 결과를 기록한다.
-2. 고객에게 결과를 안내한다.
+2. 가맹점에게 결과를 안내한다.
 3. 필수 Work와 Resolution 완료 후 Close한다.
-4. 고객에게 종료를 안내한다.
+4. 가맹점에게 종료를 안내한다.
 
 #### 대안 경로
 
@@ -395,18 +406,18 @@ OC는 OSP 또는 기존 고객 요청을 받아 고객·매장 식별, 영업, �
 
 Vendor/외부 기사 결과는 내부 검증 전 최종 Close 근거가 되지 않는다.
 
-### C-07. 기존 고객 추가구매·변경 요청
+### C-07. 기존 가맹점 추가구매·변경 요청
 
 **상태:** 확정
-**목적:** 기존 고객의 추가구매·변경 요청을 기존 이력과 연결한다.
-**사용자:** 기존 고객/매장 관계자
+**목적:** 기존 가맹점의 추가구매·변경 요청을 기존 이력과 연결한다.
+**사용자:** 기존 가맹점/매장 관계자
 **시작 조건:** 기존 Customer/Store가 존재한다.
 **시작점:** Customer 360/전화/담당자 접수
 **완료 상태:** Opportunity Created/Assigned
 
 #### 정상 경로
 
-> 기존 고객 확인 → Store 선택 → 기존 계약/Asset/Case 확인 → 요청 기록 → Opportunity 생성 → 상담/견적
+> 기존 가맹점 확인 → Store 선택 → 기존 계약/Asset/Case 확인 → 요청 기록 → Opportunity 생성 → 상담/견적
 
 #### 대안 경로
 
@@ -430,7 +441,7 @@ N/A.
 
 ## 5. 운영자 흐름
 
-### O-01. 고객·매장 식별 및 Opportunity 생성
+### O-01. 가맹점·매장 식별 및 Opportunity 생성
 
 **상태:** 확정
 **목적:** Intake를 올바른 Customer/Store에 연결하고 Opportunity를 생성한다.
@@ -445,7 +456,7 @@ N/A.
 
 1. Intake Detail에 들어간다.
 2. 이름·전화·상호·주소·사업자정보 등 식별정보를 확인한다.
-3. 고객/매장 검색 Action을 수행한다.
+3. 가맹점/매장 검색 Action을 수행한다.
 4. 단일 명확 후보면 기존 Store에 연결한다.
 5. 신규면 Candidate를 만든다.
 6. Opportunity 생성 Action을 수행한다.
@@ -453,7 +464,7 @@ N/A.
 #### 대안 경로
 
 - **`O-01-A01`**** 단일 명확 Match:** 기존 Store 연결.
-- **`O-01-A02`**** 신규 고객:** 신규 Candidate 생성.
+- **`O-01-A02`**** 신규 가맹점:** 신규 Candidate 생성.
 
 #### 예외·복구
 
@@ -510,7 +521,7 @@ N/A.
 ### O-03. 상담·방문 및 요구사항 확정
 
 **상태:** 확정
-**목적:** 고객 요구·상품·예산·설치조건을 확인해 견적 가능 상태로 만든다.
+**목적:** 가맹점 요구·상품·예산·설치조건을 확인해 견적 가능 상태로 만든다.
 **사용자:** 내부/외부 영업 담당자
 **시작 조건:** Opportunity Assigned
 **시작점:** Opportunity Detail/Touch 기록
@@ -535,8 +546,8 @@ N/A.
 
 | ID | 실패·중단 조건 | 시스템 처리 | 사용자 안내 | 복구·재시도 | 최종 상태 |
 |---|---|---|---|---|---|
-| `O-03-E01` | 고객 연락 불가 | Activity 기록 | 내부 후속 안내 | Follow-up | Follow-up |
-| `O-03-E02` | 고객 거절 | 사유 저장 | 영업 종료 | 향후 재기회 가능 | Rejected |
+| `O-03-E01` | 가맹점 연락 불가 | Activity 기록 | 내부 후속 안내 | Follow-up | Follow-up |
+| `O-03-E02` | 가맹점 거절 | 사유 저장 | 영업 종료 | 향후 재기회 가능 | Rejected |
 
 #### 상태 변화
 
@@ -551,7 +562,7 @@ N/A.
 ### O-04. 견적 작성·승인·발송
 
 **상태:** 확정
-**목적:** 승인된 정책을 기준으로 견적 Revision을 작성하고 고객에게 발송한다.
+**목적:** 승인된 정책을 기준으로 견적 Revision을 작성하고 가맹점에게 발송한다.
 **사용자:** 영업 담당자, 승인자
 **시작 조건:** Quote Ready
 **시작점:** Quote Create/Edit
@@ -559,7 +570,7 @@ N/A.
 
 #### 정상 경로
 
-> 견적 작성 → Policy 적용 → Validation → 필요 시 승인 → 발송 → 고객 결과 반영
+> 견적 작성 → Policy 적용 → Validation → 필요 시 승인 → 발송 → 가맹점 결과 반영
 
 1. Quote 작성 화면에 들어간다.
 2. 상품·수량·가격·할인·조건을 입력한다.
@@ -567,7 +578,7 @@ N/A.
 4. Validation 및 Approval 필요 여부를 확인한다.
 5. 필요 시 승인 요청을 보낸다.
 6. 승인 후 견적 발송 Action을 수행한다.
-7. 고객 수락/수정 결과를 C-02와 연결한다.
+7. 가맹점 수락/수정 결과를 C-02와 연결한다.
 
 #### 대안 경로
 
@@ -740,15 +751,15 @@ Vendor/배송은 `P-02` 참조.
 ### O-09. CS·AS 접수 및 해결
 
 **상태:** 확정
-**목적:** 고객 문의/장애를 Case로 추적하고 해결 후 종료한다.
+**목적:** 가맹점 문의/장애를 Case로 추적하고 해결 후 종료한다.
 **사용자:** CS, AS, Field Team
-**시작 조건:** 고객 요청/장애
+**시작 조건:** 가맹점 요청/장애
 **시작점:** Case Create/Customer 360
 **완료 상태:** Resolved/Closed
 
 #### 정상 경로
 
-> 고객/Store 확인 → 유형/Severity 입력 → Case 생성 → 담당자 배정 → Work 처리 → Resolution → Close
+> 가맹점/Store 확인 → 유형/Severity 입력 → Case 생성 → 담당자 배정 → Work 처리 → Resolution → Close
 
 #### 대안 경로
 
@@ -903,7 +914,7 @@ N/A. 지급 연동은 Finance 영역 Physical Integration 결정 후 연결.
 
 N/A.
 
-### O-13. 기존 고객 추가구매·변경 영업
+### O-13. 기존 가맹점 추가구매·변경 영업
 
 **상태:** 확정
 **목적:** 기존 Customer/Store의 요청을 과거 이력과 연결해 신규 Opportunity로 처리한다.
@@ -930,7 +941,7 @@ N/A.
 
 | 대상 | 이전 상태 | 행동·사건 | 다음 상태 | 변경 주체 | 사용자에게 보이는 표현 |
 |---|---|---|---|---|---|
-| Opportunity | 없음 | 기존고객 요청 생성 | New/Assigned | 운영자 | 추가상담 진행 |
+| Opportunity | 없음 | 기존가맹점 요청 생성 | New/Assigned | 운영자 | 추가상담 진행 |
 
 #### 외부 연결 지점
 
@@ -974,7 +985,7 @@ Item별 외부 기사/Vendor는 각각 `P-01/P-02`로 연결한다.
 ### O-15. AS Escalation
 
 **상태:** 확정
-**목적:** 중대·반복·고객영향 장애를 높은 관리 수준으로 처리한다.
+**목적:** 중대·반복·가맹점영향 장애를 높은 관리 수준으로 처리한다.
 **사용자:** CS, AS 담당자, AS팀장
 **시작 조건:** Escalation Trigger 충족
 **시작점:** Case Detail
@@ -1012,7 +1023,7 @@ Vendor/통신/PG 등 외부협업은 `P-02/P-03`으로 연결한다.
 
 ## 6. 시스템 흐름
 
-### S-01. 고객·매장 중복 후보 탐지
+### S-01. 가맹점·매장 중복 후보 탐지
 
 **상태:** 확정
 **목적:** 잘못된 자동 Merge를 방지하면서 기존 Customer/Store 후보를 제시한다.
@@ -1315,7 +1326,7 @@ Vendor API가 없는 경우 Manual Reference/Status Update 방식도 허용한�
 
 ### 40.1 Multi-Entry / Single OC Intake
 
-고객·가맹점 Request의 Entry Surface는 복수일 수 있다.
+가맹점 Request의 Entry Surface는 복수일 수 있다.
 
 - PayPlay OSP
 - PayPlay Business OS
@@ -1345,11 +1356,11 @@ Contract / Document Source State는 Contract Domain이 소유하고 Self-Service
 
 Shipment는 Inventory & Supply 영역의 배송 Source State를 소유한다.
 `Order/Contract Item → Allocation/Preparation → Shipment → Carrier/Tracking → Delivered / Return / Exchange / Reship`
-Customer 360, Contract/Fulfillment 및 Business OS 고객 화면은 필요한 Shipment 상태를 Projection하며 별도 배송 원장을 만들지 않는다.
+Customer 360, Contract/Fulfillment 및 Business OS 가맹점 화면은 필요한 Shipment 상태를 Projection하며 별도 배송 원장을 만들지 않는다.
 
 ### 40.5 Customer Operational Messaging
 
-계약·영업방문·설치·AS·배송 등 Source Domain의 Event를 기준으로 Kakao/SMS 등 고객 안내를 자동 또는 반자동 발송할 수 있다.
+계약·영업방문·설치·AS·배송 등 Source Domain의 Event를 기준으로 Kakao/SMS 등 가맹점 안내를 자동 또는 반자동 발송할 수 있다.
 `Source Event → Recipient → Template/Draft → Channel → Auto/Semi-auto Send → Delivery Result → Audit`
 메시지는 업무 상태를 소유하지 않는다. Contract / Case / Shipment / Schedule이 각각 Source State를 소유한다.
 

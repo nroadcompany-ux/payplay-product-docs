@@ -91,7 +91,7 @@ Lead Received
 ### Guards
 
 - 동일 Lead 재전송 시 Opportunity 중복 생성 금지.
-- 기존 고객 추가구매는 신규 Customer Account를 자동 생성하지 않는다.
+- 기존 가맹점 추가구매는 신규 Customer Account를 자동 생성하지 않는다.
 - Person Master 물리 위치가 Pending이므로 contact/person은 logical reference 또는 supplied context로만 처리한다.
 - OSP는 Opportunity 이후 Sales State를 소유하지 않는다.
 
@@ -117,7 +117,7 @@ Guards:
 
 ## 6. OSP Quote / Application Boundary
 
-- OSP = 고객-facing 요청 / 신청 / 관심 / 기본선택 생성.
+- OSP = 가맹점-facing 요청 / 신청 / 관심 / 기본선택 생성.
 - OC = 내부 Quote Revision / Cost / Margin / Exception / Approval / Contract 실행.
 - OSP 요청은 Quote 후보 Trigger일 수 있으나 OC 내부 Guard를 우회하지 않는다.
 - OSP에 Restricted Cost / Margin / Commission을 Projection하지 않는다.

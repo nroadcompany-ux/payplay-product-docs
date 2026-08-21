@@ -33,7 +33,7 @@
 
 > 👀 **이 문서는 언제 보나요?**
 > OC의 메뉴와 기능이 **어느 업무영역에 속하는지** 확인할 때 보는 문서입니다. 개발 전 전체 제품 지도를 잡는 용도입니다.
-> 주요 용어: Service Architecture (서비스 구조), Menu & Depth (메뉴 및 단계), Domain (업무영역), Capability (기능 역량), Ownership (담당/소유 책임), Projection (조회·표시용 반영 화면), Self-Service (고객 직접 처리).
+> 주요 용어: Service Architecture (서비스 구조), Menu & Depth (메뉴 및 단계), Domain (업무영역), Capability (기능 역량), Ownership (담당/소유 책임), Projection (조회·표시용 반영 화면), Self-Service (가맹점 직접 처리).
 
 > 🧭 PayPlay OC Developer Package Document #1. 최신 Owner Direction, CLEAN Flow/Rule, Screen/Navigation, Cross-Service, Legacy Preservation Audit를 반영한 Service Architecture / Menu & Depth 최종 Candidate다. Physical DB/API/Provider/Official Screen ID를 확정하지 않는다.
 
@@ -41,7 +41,7 @@
 
 ## 1. Architecture Principle
 
-- OC는 고객·영업·견적·계약·이행·설치·AS·재고·공급·재무·보상·People/HR·회사운영·경영 의사결정의 **내부 Operational System**이다.
+- OC는 가맹점·영업·견적·계약·이행·설치·AS·재고·공급·재무·보상·People/HR·회사운영·경영 의사결정의 **내부 Operational System**이다.
 - 메뉴는 `기능이 존재한다`가 아니라 `직원이 독립적으로 진입해 반복적으로 운영해야 하는 업무영역인가`를 기준으로 노출한다.
 - Projection / Self-Service / Communication / Search Utility를 불필요한 1Depth Menu로 승격하지 않는다.
 - `Legacy Reality ≠ Target Architecture`. 단 Legacy 기능은 무근거 삭제하지 않고 Target Mapping 또는 명시적 Preservation 분류를 가진다.
@@ -51,10 +51,10 @@
 ## 2. Primary Navigation (주요 메뉴) — 1Depth
 
 1. **Today / Work Queue (오늘 / 업무대기열)** — 개인/팀 처리대상, Attention (주의필요), Approval Attention (승인필요)
-2. **Customer (고객)** — Customer List (고객목록) / Customer 360 (고객 360)
+2. **Customer (가맹점)** — Customer List (가맹점목록) / Customer 360 (가맹점 360)
 3. **Sales (영업)** — Lead (리드) / Opportunity (영업기회) / Visit·Consultation (방문·상담) / Sales Activity (영업활동) / Quote (견적) 연결
 4. **Contract & Fulfillment (계약 및 이행)** — Contract (계약) / Contract Item (계약항목) / Change·Transfer·Termination (변경·양도양수·해지) / Fulfillment (이행) / Installation (설치) / Work (작업) / Verification (검수)
-5. **Customer Support (고객지원)** — Unified Intake (통합접수)에서 Service/AS (서비스/AS)로 분기된 Case (케이스) / Remote (원격) / Field (현장) / Vendor (협력사) / Resolution (해결)
+5. **Customer Support (가맹점지원)** — Unified Intake (통합접수)에서 Service/AS (서비스/AS)로 분기된 Case (케이스) / Remote (원격) / Field (현장) / Vendor (협력사) / Resolution (해결)
 6. **Product & Commercial Policy (상품 및 영업정책)** — Product (상품) / Commercial Policy (영업정책) / Version (버전) / Price·Margin·Rule (가격·마진·규칙)
 7. **Inventory & Supply (재고 및 공급)** — Stock (재고) / Reservation (예약) / Supply·Purchase (공급·구매) / Shipment (배송) / Return·Exchange (반품·교환) / Asset Reference (자산참조)
 8. **Restricted Management (제한관리)** — Finance (재무) / Compensation (보상) / People·HR (인사·HR) / Company Operations (회사운영) / Management Decision (경영의사결정)
@@ -100,7 +100,7 @@ Decision (결정) → Reason (사유) → Expected Result (기대결과) → Exe
 ## 4. Common / Collaboration (공통 / 협업)
 
 - **Schedule / Meeting (일정 / 미팅)** — 영업방문·설치·AS·회의·행사 등 Time Commitment (시간약속). Source (원천) 업무 State (상태)는 각 Domain (업무영역)이 소유.
-- **Global Search (통합검색)** — Customer (고객) / Contract (계약) / Case (케이스) / Resource (자원) 등 권한 범위 검색. Company Resource Directory (회사 자원 디렉터리) 포함.
+- **Global Search (통합검색)** — Customer (가맹점) / Contract (계약) / Case (케이스) / Resource (자원) 등 권한 범위 검색. Company Resource Directory (회사 자원 디렉터리) 포함.
 - **Notification (알림)** — 업무 변화 Signal (신호). Source State Owner (원천상태 소유자) 아님.
 - **Team Chat (팀채팅)** — Contextual Collaboration (업무맥락 협업).
 - **AI Assistant (AI 도우미)** — 권한 기반 Retrieve (조회) / Summarize (요약) / Suggest (제안) / Prepare (초안준비). 고위험 Approval (승인) / Decision (결정) / Commit (확정반영) 자율 금지.
@@ -117,7 +117,7 @@ Decision (결정) → Reason (사유) → Expected Result (기대결과) → Exe
 
 ## 6. Unified Intake — Multi-Entry / Single OC Intake
 
-고객·가맹점 접수 Entry는 복수일 수 있다.
+가맹점 접수 Entry는 복수일 수 있다.
 
 `OSP / Business OS / Kakao·CS Channel / External Form / Partner Channel → OC Unified Intake → Customer/Store Match → Request Type → Owner Domain Route → Task/Case/Work → Status/Result Projection`
 

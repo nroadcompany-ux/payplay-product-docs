@@ -91,14 +91,14 @@ OC의 업무 의미와 정책을 구현 방식이 아니라 **관찰 가능한 �
 
 | 용어 | 정의 | 구분 |
 |---|---|---|
-| Customer Account | 동일 실질 운영관계로 관리하는 고객그룹 | Legal Entity와 다름 |
+| Customer Account | 동일 실질 운영관계로 관리하는 가맹점그룹 | Legal Entity와 다름 |
 | Store | 설치·운영·AS가 발생하는 사업장 단위 | Merchant Account와 다름 |
 | Merchant Account | Shared Merchant Master의 가맹점 식별 구조 | Store와 별도 Entity |
 | Person | Shared Person Master의 개인 식별 대상 | OC는 참조/편집 UI 제공 가능 |
 | Quote Revision | 견적의 불변 버전 | Sent 이후 직접 덮어쓰기 금지 |
 | Contract Item | 계약 내 개별 상품·서비스 이행 단위 | Contract Header와 분리 |
 | Work Item | 설치/AS 등 실제 수행 단위 | Requirement/Case와 연결 |
-| Case | 추적이 필요한 고객 요청·장애 | 단순 Activity와 구분 |
+| Case | 추적이 필요한 가맹점 요청·장애 | 단순 Activity와 구분 |
 | Policy Snapshot | 당시 적용된 Rule/Value 불변 기록 | 이후 Policy 변경과 분리 |
 
 **식별자 규칙**
@@ -181,7 +181,7 @@ OC의 업무 의미와 정책을 구현 방식이 아니라 **관찰 가능한 �
 - `CUSTOMER-R02` Customer Account와 Store는 논리적으로 구분한다.
 - `CUSTOMER-R03` Store와 Merchant Account는 별도 Entity로 연결한다.
 - `CUSTOMER-R04` 한 Person은 복수 전화번호를 가질 수 있다.
-- `CUSTOMER-R05` 고객관계 대표 Person 기본값은 최초/원계약 관계자를 우선하되 법적/PG/정산 명의와 분리한다.
+- `CUSTOMER-R05` 가맹점관계 대표 Person 기본값은 최초/원계약 관계자를 우선하되 법적/PG/정산 명의와 분리한다.
 - `CUSTOMER-R06` Shared Person/Merchant의 Physical Owner는 Common Infrastructure이며 OC는 참조/Projection/허용된 편집 UI를 제공한다.
 
 **입력/검증:** 이름, 상호, 전화, 주소, 사업자정보 등 Match 가능한 값. Exact Match Threshold는 Configuration Pending.
@@ -195,7 +195,7 @@ OC의 업무 의미와 정책을 구현 방식이 아니라 **관찰 가능한 �
 - `SALES-R03` 담당자 배정 시 활성 사용자·Role·Scope를 검증한다.
 - `SALES-R04` 담당자 미확정 시 Team Queue에 둘 수 있으며 강제 가짜 Assignee를 만들지 않는다.
 - `SALES-R05` 상담/방문/Follow-up은 Activity/Touch 이력을 남긴다.
-- `SALES-R06` 기존 고객 추가구매도 기존 Customer/Store Context에서 새 Opportunity로 처리한다.
+- `SALES-R06` 기존 가맹점 추가구매도 기존 Customer/Store Context에서 새 Opportunity로 처리한다.
 
 ### 6.3 QUOTE
 
@@ -205,7 +205,7 @@ OC의 업무 의미와 정책을 구현 방식이 아니라 **관찰 가능한 �
 - `QUOTE-R04` Provider Send 실패/Unknown은 `Sent`로 확정하지 않는다.
 - `QUOTE-R05` Accepted 대상은 특정 Quote Revision이며 Quote Header 전체를 추상적으로 수락 처리하지 않는다.
 
-**입력:** 상품/서비스, 수량, 단가/할인, 적용 Policy, 고객/Store, 유효기간, 메모/조건.
+**입력:** 상품/서비스, 수량, 단가/할인, 적용 Policy, 가맹점/Store, 유효기간, 메모/조건.
 
 **AC 예시:** Given Approval Pending Revision, When Send, Then 차단되고 상태는 Approval Pending을 유지한다.
 
@@ -248,7 +248,7 @@ OC의 업무 의미와 정책을 구현 방식이 아니라 **관찰 가능한 �
 - `CASE-R06` Severity는 S1 긴급 / S2 높음 / S3 일반 / S4 낮음.
 - `CASE-R07` 반복장애 기준은 동일 Store + 동일/유사 증상 + 30일 이내 2회 이상.
 - `CASE-R08` Escalation 시 기존 담당자를 유지하며 AS팀장을 공동담당으로 추가하고 팀장은 재배정할 수 있다.
-- `CASE-R09` 처리상태는 `접수(New) → 배정(Assigned) → 처리중(In Progress) → 보류/고객대기/외부업체대기 → 해결(Resolved) → 종료(Closed)`를 사용하며 `취소(Cancelled)`는 별도 상태로 관리한다. 사용자 표시는 한글명을 우선하고 코드/논리 상태값은 괄호의 영문 표기를 사용한다.
+- `CASE-R09` 처리상태는 `접수(New) → 배정(Assigned) → 처리중(In Progress) → 보류/가맹점대기/외부업체대기 → 해결(Resolved) → 종료(Closed)`를 사용하며 `취소(Cancelled)`는 별도 상태로 관리한다. 사용자 표시는 한글명을 우선하고 코드/논리 상태값은 괄호의 영문 표기를 사용한다.
 
 ### 6.8 FINANCE
 
@@ -338,7 +338,7 @@ OC의 업무 의미와 정책을 구현 방식이 아니라 **관찰 가능한 �
 | O-10 비용·정산 | FINANCE | FIN-R01~R06 | 증빙 Optional, 승인, Adjustment |
 | O-11 수당·인센티브 | COMP/POLICY | COMP-R01~R06, POLICY-R01~R04 | Eligibility, Pending Formula |
 | O-12 경영 의사결정 | MGMT | MGMT-R01~R05, COMMON-R01~R05 | 입력, 권한, Revision, 결과검토 |
-| O-13 기존고객 추가구매 | SALES/CUSTOMER | SALES-R06, CUSTOMER-R01~R03 | 기존 Store Context |
+| O-13 기존가맹점 추가구매 | SALES/CUSTOMER | SALES-R06, CUSTOMER-R01~R03 | 기존 Store Context |
 | O-14 복수 Item 이행 | FULFILLMENT | FULFILL-R05~R08 | Item 독립상태, Activation |
 | O-15 AS Escalation | CASE | CASE-R05~R09, NOTIFY-R01 | Trigger, Severity, 공동담당 |
 | S-01 Match 자동보조 | CUSTOMER | CUSTOMER-R01, VALID-R04 | Auto Merge 금지 |
@@ -358,7 +358,7 @@ OC의 업무 의미와 정책을 구현 방식이 아니라 **관찰 가능한 �
 | Quote Revision | Draft → Approval Pending → Approved/Ready → Sent → Accepted/Negotiating/Rejected |
 | Contract | Draft/Ready → Signed; 변경은 Amendment/Revision |
 | Work Item | Ready → Scheduled → In Progress → Verified/Partial/Failure |
-| Case | 접수/New → Assigned → In Progress → 보류/고객대기/외부업체대기 → Resolved → Closed; 재발 시 Reopen/Linked |
+| Case | 접수/New → Assigned → In Progress → 보류/가맹점대기/외부업체대기 → Resolved → Closed; 재발 시 Reopen/Linked |
 | Settlement | 작성중 → 검토대기 → 보류/승인확정 → 지급대기 → 정산완료; 별도 취소 |
 | Management Decision | 기안 → 검토중 → 보류/반려/결정완료 → 실행중 → 결과검토 → 종료; 별도 취소 |
 
@@ -459,15 +459,15 @@ OC의 업무 의미와 정책을 구현 방식이 아니라 **관찰 가능한 �
 
 ### 18.2 Multi-Entry / Single OC Intake
 
-- `COMMON-R09` 고객·가맹점 Request 접수 Entry는 OSP, Business OS, Kakao/CS Channel, External Form, Partner Channel 등 복수 Surface를 허용한다.
+- `COMMON-R09` 가맹점 Request 접수 Entry는 OSP, Business OS, Kakao/CS Channel, External Form, Partner Channel 등 복수 Surface를 허용한다.
 - `COMMON-R10` 실제 내부 처리가 필요한 Request의 Operational Master는 **OC Unified Intake**로 단일화한다. Source Surface는 자체 운영 원장을 별도로 만들지 않는다.
 - `COMMON-R11` Unified Intake는 최소 `Source Channel`, `Request Type`, `Customer/Store Ref`, `Payload/Attachment`, `Consent Context`, `Correlation ID`를 식별·보존해야 한다. Exact Physical Field/API Schema는 Integration Pending이다.
-- `COMMON-R12` OC는 Request Type과 Customer/Store Context를 기준으로 Owner Domain에 Route하며, 처리 결과와 고객 노출 상태는 필요한 Source Surface에 Projection한다.
+- `COMMON-R12` OC는 Request Type과 Customer/Store Context를 기준으로 Owner Domain에 Route하며, 처리 결과와 가맹점 노출 상태는 필요한 Source Surface에 Projection한다.
 - `COMMON-R13` 조회·다운로드·FAQ·정상 Self-Service는 실제 직원 처리 Request가 발생하지 않는 한 OC Request를 생성하지 않는다.
 
 ### 18.3 Contract Document Self-Service
 
-- `CONTRACT-R06` 체결 완료된 전자계약서는 권한이 확인된 고객이 Business OS에서 조회·다운로드할 수 있는 Self-Service Projection을 제공한다.
+- `CONTRACT-R06` 체결 완료된 전자계약서는 권한이 확인된 가맹점이 Business OS에서 조회·다운로드할 수 있는 Self-Service Projection을 제공한다.
 - `CONTRACT-R07` 정상 계약서 조회·다운로드는 OC Request를 생성하지 않는다.
 - `CONTRACT-R08` 과거 계약서 누락, 문서 손상/조회 실패, 본인·권한 확인 필요, 특수 재발급/증명 등 예외 상황에서만 `CONTRACT_COPY_REQUEST`를 OC Unified Intake로 전환한다.
 - `CONTRACT-R09` Contract/Document 원본 상태와 체결 이력은 Contract Domain이 소유하며 Business OS는 조회/다운로드 Surface 역할을 한다.
@@ -490,7 +490,7 @@ OC의 업무 의미와 정책을 구현 방식이 아니라 **관찰 가능한 �
 
 ### 18.6 Customer Operational Messaging
 
-- `COMMON-R17` Kakao/SMS 등 Customer Messaging은 Source Domain의 Business Event를 받아 고객에게 전달하는 Communication Layer이며 업무 원장이 아니다.
+- `COMMON-R17` Kakao/SMS 등 Customer Messaging은 Source Domain의 Business Event를 받아 가맹점에게 전달하는 Communication Layer이며 업무 원장이 아니다.
 - `COMMON-R18` Contract, Fulfillment, Case, Shipment, Schedule 등 Source Domain의 상태를 메시지 발송 결과가 직접 변경하지 않는다.
 - `COMMON-R19` System State가 명확한 접수완료·일정확정·계약완료·출고/송장등록·설치완료·AS완료 등은 Auto-send 후보가 될 수 있다.
 - `COMMON-R20` 영업자료 선택, 특수 계약, 중요 AS 등 담당자 판단이 필요한 안내는 Semi-auto Draft/Review 후보로 둔다.

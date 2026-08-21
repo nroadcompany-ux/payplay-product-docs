@@ -210,7 +210,7 @@
 - Logical identity method: **One-time Secure Link — CLOSED** (문서 상단 §A 기준). Pending: **Identity Provider Physical Binding, Secure Link Token Implementation, Signed/Secure Download Physical Implementation**, exact HR document template/legal requirement, retention/destruction, physical Person/IAM relation.
 - 영향: 퇴사자 서비스와 민감 HR production release.
 
-### I-11 Request / Cross-Service Physical Contract (고객요청·서비스간 실제 연동 규격)
+### I-11 Request / Cross-Service Physical Contract (가맹점요청·서비스간 실제 연동 규격)
 
 - Multi-Entry / Single OC Intake logical contract는 확정.
 - Pending: Request Type physical enum/API, source-specific status taxonomy, callback/retry/idempotency/reconciliation exact contract.

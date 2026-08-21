@@ -216,7 +216,7 @@ Global Search: `OC-SEARCH-001`에서 권한 범위 내 Resource 검색 가능.
 ### Contract Document Self-Service
 
 - 정상 경로는 Business OS.
-- OC Contract Detail에서는 Source Document / e-sign status / assisted exception action을 제공할 수 있으나 별도 고객용 Self-Service Screen을 만들지 않는다.
+- OC Contract Detail에서는 Source Document / e-sign status / assisted exception action을 제공할 수 있으나 별도 가맹점용 Self-Service Screen을 만들지 않는다.
 
 ### Sales Data Self-Service
 

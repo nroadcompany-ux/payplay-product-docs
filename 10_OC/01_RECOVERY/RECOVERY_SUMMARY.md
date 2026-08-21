@@ -12,7 +12,7 @@
 
 ## 1. Recovery Source
 ### TMS
-실제 운영 Transaction 중심 Legacy Source. 고객/매장, Lead/상담/영업/방문, 견적/계약/전자계약, 설치/일정/현장, CS/AS, 배송/발주/재고/Vendor, 정산/비용/마진, Task/일정/미팅/프로젝트, 근태/휴가, 차량/주차/CCTV/회사정보, 사용자/보안, AI/팀채팅 자산이 확인됐다.
+실제 운영 Transaction 중심 Legacy Source. 가맹점/매장, Lead/상담/영업/방문, 견적/계약/전자계약, 설치/일정/현장, CS/AS, 배송/발주/재고/Vendor, 정산/비용/마진, Task/일정/미팅/프로젝트, 근태/휴가, 차량/주차/CCTV/회사정보, 사용자/보안, AI/팀채팅 자산이 확인됐다.
 
 ### WDI
 재무·인사·경영·Decision 의미자산 중심 Legacy Source. `Decision → Reason → Expected Result → Actual Result → Review → Status` 및 재무/매출/거래/계좌/직원/거래처 개념이 확인됐다.
