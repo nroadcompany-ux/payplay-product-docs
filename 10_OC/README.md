@@ -18,16 +18,30 @@ PayPlay 내부·외부 운영인력이 사용하는 운영체계. 고객, 영업
 2. `02_DOMAIN_SCOPE/`
 3. `03_CAPABILITIES/`
 4. `06_ENTITY_DATA/`
-5. `04_FLOWS/user-and-operations-flows.md`
-6. `05_REQUIREMENTS_POLICIES/detailed-requirements-and-business-policies.md`
+5. `04_FLOWS/USER_AND_OPERATIONS_FLOWS.md`
+6. `05_REQUIREMENTS_POLICIES/DETAILED_REQUIREMENTS_BUSINESS_POLICIES.md`
 7. `07_ARCHITECTURE/`
 8. `08_SPECIFICATIONS/`
 9. `09_DECISIONS/`
 10. `10_AUDIT/OC_TRACEABILITY_GAP_AUDIT_v1.md`
 
+## Developer Package (2026-08-21 입고 · FREEZE READY / SOT NO)
+공식 Reading Order `#1 → #2 → #3 → #4`. 안내는 `DEVELOPER_PACKAGE_GUIDE.md`.
+- `#1` `07_ARCHITECTURE/SERVICE_ARCHITECTURE_MENU_DEPTH.md` — PP-OC-SVC-ARCH-MENU-001
+- `#2` `04_FLOWS/USER_AND_OPERATIONS_FLOWS.md` — PP-OC-USER-OPS-FLOW-001
+- `#3` `05_REQUIREMENTS_POLICIES/DETAILED_REQUIREMENTS_BUSINESS_POLICIES.md` — PP-OC-REQ-BIZ-POLICY-001
+- `#4` `08_SPECIFICATIONS/SCREEN_NAVIGATION_TRACEABILITY.md` — PP-OC-SCREEN-NAV-TRACE-001
+- `09_DECISIONS/FINAL_PENDING_REGISTER.md` — PP-OC-FINAL-PENDING-REGISTER-001
+
+Main PM 승인 전이므로 APPROVED / Source of Truth YES가 아니다.
+
+## SUPERSEDED (2026-08-21 · 삭제하지 않음)
+- `04_FLOWS/user-and-operations-flows.md` (PP-OC-FLOWS-001) → `04_FLOWS/USER_AND_OPERATIONS_FLOWS.md`
+- `05_REQUIREMENTS_POLICIES/detailed-requirements-and-business-policies.md` (PP-OC-REQS-001) → `05_REQUIREMENTS_POLICIES/DETAILED_REQUIREMENTS_BUSINESS_POLICIES.md`
+
+Header 표기만 변경했고 본문은 보존된다. 기존 `OC-FLOW-*` 식별자 추적용으로 계속 참조 가능하며 신규 개발 기준으로는 사용하지 않는다.
+
 ## APPROVED / SOT YES
-- `04_FLOWS/user-and-operations-flows.md`
-- `05_REQUIREMENTS_POLICIES/detailed-requirements-and-business-policies.md`
 - `06_ENTITY_DATA/ENTITY_DATA_ARCHITECTURE.md`
 - `06_ENTITY_DATA/SHARED_ENTITY_DECISION_APPLIED.md`
 - `09_DECISIONS/DECISION_REGISTER.md`
@@ -37,7 +51,7 @@ PayPlay 내부·외부 운영인력이 사용하는 운영체계. 고객, 영업
 Recovery, Domain/Scope, Capability Inventory, Permission/Security/Credential, State/Transition, Commercial Policy implementation architecture, Migration/Identity/DQ, API/Service Boundary, People/HR Spec, Screen Traceability Summary.
 
 ## PENDING
-`09_DECISIONS/PENDING_REGISTER.md`
+`09_DECISIONS/PENDING_REGISTER.md` · `09_DECISIONS/FINAL_PENDING_REGISTER.md` (Developer Package Final Gate Index)
 
 ## Gate
 Final Documentation = PASS WITH PENDINGS; Follow-up Architecture = APPROVED; Development Planning/Specification = CONDITIONALLY APPROVED; Development Ready/QA Ready = 아직 아님.

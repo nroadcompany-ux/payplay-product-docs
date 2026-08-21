@@ -243,8 +243,8 @@ Company Resource Directory 추가 Guard:
 공식 Reading Order는 `#1 Architecture → #2 Flow → #3 Rule → #4 Screen`이다.
 
 - **#1 현재 문서:** Service Architecture / Menu & Depth
-- **#2 User & Operations Flows:** [Notion 원문 — v5.2 CLEAN / CROSS-SYNC](https://app.notion.com/p/3bf53327fb868164bb03d968f010ea1f) · GitHub 입고 보류 (아래 Intake Note 참조)
-- **#3 Detailed Requirements & Business Policies:** [Notion 원문 — v4.1 CLEAN / AUDITED](https://app.notion.com/p/3bf53327fb8681ba8a9dceb9dd71652c) · GitHub 입고 보류 (아래 Intake Note 참조)
+- **#2 User & Operations Flows:** [USER_AND_OPERATIONS_FLOWS.md](../04_FLOWS/USER_AND_OPERATIONS_FLOWS.md)
+- **#3 Detailed Requirements & Business Policies:** [DETAILED_REQUIREMENTS_BUSINESS_POLICIES.md](../05_REQUIREMENTS_POLICIES/DETAILED_REQUIREMENTS_BUSINESS_POLICIES.md)
 - **#4 Screen & Navigation / Traceability:** [SCREEN_NAVIGATION_TRACEABILITY.md](../08_SPECIFICATIONS/SCREEN_NAVIGATION_TRACEABILITY.md)
 - **Package Guide:** [DEVELOPER_PACKAGE_GUIDE.md](../DEVELOPER_PACKAGE_GUIDE.md)
 
@@ -256,4 +256,4 @@ Company Resource Directory 추가 Guard:
 
 - 본 문서는 Notion Developer Package Document #1을 GitHub에 신규 입고한 것이다. 동일 목적의 기존 GitHub 파일은 없었다.
 - Header Status는 Notion 원문의 `FREEZE READY WITH NON-BLOCKING PENDINGS`를 유지했다. 입고 과정에서 `APPROVED` / `Source of Truth YES`로 승격하지 않았다.
-- Developer Package #2 / #3은 기존 GitHub APPROVED / Source of Truth YES 문서(`PP-OC-FLOWS-001`, `PP-OC-REQS-001`)와 Document ID·Status가 달라 입고를 보류하고 Main PM 판단을 요청했다. 상세는 [FINAL_PENDING_REGISTER.md](../09_DECISIONS/FINAL_PENDING_REGISTER.md) 및 [DEVELOPER_PACKAGE_GUIDE.md](../DEVELOPER_PACKAGE_GUIDE.md)의 Intake Status를 참조한다.
+- Developer Package #2 / #3은 Claude PM3 추가 지시(2026-08-21)에 따라 기존 `PP-OC-FLOWS-001` / `PP-OC-REQS-001`을 SUPERSEDED 처리하고 신규 파일로 입고 완료했다. 기존 파일은 삭제하지 않았다. 상세는 [DEVELOPER_PACKAGE_GUIDE.md](../DEVELOPER_PACKAGE_GUIDE.md)의 Intake Status를 참조한다.

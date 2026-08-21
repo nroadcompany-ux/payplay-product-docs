@@ -22,8 +22,8 @@
 > ✅ **Developer Package Official Reading Order — 2026-08-21:** `#1 Service Architecture / Menu & Depth → #2 User & Operations Flows → #3 Detailed Requirements & Business Policies → #4 Screen & Navigation / Traceability`. 아래 링크가 현재 Finalization 기준 공식 4문서다.
 
 1. [#1 Service Architecture / Menu & Depth — Final Candidate v1.0](./07_ARCHITECTURE/SERVICE_ARCHITECTURE_MENU_DEPTH.md)
-2. [#2 User & Operations Flows — v5.2 CLEAN / CROSS-SYNC](https://app.notion.com/p/3bf53327fb868164bb03d968f010ea1f) — GitHub 입고 보류, 아래 Intake Status 참조
-3. [#3 Detailed Requirements & Business Policies — v4.1 CLEAN / AUDITED](https://app.notion.com/p/3bf53327fb8681ba8a9dceb9dd71652c) — GitHub 입고 보류, 아래 Intake Status 참조
+2. [#2 User & Operations Flows — v5.2 CLEAN / CROSS-SYNC](./04_FLOWS/USER_AND_OPERATIONS_FLOWS.md)
+3. [#3 Detailed Requirements & Business Policies — v4.1 CLEAN / AUDITED](./05_REQUIREMENTS_POLICIES/DETAILED_REQUIREMENTS_BUSINESS_POLICIES.md)
 4. [#4 Screen & Navigation / Traceability — Final Candidate v1.0](./08_SPECIFICATIONS/SCREEN_NAVIGATION_TRACEABILITY.md)
 
 **Reading Rule:** #1에서 기능 위치/Ownership을 먼저 확인하고 → #2에서 Actor·목적·상태변화·Handoff를 이해하고 → #3에서 Rule·Validation·Permission·Exception을 확인한 뒤 → #4에서 실제 Screen/Navigation 구현 위치를 확정한다. 역순으로 읽어 Screen을 기준으로 업무 의미를 재정의하지 않는다.
@@ -519,27 +519,26 @@ Claude PM3 Documentation Controller가 수행한 Developer Package GitHub 입고
 | # | 문서 | Document ID | GitHub Path | Intake Status |
 |---|---|---|---|---|
 | #1 | Service Architecture / Menu & Depth | `PP-OC-SVC-ARCH-MENU-001` | `10_OC/07_ARCHITECTURE/SERVICE_ARCHITECTURE_MENU_DEPTH.md` | GITHUB COMMITTED (신규) |
-| #2 | User & Operations Flows | `PP-OC-USER-OPS-FLOW-001` | — | **HOLD — Main PM 판단 요청** |
-| #3 | Detailed Requirements & Business Policies | `PP-OC-REQ-BIZ-POLICY-001` | — | **HOLD — Main PM 판단 요청** |
+| #2 | User & Operations Flows | `PP-OC-USER-OPS-FLOW-001` | `10_OC/04_FLOWS/USER_AND_OPERATIONS_FLOWS.md` | GITHUB COMMITTED (신규 · `PP-OC-FLOWS-001` 승계) |
+| #3 | Detailed Requirements & Business Policies | `PP-OC-REQ-BIZ-POLICY-001` | `10_OC/05_REQUIREMENTS_POLICIES/DETAILED_REQUIREMENTS_BUSINESS_POLICIES.md` | GITHUB COMMITTED (신규 · `PP-OC-REQS-001` 승계) |
 | #4 | Screen & Navigation / Traceability | `PP-OC-SCREEN-NAV-TRACE-001` | `10_OC/08_SPECIFICATIONS/SCREEN_NAVIGATION_TRACEABILITY.md` | GITHUB COMMITTED (신규) |
 | — | Final Pending Register | `PP-OC-FINAL-PENDING-REGISTER-001` | `10_OC/09_DECISIONS/FINAL_PENDING_REGISTER.md` | GITHUB COMMITTED (신규) |
 | — | Developer Package Guide (현재 문서) | `PP-OC-DEV-PACKAGE-GUIDE-001` | `10_OC/DEVELOPER_PACKAGE_GUIDE.md` | GITHUB COMMITTED (신규) |
 
-### #2 / #3 HOLD 사유 — STOP Condition
+### #2 / #3 Supersede 처리 — 2026-08-21 RESOLVED
 
-Developer Package #2 / #3은 기존 GitHub 공식 문서와 **Document ID·Status가 모두 다르고, 기존 문서가 상위 Status(APPROVED / Source of Truth YES)** 이므로 임의 갱신 시 승격 또는 강등이 발생한다.
+최초 입고 시 #2 / #3은 기존 GitHub 공식 문서와 Document ID·Status가 달라 STOP Condition으로 보류했다. **Claude PM3 추가 지시(2026-08-21)로 Supersede 방식이 승인되어 입고를 완료했다.**
 
-| 항목 | 기존 GitHub 공식 문서 | 입고 대상 Developer Package |
+| 구분 | 기존 문서 (SUPERSEDED) | 신규 문서 (승계) |
 |---|---|---|
-| #2 | `PP-OC-FLOWS-001` · `10_OC/04_FLOWS/user-and-operations-flows.md` · **APPROVED / SOT YES** · Flow ID `OC-FLOW-001~013` | `PP-OC-USER-OPS-FLOW-001` · FREEZE READY (원문 명시: "개발자 검토 전 승인 아님") · Flow ID `C/O/S/P` 29개 |
-| #3 | `PP-OC-REQS-001` · `10_OC/05_REQUIREMENTS_POLICIES/detailed-requirements-and-business-policies.md` · **APPROVED / SOT YES** · 절 단위 정책 서술 | `PP-OC-REQ-BIZ-POLICY-001` · FREEZE READY · Business Rule ID `[CONTEXT]-R[NN]` 체계 |
+| #2 | `PP-OC-FLOWS-001` · `10_OC/04_FLOWS/user-and-operations-flows.md` · Flow ID `OC-FLOW-001~013` | `PP-OC-USER-OPS-FLOW-001` · `10_OC/04_FLOWS/USER_AND_OPERATIONS_FLOWS.md` · Flow ID `C/O/S/P` 29개 |
+| #3 | `PP-OC-REQS-001` · `10_OC/05_REQUIREMENTS_POLICIES/detailed-requirements-and-business-policies.md` · 절 단위 정책 서술 | `PP-OC-REQ-BIZ-POLICY-001` · `10_OC/05_REQUIREMENTS_POLICIES/DETAILED_REQUIREMENTS_BUSINESS_POLICIES.md` · Business Rule ID `[CONTEXT]-R[NN]` |
 
-추가로 기존 `10_OC/08_SPECIFICATIONS/SCREEN_SPECIFICATION_TRACEABILITY_SUMMARY.md`가 `OC-FLOW-008`을 Traceability 근거로 직접 참조하고 있어, `user-and-operations-flows.md`를 덮어쓰면 **Trace Break / Content Loss**가 발생한다.
+**처리 원칙 (준수 확인)**
 
-두 문서 모두 `Supersedes` 선언이 없으므로, 아래 중 어느 것으로 처리할지 Main PM 결정이 필요하다.
+- 기존 파일 **삭제하지 않음.** Header Status만 `SUPERSEDED`로 변경했고 본문은 byte 단위로 동일하게 보존했다.
+- 따라서 기존 `OC-FLOW-001~013` Flow ID와, 이를 참조하는 `10_OC/08_SPECIFICATIONS/SCREEN_SPECIFICATION_TRACEABILITY_SUMMARY.md`의 `OC-FLOW-008` Traceability는 계속 해석 가능하다. **Trace Break 없음.**
+- 신규 문서 Header Status는 Notion 원문의 `FREEZE READY`를 유지했고 `APPROVED` / `Source of Truth YES`로 승격하지 않았다.
+- Pending 값 임의 확정 없음. Legacy 항목 삭제·누락 없음.
 
-1. Developer Package #2/#3을 기존 APPROVED 문서의 **Supersede 승인본**으로 승격 → 기존 문서를 `SUPERSEDED` 처리하고 갱신
-2. 기존 APPROVED 문서를 유지하고 Developer Package #2/#3을 **별도 Candidate 문서로 병존 입고** (Document ID가 다르므로 중복 아님)
-3. 두 체계의 Flow ID / Rule ID **Cross-Mapping 문서를 먼저 작성**한 후 입고
-
-Claude PM3는 신규 Product Decision 및 Header Status 승격 권한이 없으므로 위 결정 전까지 #2/#3 입고를 보류한다.
+**Main PM 확인 요청 1건:** 기존 두 파일의 `Source of Truth`를 `YES → NO (SUPERSEDED — 2026-08-21)`로 함께 조정했다. PM3 지시에 명시된 4개 항목(Status / Superseded by / Superseded date / Note)에는 없었으나, `SUPERSEDED` 문서가 `Source of Truth YES`로 남으면 `80_DEVELOPMENT/DEVELOPMENT_GUARDRAILS.md`의 "SUPERSEDED = 구버전, 사용 금지" 규정과 충돌하고 개발자가 구버전을 기준문서로 오인할 수 있어 함께 반영했다. 원복이 필요하면 회신 바란다.

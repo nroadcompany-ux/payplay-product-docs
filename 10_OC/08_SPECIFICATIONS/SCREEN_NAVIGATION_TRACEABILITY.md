@@ -405,8 +405,8 @@ Unmapped Legacy는 반드시 Explicitly Removed / Legacy Preservation Only / Pla
 공식 Reading Order: `#1 Architecture → #2 Flow → #3 Rule → #4 Screen`
 
 - **#1 Service Architecture / Menu & Depth:** [SERVICE_ARCHITECTURE_MENU_DEPTH.md](../07_ARCHITECTURE/SERVICE_ARCHITECTURE_MENU_DEPTH.md)
-- **#2 User & Operations Flows:** [Notion 원문 — v5.2 CLEAN / CROSS-SYNC](https://app.notion.com/p/3bf53327fb868164bb03d968f010ea1f) · GitHub 입고 보류 (아래 Intake Note 참조)
-- **#3 Detailed Requirements & Business Policies:** [Notion 원문 — v4.1 CLEAN / AUDITED](https://app.notion.com/p/3bf53327fb8681ba8a9dceb9dd71652c) · GitHub 입고 보류 (아래 Intake Note 참조)
+- **#2 User & Operations Flows:** [USER_AND_OPERATIONS_FLOWS.md](../04_FLOWS/USER_AND_OPERATIONS_FLOWS.md)
+- **#3 Detailed Requirements & Business Policies:** [DETAILED_REQUIREMENTS_BUSINESS_POLICIES.md](../05_REQUIREMENTS_POLICIES/DETAILED_REQUIREMENTS_BUSINESS_POLICIES.md)
 - **#4 현재 문서:** Screen & Navigation / Traceability
 - **Package Guide:** [DEVELOPER_PACKAGE_GUIDE.md](../DEVELOPER_PACKAGE_GUIDE.md)
 
