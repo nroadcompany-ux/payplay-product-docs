@@ -29,9 +29,14 @@
 
 > 아래 과거 `Human Handoff Ready = NO`, `Audit IN PROGRESS` 문구는 Historical Audit Status입니다. 현재는 본 섹션을 우선합니다.
 
-> ℹ️ **Intake Note — Stale Status Index (2026-08-21 Final SOT Resync):** 원문 보존 원칙에 따라 아래 Historical 표현을 삭제하지 않았다. **현재 확정 상태는 위 `FINAL PACKAGE STATUS` 블록이 유일한 기준**이며, 다음 위치의 `Human Handoff Ready = NO` / `IN PROGRESS` 표현은 **전부 Historical Status**다 — ① `🧹 Cross-Audit Round 2 Status Override` ② `🟡 Latest Handoff Status` ③ `🧭 Historical Logical Gate` ④ `5. PM Gate` 하단 Current Handoff Status ⑤ `진행상태 > Next` ⑥ `Human Handoff Cross-Audit Round 2 — Status Override` 섹션. 어느 것도 현재 상태 판정에 사용하지 않는다.
+> ℹ️ **Intake Note — Historical Isolation (2026-08-21 Delta Cleanup):** 과거 `Human Handoff Ready = NO` / `Audit IN PROGRESS` 표현은 삭제하지 않고 아래 `📋 Historical Audit / Previous Handoff Status` Toggle 안으로 격리했다. **Toggle 밖 본문은 전부 현재 상태(Current)** 이며, 현재 확정 상태는 위 `FINAL PACKAGE STATUS` 블록이 유일한 기준이다.
 
 ---
+
+<details>
+<summary>📋 Historical Audit / Previous Handoff Status (과거 Audit 상태 기록 — 현재 상태 아님)</summary>
+
+> 아래는 Human Handoff Audit 진행 중 기록된 과거 상태입니다. **현재 상태는 위 `FINAL PACKAGE STATUS` 블록** (`Human Handoff Ready = YES` / `Final SOT Freeze = COMPLETE` / `Final Fix Verification = 6/6 PASS`) 입니다. 이 Toggle의 내용은 삭제하지 않고 Evidence로 보존합니다.
 
 > 🧹 **Cross-Audit Round 2 Status Override — 2026-08-21** *(Historical)*
 > 하단의 과거 `OC Handoff updated: 2026-08-19`, `Next: Service Architecture / Menu & Depth — IN PROGRESS` 문구는 Historical Status입니다. 현재 상태는 **#1~#4 Finalization COMPLETE / Full Human Handoff Audit IN PROGRESS / Human Handoff Ready = NO**이며, 현재 Next는 **Audit 4~6 / Full Cross-Trace / Human Worker Final Read / Claude Parallel Cross-Audit**입니다.
@@ -41,13 +46,40 @@
 > **Human Handoff Ready (사람 작업자 최종 전달 가능): NO — Audit 3~6 및 Cross-Audit 종료 후 최종 판정.**
 > GitHub Final Resync / `main` Merge는 Final SOT Freeze 전까지 HOLD합니다.
 
+> 🧭 **Historical Logical Gate — 2026-08-21: PASS (Human Handoff Final Gate 아님).** *(Historical)*
+> Developer Readable **YES** / Development Startable **YES** / Major OC Flow Implementable **YES** / Package-wide Scope-Blocking Pending **0** / QA Ready **NOT YET**. 이후 사람 인수인계 완성도를 별도로 재검수하기 위해 Human Handoff Ready는 현재 **NO**로 유지합니다.
+
+> *(Historical)* 현재 #1~#4 Developer Package Finalization은 완료되었고 Full Human Handoff Audit / Cross-Trace / Human Worker Final Read를 수행 중이다.
+> **Current Handoff Status:** 2026-08-21. Human Handoff Ready는 최종 Fix Verification 전까지 NO이며 GitHub Final Resync / `main` Merge는 HOLD한다.
+
+### 진행상태 *(Historical)*
+
+- Handoff: UPDATED
+- Next: Full Human Handoff Audit / Cross-Trace / Human Worker Final Read — IN PROGRESS
+
+> ℹ️ **Intake Note:** 위 두 블록은 Historical Status다. 현재 확정 상태는 문서 최상단 `FINAL PACKAGE STATUS` 블록(`Human Handoff Ready = YES`, `Final Fix Verification = 6/6 PASS`, `GitHub Final Resync = GO`)이다.
+
+### Human Handoff Cross-Audit Round 2 — Status Override — 2026-08-21
+
+Claude PM3 Audit 3 REVISE-3A 반영.
+
+- 과거 `OC Handoff updated: 2026-08-19` 및 `Next: Service Architecture / Menu & Depth — IN PROGRESS` 표현은 **Historical Status**로만 해석한다.
+- 현재 상태는 `#1~#4 Finalization COMPLETE / Full Human Handoff Audit IN PROGRESS / Human Handoff Ready = NO`이다.
+- 현재 Next는 `Audit 4~6 / Full Cross-Trace / Human Worker Final Read / Claude Parallel Cross-Audit`이다.
+- 개발자·기획자는 하단의 과거 Next 문구를 현재 작업지시로 사용하지 않는다.
+
+**Verdict:** REVISE-3A CLOSED AT HUMAN-HANDOFF CONTROL LEVEL.
+
+> ℹ️ **Intake Note:** 본 섹션도 Audit Round 2 시점 기록이다. 이후 `FINAL PACKAGE STATUS — 2026-08-21 16:54 KST`에서 `Human Handoff Ready = YES`로 최종 확정되었다.
+
+---
+
+</details>
+
 > 👀 **이 문서는 누구를 위한 건가요?**
 > 개발자·기획자가 PayPlay OC 문서를 처음 볼 때 **무슨 문서를 어떤 순서로 읽어야 하는지 알려주는 안내서**입니다.
 > 핵심 용어: Architecture (서비스 구조) → Flow (업무 흐름) → Rule (업무 규칙) → Screen (화면) → Pending (미확정·후속확정 항목).
 > 처음 보는 사람은 이 문서부터 읽으면 됩니다.
-
-> 🧭 **Historical Logical Gate — 2026-08-21: PASS (Human Handoff Final Gate 아님).** *(Historical)*
-> Developer Readable **YES** / Development Startable **YES** / Major OC Flow Implementable **YES** / Package-wide Scope-Blocking Pending **0** / QA Ready **NOT YET**. 이후 사람 인수인계 완성도를 별도로 재검수하기 위해 Human Handoff Ready는 현재 **NO**로 유지합니다.
 
 **Final Pending Register:** [FINAL_PENDING_REGISTER.md](./09_DECISIONS/FINAL_PENDING_REGISTER.md)
 
@@ -543,32 +575,7 @@ OC에서는 일부가 Common Infrastructure 또는 Integration Pending으로 이
 | Pending Explicit | 미확정 범위를 확정사항처럼 작성하지 않음 |
 | Cross-Document Consistency | 메뉴/Flow/Rule/Screen 간 충돌 없음 |
 
-> *(Historical)* 현재 #1~#4 Developer Package Finalization은 완료되었고 Full Human Handoff Audit / Cross-Trace / Human Worker Final Read를 수행 중이다.
-> **Current Handoff Status:** 2026-08-21. Human Handoff Ready는 최종 Fix Verification 전까지 NO이며 GitHub Final Resync / `main` Merge는 HOLD한다.
-
-### 진행상태 *(Historical)*
-
-- Handoff: UPDATED
-- Next: Full Human Handoff Audit / Cross-Trace / Human Worker Final Read — IN PROGRESS
-
-> ℹ️ **Intake Note:** 위 두 블록은 Historical Status다. 현재 확정 상태는 문서 최상단 `FINAL PACKAGE STATUS` 블록(`Human Handoff Ready = YES`, `Final Fix Verification = 6/6 PASS`, `GitHub Final Resync = GO`)이다.
-
 **PayPlay OC — Main Handoff v3:** https://app.notion.com/p/3be53327fb8681b6842cec140b8f7b56
-
----
-
-## Human Handoff Cross-Audit Round 2 — Status Override — 2026-08-21
-
-Claude PM3 Audit 3 REVISE-3A 반영.
-
-- 과거 `OC Handoff updated: 2026-08-19` 및 `Next: Service Architecture / Menu & Depth — IN PROGRESS` 표현은 **Historical Status**로만 해석한다.
-- 현재 상태는 `#1~#4 Finalization COMPLETE / Full Human Handoff Audit IN PROGRESS / Human Handoff Ready = NO`이다.
-- 현재 Next는 `Audit 4~6 / Full Cross-Trace / Human Worker Final Read / Claude Parallel Cross-Audit`이다.
-- 개발자·기획자는 하단의 과거 Next 문구를 현재 작업지시로 사용하지 않는다.
-
-**Verdict:** REVISE-3A CLOSED AT HUMAN-HANDOFF CONTROL LEVEL.
-
-> ℹ️ **Intake Note:** 본 섹션도 Audit Round 2 시점 기록이다. 이후 `FINAL PACKAGE STATUS — 2026-08-21 16:54 KST`에서 `Human Handoff Ready = YES`로 최종 확정되었다.
 
 ---
 

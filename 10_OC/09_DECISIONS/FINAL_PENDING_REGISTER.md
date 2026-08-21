@@ -16,7 +16,12 @@
 | Notion Source | https://app.notion.com/p/3c353327fb868171acdcf25a6424f3d8 |
 | Related Document | [PENDING_REGISTER.md](./PENDING_REGISTER.md) (PP-OC-PENDING-001 — 기존 Pending 원장, 본 문서가 대체하지 않음) |
 
-## ✅ FINAL PENDING CONTROL — SOT FROZEN — 2026-08-21 16:54 KST
+<details>
+<summary>🔐 Final Gate Evidence / Audit Closeout (최종 판정 Evidence — 과거 기록 아님)</summary>
+
+> 본 Toggle은 Final Gate 최종 판정 Evidence다. 현재 §5 `현재 상태` 및 §7 `Final Gate Interpretation`과 내용이 중복되므로 본문에서 분리해 Evidence로 보존한다. **과거 기록이 아니며 삭제 금지.**
+
+### ✅ FINAL PENDING CONTROL — SOT FROZEN — 2026-08-21 16:54 KST
 
 - Human Handoff Ready: **YES**
 - Final SOT Freeze: **COMPLETE**
@@ -30,6 +35,8 @@
 
 ---
 
+</details>
+
 ## 🔄 Pending Reduction Superseding Update — 2026-08-21
 
 > **이 섹션이 아래의 과거 Pending 분류보다 우선합니다.** 기존 항목은 Audit History로 보존하며 삭제하지 않습니다.
@@ -39,10 +46,6 @@
 - **Package-wide Scope-Blocking Pending:** 0
 - **Owner Decision Pending (현재 개발 패키지 구조 확정에 필요한 대표 결정):** 0
 - **Logical Contract Conflict:** 0
-- **Human Handoff Ready:** NO — #1~#4 / Main Handoff / Single Page 병합과 GPT↔Claude Cross-Audit는 완료. 현재 **Final Fix Verification 후 최종 YES/NO 판정 대기**
-
-> ℹ️ **Intake Note (2026-08-21 Final SOT Resync):** 바로 위 `Human Handoff Ready: NO`는 **Historical Status**다. 문서 최상단 `FINAL PENDING CONTROL — SOT FROZEN` 블록이 이를 대체하며 **현재 확정 상태는 `Human Handoff Ready = YES` / `Final Fix Verification = 6/6 PASS`** 다. 원문 보존을 위해 삭제하지 않고 그대로 두되, 현재 상태 판정에는 사용하지 않는다.
-
 ### A. CLOSED — Logical / Product / Operations Structure
 
 다음 항목은 더 이상 큰 범위의 `Pending`으로 표기하지 않습니다. Logical Owner, Interface, State/Rule 또는 운영 원칙이 확정됐고 Physical Binding만 별도 유지합니다.
@@ -105,22 +108,6 @@
 
 이 값들은 구조를 다시 설계하지 않고 Versioned Policy / Security Config / Finance·Legal Reference로 주입합니다.
 
-### E. Workforce Service Desk Supplemental Additions — MERGED / FINAL FIX VERIFICATION PENDING
-
-아래 Supplemental은 #1~#4 원본에 병합 완료되었습니다. 기존 ID는 renumber하지 않았으며, 현재 Final Fix Verification만 남았습니다.
-
-- Flow: `WSD-C-01` 내부직원 Self-Service 조회
-- Flow: `WSD-C-02` 외부·퇴사자 Public Entry + Request
-- Flow: `WSD-O-01` 담당자 처리
-- Screen Family Candidate: `OC-WSD-*` Operator View
-- Screen Family Candidate: `OC-WSD-PUBLIC-*` Public Entry Surface
-- Unified Intake 추가 Source Channel: `Workforce Service Desk Public Entry`
-- Request Envelope 확장: `requester_type`, `identity_verified`, `accessible_scope`
-- Request Type Candidate: `PAYSLIP`, `SETTLEMENT_INQUIRY`, `COMMISSION_INQUIRY`, `CERTIFICATE`, `TAX_DOCUMENT`, `CONTRACT_DOCUMENT`, `PERSONAL_INFO_CORRECTION`, `GENERAL_HR`
-- 조회 가능 정보는 Request 생성 없이 Self-Service; 담당자 처리가 필요한 경우에만 Request 생성
-
-> ℹ️ **Intake Note (2026-08-21 Final SOT Resync):** 본 섹션 제목의 `FINAL FIX VERIFICATION PENDING`은 작성 시점 표현이다. 문서 최상단 `FINAL PENDING CONTROL` 블록 기준 현재 상태는 **`Workforce Service Desk Supplemental: MERGED / VERIFIED`** 이며 `Final Fix Verification: 6/6 PASS`다.
-
 ### Superseded Pending Note
 
 아래 과거 Register에 남아 있는 `본인확인 방식`, `Person/Merchant/IAM/Device 구조 자체`, `Vehicle/Parking/Schedule 구조 자체`, `Finance/HR/Compensation Logical 구조` 등의 광범위 Pending 표현은 본 Update로 **Superseded** 됩니다. Physical / Provider / Legal·Finance / Config 범위만 Pending으로 해석합니다.
@@ -130,51 +117,6 @@
 > **따라서 이 문서는 '기다리는 목록'이 아니라 '남은 일을 누가 닫아야 하는지 관리하는 목록'으로 사용합니다.**
 
 ---
-
-## Historical Pending Reduction Working Notes — SUPERSEDED / 현재 Pending 판단에 사용 금지
-
-> 아래 A~D 및 후속 기존 Register 내용은 Pending Reduction 이전 작업이력입니다. 현재 Pending 판정은 문서 최상단 `Pending Reduction Superseding Update — 2026-08-21`만 사용합니다.
-
-### Historical Question — 당시 `지금 더 처리할 수 있는가?` 검토
-
-### A. 지금 PM/기획에서 바로 더 진행 가능
-
-아래는 신규 Owner Decision 없이 **초안·Logical Spec·개발 준비자료를 더 완성할 수 있는 항목**입니다.
-
-- **N-01 Screen ID / Route:** Official ID를 임의 확정하지는 않되, Screen Family별 **ID 제안안·Route Proposal·Naming Rule**까지 작성 가능.
-- **N-02 UX Composition:** List / Detail / Tab / Drawer / Modal / Embedded 구성을 실제 화면 설계 수준까지 분해 가능.
-- **N-03 Admin / Permission Navigation:** 권한 메뉴의 진입 위치와 Role별 노출 Proposal 작성 가능.
-- **N-04 Permission Matrix:** Role / Team / Row / Field / Action별 **권한 Matrix 초안** 작성 가능. 최종 민감정보 기준만 승인 필요.
-- **N-05 Vehicle / Parking / Schedule:** 상태값·필수필드·화면·업무 흐름·예외처리를 더 상세화 가능. 비용·공개범위 같은 정책값만 일부 승인 필요.
-- **N-06 SLA / Retry / Priority:** Request Type별 **권장 SLA·Priority·Escalation Candidate** 작성 가능. 실제 운영값은 승인 후 Freeze.
-- **I-11 Request / Cross-Service Contract:** Logical Contract는 이미 있으며, API Payload Candidate / Event / Status Mapping / Error Contract 초안까지 진행 가능. 실제 Endpoint·Provider Binding만 후속.
-- **I-12 Legacy WDI Migration:** Legacy 데이터 Inventory → Keep / Migrate / Reference-only / Archive Candidate까지 지금 Audit 가능.
-
-### B. 기획은 더 진행 가능하지만 대표·운영정책 최종확정 필요
-
-- **I-05 Finance / Billing / Receivable:** Entity/Flow/State 초안은 가능. 실제 회계처리·지급·원장 경계는 운영/재무 결정 필요.
-- **I-06 Compensation:** 계산엔진 구조와 Formula Slot은 설계 가능. **상품/직군별 실제 비율·금액**은 Owner 결정 필요.
-- **I-10 HR Identity / Retention:** Flow/Permission/문서구조는 설계 가능. 본인확인 수준·법정 보관기간·파기정책은 정책/법무 확인 필요.
-- **N-05/N-06 일부:** 공개범위, 우선순위, SLA 시간 등 실제 운영값은 Owner/운영 승인 필요.
-
-### C. 공통인프라/개발 Architecture가 있어야 최종 종료 가능
-
-- **I-01 Shared Person**
-- **I-02 Shared Merchant / Store ↔ Merchant Account**
-- **I-03 Shared IAM**
-- **I-04 Shared Device / Asset**
-- **I-08 Inventory vs Procurement / Supply Physical Split**
-- **I-09 Vault / Secret Physical Architecture**
-
-위 항목도 Logical Contract·Interface는 계속 정리할 수 있지만, Physical DB / Repository / Provider / RLS 등 실제 구현 구조는 공통인프라와 함께 확정해야 합니다.
-
-### D. 외부업체·실제 계약정보가 있어야 닫히는 항목
-
-- **I-07 External Provider Contracts:** 전자서명, Kakao/SMS/Fax, Carrier, Remote Support, VAN/PG/Bank, Sales Data Provider의 실제 Endpoint / Credential / Callback / 요금·계약조건.
-
-### PM 판단
-
-현재 Register를 그대로 '더 이상 못하는 일'로 보면 안 됩니다. **A 그룹은 지금 계속 처리하고, B는 Proposal까지 만든 뒤 Owner에게 결정값만 묻고, C/D만 실제 외부 Dependency로 남기는 방식이 맞습니다.**
 
 > 👀 **이 문서는 무엇인가요?**
 > 이 문서는 개발자·기획자가 **"아직 안 정해진 게 무엇이고, 그게 지금 개발을 막는지 아닌지"** 빠르게 확인하는 체크리스트입니다.
@@ -362,6 +304,79 @@ Developer Package 문서에서 본 Register를 추적할 수 있도록 다음 �
 | Document #4 Screen & Navigation / Traceability | `10_OC/08_SPECIFICATIONS/SCREEN_NAVIGATION_TRACEABILITY.md` | Related Pending |
 | Developer Package Guide | `10_OC/DEVELOPER_PACKAGE_GUIDE.md` | Final Pending Register |
 | 기존 OC Pending 원장 | `10_OC/09_DECISIONS/PENDING_REGISTER.md` | 병존 — 대체하지 않음 |
+
+---
+
+<details>
+<summary>📋 Historical Pending Reduction / Audit History (과거 Pending 작업 기록 — 현재 상태 아님)</summary>
+
+> 아래는 Pending Reduction 작업 이전 History다. **현재 Pending 판단은 Toggle 밖의 A~D 분류와 §1~§7만 사용한다.** `Human Handoff Ready = NO`, `MERGED / FINAL FIX VERIFICATION PENDING` 등 과거 표현은 현재 상태가 아니며, WSD Merge Status는 **MERGED / VERIFIED**로 확정됐다. 내용은 삭제하지 않고 Evidence로 보존한다.
+
+#### Current Verdict — Historical `Human Handoff Ready` 표기
+
+- **Human Handoff Ready:** NO — #1~#4 / Main Handoff / Single Page 병합과 GPT↔Claude Cross-Audit는 완료. 현재 **Final Fix Verification 후 최종 YES/NO 판정 대기**
+
+#### E. Workforce Service Desk Supplemental Additions — MERGED / FINAL FIX VERIFICATION PENDING *(Historical 제목 표기)*
+
+아래 Supplemental은 #1~#4 원본에 병합 완료되었습니다. 기존 ID는 renumber하지 않았으며, 현재 Final Fix Verification만 남았습니다.
+
+- Flow: `WSD-C-01` 내부직원 Self-Service 조회
+- Flow: `WSD-C-02` 외부·퇴사자 Public Entry + Request
+- Flow: `WSD-O-01` 담당자 처리
+- Screen Family Candidate: `OC-WSD-*` Operator View
+- Screen Family Candidate: `OC-WSD-PUBLIC-*` Public Entry Surface
+- Unified Intake 추가 Source Channel: `Workforce Service Desk Public Entry`
+- Request Envelope 확장: `requester_type`, `identity_verified`, `accessible_scope`
+- Request Type Candidate: `PAYSLIP`, `SETTLEMENT_INQUIRY`, `COMMISSION_INQUIRY`, `CERTIFICATE`, `TAX_DOCUMENT`, `CONTRACT_DOCUMENT`, `PERSONAL_INFO_CORRECTION`, `GENERAL_HR`
+- 조회 가능 정보는 Request 생성 없이 Self-Service; 담당자 처리가 필요한 경우에만 Request 생성
+
+### Historical Pending Reduction Working Notes — SUPERSEDED / 현재 Pending 판단에 사용 금지
+
+> 아래 A~D 및 후속 기존 Register 내용은 Pending Reduction 이전 작업이력입니다. 현재 Pending 판정은 문서 최상단 `Pending Reduction Superseding Update — 2026-08-21`만 사용합니다.
+
+#### Historical Question — 당시 `지금 더 처리할 수 있는가?` 검토
+
+#### A. 지금 PM/기획에서 바로 더 진행 가능
+
+아래는 신규 Owner Decision 없이 **초안·Logical Spec·개발 준비자료를 더 완성할 수 있는 항목**입니다.
+
+- **N-01 Screen ID / Route:** Official ID를 임의 확정하지는 않되, Screen Family별 **ID 제안안·Route Proposal·Naming Rule**까지 작성 가능.
+- **N-02 UX Composition:** List / Detail / Tab / Drawer / Modal / Embedded 구성을 실제 화면 설계 수준까지 분해 가능.
+- **N-03 Admin / Permission Navigation:** 권한 메뉴의 진입 위치와 Role별 노출 Proposal 작성 가능.
+- **N-04 Permission Matrix:** Role / Team / Row / Field / Action별 **권한 Matrix 초안** 작성 가능. 최종 민감정보 기준만 승인 필요.
+- **N-05 Vehicle / Parking / Schedule:** 상태값·필수필드·화면·업무 흐름·예외처리를 더 상세화 가능. 비용·공개범위 같은 정책값만 일부 승인 필요.
+- **N-06 SLA / Retry / Priority:** Request Type별 **권장 SLA·Priority·Escalation Candidate** 작성 가능. 실제 운영값은 승인 후 Freeze.
+- **I-11 Request / Cross-Service Contract:** Logical Contract는 이미 있으며, API Payload Candidate / Event / Status Mapping / Error Contract 초안까지 진행 가능. 실제 Endpoint·Provider Binding만 후속.
+- **I-12 Legacy WDI Migration:** Legacy 데이터 Inventory → Keep / Migrate / Reference-only / Archive Candidate까지 지금 Audit 가능.
+
+#### B. 기획은 더 진행 가능하지만 대표·운영정책 최종확정 필요
+
+- **I-05 Finance / Billing / Receivable:** Entity/Flow/State 초안은 가능. 실제 회계처리·지급·원장 경계는 운영/재무 결정 필요.
+- **I-06 Compensation:** 계산엔진 구조와 Formula Slot은 설계 가능. **상품/직군별 실제 비율·금액**은 Owner 결정 필요.
+- **I-10 HR Identity / Retention:** Flow/Permission/문서구조는 설계 가능. 본인확인 수준·법정 보관기간·파기정책은 정책/법무 확인 필요.
+- **N-05/N-06 일부:** 공개범위, 우선순위, SLA 시간 등 실제 운영값은 Owner/운영 승인 필요.
+
+#### C. 공통인프라/개발 Architecture가 있어야 최종 종료 가능
+
+- **I-01 Shared Person**
+- **I-02 Shared Merchant / Store ↔ Merchant Account**
+- **I-03 Shared IAM**
+- **I-04 Shared Device / Asset**
+- **I-08 Inventory vs Procurement / Supply Physical Split**
+- **I-09 Vault / Secret Physical Architecture**
+
+위 항목도 Logical Contract·Interface는 계속 정리할 수 있지만, Physical DB / Repository / Provider / RLS 등 실제 구현 구조는 공통인프라와 함께 확정해야 합니다.
+
+#### D. 외부업체·실제 계약정보가 있어야 닫히는 항목
+
+- **I-07 External Provider Contracts:** 전자서명, Kakao/SMS/Fax, Carrier, Remote Support, VAN/PG/Bank, Sales Data Provider의 실제 Endpoint / Credential / Callback / 요금·계약조건.
+
+#### PM 판단
+
+현재 Register를 그대로 '더 이상 못하는 일'로 보면 안 됩니다. **A 그룹은 지금 계속 처리하고, B는 Proposal까지 만든 뒤 Owner에게 결정값만 묻고, C/D만 실제 외부 Dependency로 남기는 방식이 맞습니다.**
+
+</details>
+
 
 ---
 

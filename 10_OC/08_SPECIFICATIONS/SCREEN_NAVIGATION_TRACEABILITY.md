@@ -36,6 +36,49 @@
 > "이 기능을 어느 화면에서 보여주고, 사용자가 어디에서 어디로 이동하는가?"를 확인하는 **화면·네비게이션 설계 문서**입니다.
 > 주요 용어: Screen (화면), Navigation (이동 구조), Traceability (기획↔흐름↔규칙↔화면 연결 추적), Screen Family (관련 화면 묶음), Embedded (다른 화면 안에 포함), External Surface (외부 서비스 화면), Route (화면 경로), Visibility (노출 범위).
 
+## 1. 이 문서는 무엇인가
+
+PayPlay OC의 **화면·네비게이션 구현 지도**입니다. "#2 Flow와 #3 Rule을 실제 어느 화면에서 구현하고, 사용자는 어디로 이동하는가"를 보여줍니다. 기존 52개 Logical Screen ID 보존과 신규 Screen Family 분류가 핵심입니다.
+
+## 2. 목적과 문서의 성격
+
+- **왜 존재하는가:** 개발자가 "이 Rule을 어느 화면/Action에 코딩하는가"를 바로 찾을 수 있도록
+- **누가 사용하는가:** 개발자(Screen 구현 위치), UX/UI(Navigation 설계), 기획자(Screen 분류·Trace 검수)
+- **무엇을 결정하는가:** Logical Screen Family 분류, Navigation 구조, Menu↔Screen Trace, Permission/Visibility Baseline, Request Type↔Target Screen Trace
+- **무엇은 결정하지 않는가:** 업무 Flow 순서(→ #2), Rule/Validation 세부(→ #3), Official Screen ID/Physical Route(→ Normalization Pending)
+
+## 3. 핵심 내용
+
+1. **기존 52 Logical Screen ID 전수 보존** (재번호 금지) — §2에 전체 목록
+2. **신규 5개 OC-native Family** (Official ID Pending): Vehicle / Parking / Schedule·Meeting / Unified Intake / Company Resource Directory
+3. **WSD Supplemental Screen Family:** OC-WSD-*(Internal Operator/Self-Service) + OC-WSD-PUBLIC-*(Public Entry) — §WSD Supplemental
+4. **Navigation Baseline:** 1Depth 8개 + Restricted Management 2Depth + Common/Collaboration + Conditional Entry — §5
+5. **Screen이 아닌 것:** Business OS Self-Service Surface(Contract/Sales Data), 모든 Request를 Case로 강제 흡수 금지, 52+5=57로 단순 확정 금지
+6. **Permission Baseline:** Role + Org/Team + Row Scope + Field Visibility + Action + Approval + Audit — §10
+7. **Request Type → Target Screen Trace** 8종 모두 연결됨 — §8
+8. **Legacy Regression:** CCTV/광고/블로그 등 전수 Explicitly Removed/Preservation/Planning Gap 분류 — §13
+
+## 4. 언제 / 어떻게 읽는가
+
+- **개발자:** #1(기능 위치) → #2(Flow) → #3(Rule) → **#4(이 문서, Screen 구현 위치)** 마지막 단계
+- **UX/UI:** §5 Navigation Baseline을 먼저 보고 신규 Family 설계 시 §3 참조
+- **기획자:** §17 Gate 결과 및 §13 Legacy Regression Trace 확인
+- **관련 문서:** #1(Architecture), #2(Flow), #3(Rule), Final Pending Register(ID Normalization Pending 경계)
+
+## 5. 현재 상태
+
+- **Human Handoff Ready: YES**
+- **Final SOT Freeze: COMPLETE**
+- **Package-wide Scope-Blocking Pending: 0**
+- **Owner Decision Required: 0**
+- **Development Blocker: 0**
+- 남은 Pending: 신규 5 Family Official Screen ID / Physical Route / UX Composition / Exact Permission Matrix
+- GitHub Final Resync: Main PM VERIFIED 판정 후 main Merge 예정
+
+---
+
+## 6. 기존 본문 (Screen / Navigation 전문)
+
 > 🧭 PayPlay OC Developer Package Document #4. 기존 52 Official-normalized Logical UI Surface를 보존하면서 Pending Reduction 이전 baseline 5개 OC-native Screen Family와 이후 추가된 Workforce Service Desk Supplemental 2개 Family, Embedded/External Surface, Navigation, Permission, Request/Integration, Legacy Regression Trace를 하나의 최종 Candidate로 통합한다. 신규 Official Screen ID 및 Physical Route/API/DB를 임의 확정하지 않는다.
 
 ---
@@ -520,9 +563,12 @@ Verdict: GAP-A01 CLOSED AT LOGICAL/HUMAN-HANDOFF LEVEL. Exact Role Matrix = IAM/
 
 ---
 
-## Human Handoff Cross-Audit Round 1 — Unified Intake Entry Guard — 2026-08-21
+<details>
+<summary>📋 Historical Duplicate Audit Evidence — Round 1 (원문 중복 수록 — 내용 보존)</summary>
 
-> ℹ️ Intake Note: Notion 원문(`PP-OC-SCREEN-NAV-TRACE-001`)에 본 섹션이 동일 제목으로 2회 수록되어 있어 원문 그대로 보존한다. 5번째 항목의 표현만 다르고 Verdict는 동일하다. 통합 여부는 Main PM 판단 사항이다.
+> Notion 원문(`PP-OC-SCREEN-NAV-TRACE-001`)에 `Human Handoff Cross-Audit Round 1 — Unified Intake Entry Guard` 섹션이 동일 제목으로 2회 수록되어 있다. 첫 번째는 본문에 현행 유지하고, 두 번째를 내용 삭제 없이 본 Toggle로 격리한다. 5번째 항목의 표현만 다르며 Verdict는 동일하다.
+
+### Human Handoff Cross-Audit Round 1 — Unified Intake Entry Guard — 2026-08-21
 
 Claude PM3 독립 Cross-Audit GAP-A01 반영.
 
@@ -535,6 +581,8 @@ Claude PM3 독립 Cross-Audit GAP-A01 반영.
 
 Verdict: GAP-A01 CLOSED AT LOGICAL/HUMAN-HANDOFF LEVEL. Exact Role Matrix = IAM/Permission Config Pending.
 
+</details>
+
 ---
 
 ## Intake Note — 2026-08-21 (Final SOT Resync)
@@ -542,7 +590,7 @@ Verdict: GAP-A01 CLOSED AT LOGICAL/HUMAN-HANDOFF LEVEL. Exact Role Matrix = IAM/
 - 본 문서는 Notion Developer Package Document #4의 **Final SOT Freeze 판본**을 GitHub에 Resync한 것이다. 직전 입고본(중간 Snapshot)은 커밋 `62923ed`로 보존된다.
 - Resync 반영분: `FINAL SOT FREEZE` 블록 · 독자 안내 callout · 문서 소개 callout 갱신(baseline 5 + WSD Supplemental 2) · §5 Restricted Management 2Depth의 People/HR 하위 `Workforce Service Desk` 추가 · Workforce Service Desk Screen / Navigation Supplemental(`OC-WSD-*`, `OC-WSD-PUBLIC-*`) 신설 · Unified Intake Entry Guard (GAP-A01) 신설.
 - 기존 52 Logical Screen ID는 삭제·재번호하지 않았다. 신규 Family에 임의 Official Screen ID를 생성하지 않았다.
-- **원문 이상 1건(무수정 보존):** Notion 원문에 `Human Handoff Cross-Audit Round 1 — Unified Intake Entry Guard` 섹션이 동일 제목으로 2회 수록되어 있다. 임의 통합하지 않고 원문 그대로 2개 모두 보존했으며 두 번째 섹션에 Intake Note를 붙였다. 통합 여부는 Main PM 판단 사항이다.
+- **중복 격리 (Delta Cleanup 2026-08-21):** 동일 제목 2회 수록 중 **첫 번째는 본문 현행 유지**, **두 번째는 `Historical Duplicate Audit Evidence — Round 1` Toggle로 격리**했다. 내용은 삭제하지 않았고 Verdict·문구 모두 보존된다.
 - **원문 참고 1건:** §14 Screen Count Guard는 여전히 `New OC-native Screen Families: 5` / `52 + 5 = 57` 기준으로 서술되어 있고 WSD Supplemental 2 Family가 반영되지 않았다. 문서 #1 §9는 `52 + 5 + 2` 단순합산 금지로 서술한다. 두 서술 모두 "단순 합산 금지"라는 결론은 동일하여 충돌로 분류하지 않았으나, 원문 수정 없이 그대로 보존했다.
 - 기존 `PP-OC-SPEC-TRACE-001`(Coverage/Gap Summary)은 본 문서와 목적이 달라 계속 병존한다.
 - Header Status는 Notion 원문을 유지했고 `APPROVED` / `Source of Truth YES`로 승격하지 않았다.
