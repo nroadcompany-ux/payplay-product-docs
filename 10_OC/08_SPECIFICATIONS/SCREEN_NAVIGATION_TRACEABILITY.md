@@ -187,7 +187,7 @@ Candidate surface composition:
 - Attachment / Consent / Correlation context
 - Status / Handoff / Projection history
 
-Navigation: 독립 Primary 1Depth로 강제하지 않는다. Today / Customer Support / Domain Queue에서 role-based entry 가능.
+Navigation: 독립 Primary 1Depth로 강제하지 않는다. Today / Merchant Support / Domain Queue에서 role-based entry 가능.
 
 ### E. Company Resource Directory / Company Information
 
@@ -239,10 +239,10 @@ Global Search: `OC-SEARCH-001`에서 권한 범위 내 Resource 검색 가능.
 ### Primary 1Depth
 
 1. Today / Work Queue
-2. Customer
+2. Merchant
 3. Sales
 4. Contract & Fulfillment
-5. Customer Support
+5. Merchant Support
 6. Product & Commercial Policy
 7. Inventory & Supply
 8. Restricted Management
@@ -553,10 +553,10 @@ Official Screen ID / Route normalization, Secure Link token UX detail, exact TTL
 Claude PM3 독립 Cross-Audit GAP-A01 반영.
 
 - Unified Intake는 독립 Primary 1Depth가 아니다.
-- `Today / Customer Support / Domain Queue`는 가능한 Entry Surface이며, 모든 Role이 동일 Entry를 갖는다는 뜻이 아니다.
+- `Today / Merchant Support / Domain Queue`는 가능한 Entry Surface이며, 모든 Role이 동일 Entry를 갖는다는 뜻이 아니다.
 - 실제 Unified Intake 진입 Role / Org / Team / Row Scope는 Shared IAM + OC Permission Config에서 관리한다.
 - 현재 Product Spec은 Role별 Entry Matrix의 Physical/Config 값을 확정하지 않는다.
-- 개발자는 `CS 담당은 Customer Support`, `영업관리자는 Today`처럼 임의의 고정 Role→Entry 매핑을 코드에 하드코딩하지 않는다.
+- 개발자는 `CS 담당은 Merchant Support`, `영업관리자는 Today`처럼 임의의 고정 Role→Entry 매핑을 코드에 하드코딩하지 않는다.
 - Permission Config가 없는 상태에서는 권한이 넓어지는 쪽으로 Default하지 않는다.
 
 Verdict: GAP-A01 CLOSED AT LOGICAL/HUMAN-HANDOFF LEVEL. Exact Role Matrix = IAM/Permission Config Pending.

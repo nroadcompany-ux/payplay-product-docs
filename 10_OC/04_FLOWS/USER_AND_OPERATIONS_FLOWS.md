@@ -79,7 +79,9 @@ OC는 OSP 또는 기존 가맹점 요청을 받아 가맹점·매장 식별, 영
 > - **가맹점 · 손님 · PayPoint 사용자 Role은 하나의 데이터 주체로 합치지 않는다.** Data Owner, 개인정보 동의, 접근권한, Identity, Person/Customer Master, 데이터 보관 목적, 마케팅 활용 범위는 각각 별도 검토 대상이다.
 > - 본 문서를 포함한 OC 공식 문서에서 **`고객`이라는 단독 표현은 사용하지 않는다.** 의미에 따라 `가맹점` 또는 `손님`으로 표기한다. 단 PayPlay 자사 지원 채널명 `고객센터`는 고유명사로 유지한다.
 
-> **Legacy Identifier 호환 기준:** 식별자 `C`는 기존 Canonical Trace Set의 `Customer` 약자에서 유래한 **Historical / Compatibility 식별자**다. Display Term은 `가맹점`이며 의미는 위 정의를 따른다. 기존 29 Canonical Flow ID(`C-01`~`C-07` 포함), Screen ID `OC-CUST-*`, Rule ID `CUSTOMER-R*`, Entity·Screen·Menu 명칭 `Customer Account` / `Customer 360` / `Customer Support` / `Customer/Store` 등 **영문 구조 식별자는 이번 용어 정규화로 재번호·개명하지 않는다.** 식별자 체계 자체의 변경 필요 여부는 별도 Normalization Candidate로 관리한다.
+> **Display Label vs Internal Identifier:** 사용자에게 노출되는 **Display Label**은 `Customer → Merchant`, `Customer Support → Merchant Support`로 정규화한다. 반면 **Internal Identifier는 변경하지 않는다** — 기존 29 Canonical Flow ID(`C-01`~`C-07` 포함), Screen ID `OC-CUST-*`, Rule ID `CUSTOMER-R*`, Context Tag `CUSTOMER`, Entity 명칭 `Customer Account` / `Customer 360` / `Customer/Store`, 기존 API·DB·Route Identifier, Trace ID, Historical Identifier가 이에 해당한다. **Display Term 변경 ≠ Internal Identifier Rename.**
+
+> **Legacy Identifier 호환 기준:** 식별자 `C`는 기존 Canonical Trace Set의 `Customer` 약자에서 유래한 **Historical / Compatibility 식별자**이며 현행 유지한다. Display Meaning은 `가맹점`으로 해석하고 `C → M` 재번호·재식별하지 않는다. 29 Canonical Flow ID를 포함한 기존 Traceability를 보존한다.
 
 ### 2.2 흐름 식별자 규칙
 

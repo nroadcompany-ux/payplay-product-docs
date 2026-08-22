@@ -51,10 +51,10 @@
 ## 2. Primary Navigation (주요 메뉴) — 1Depth
 
 1. **Today / Work Queue (오늘 / 업무대기열)** — 개인/팀 처리대상, Attention (주의필요), Approval Attention (승인필요)
-2. **Customer (가맹점)** — Customer List (가맹점목록) / Customer 360 (가맹점 360)
+2. **Merchant (가맹점)** — Customer List (가맹점목록) / Customer 360 (가맹점 360)
 3. **Sales (영업)** — Lead (리드) / Opportunity (영업기회) / Visit·Consultation (방문·상담) / Sales Activity (영업활동) / Quote (견적) 연결
 4. **Contract & Fulfillment (계약 및 이행)** — Contract (계약) / Contract Item (계약항목) / Change·Transfer·Termination (변경·양도양수·해지) / Fulfillment (이행) / Installation (설치) / Work (작업) / Verification (검수)
-5. **Customer Support (가맹점지원)** — Unified Intake (통합접수)에서 Service/AS (서비스/AS)로 분기된 Case (케이스) / Remote (원격) / Field (현장) / Vendor (협력사) / Resolution (해결)
+5. **Merchant Support (가맹점지원)** — Unified Intake (통합접수)에서 Service/AS (서비스/AS)로 분기된 Case (케이스) / Remote (원격) / Field (현장) / Vendor (협력사) / Resolution (해결)
 6. **Product & Commercial Policy (상품 및 영업정책)** — Product (상품) / Commercial Policy (영업정책) / Version (버전) / Price·Margin·Rule (가격·마진·규칙)
 7. **Inventory & Supply (재고 및 공급)** — Stock (재고) / Reservation (예약) / Supply·Purchase (공급·구매) / Shipment (배송) / Return·Exchange (반품·교환) / Asset Reference (자산참조)
 8. **Restricted Management (제한관리)** — Finance (재무) / Compensation (보상) / People·HR (인사·HR) / Company Operations (회사운영) / Management Decision (경영의사결정)

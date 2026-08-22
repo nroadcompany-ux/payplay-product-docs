@@ -17,6 +17,8 @@
 | Superseded date | 2026-08-21 |
 | Supersede Note | Claude PM3 지시(2026-08-21)에 따른 Header 표기 변경. **본문 내용은 삭제·수정하지 않았다.** 기존 Flow/정책 서술과 식별자는 이력 추적용으로 계속 유효하다. |
 
+> ⚠️ **본 문서는 Historical / SUPERSEDED 문서입니다.** 현재 공식 Actor Display Term은 `가맹점(Merchant)` / `손님(End User)`이며, 본문 내 기존 `고객(Customer)` 표현은 당시 Historical Terminology로 보존됩니다. 현재 구현 및 해석은 최신 SOT를 우선합니다.
+
 > ✅ PayPlay OC의 최종 Detailed Requirements & Business Policies 통합문서.
 > Recovery Source, Main PM Shared Entity Decision, 최종 User & Operations Flow,
 > Permission/State/Commercial Policy/Migration/Security Architecture를 통합한 Final Documentation Candidate다.
